@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+@import './ui/styles.css';
+
+/* Anchor navigation: keep headings clear of the sticky navbar; smooth only when motion is welcome. */
+html {
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

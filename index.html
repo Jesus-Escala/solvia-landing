@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Solvia: recordatorios automáticos por WhatsApp, pagos con comprobante y flujo de caja para pequeñas empresas."
+    />
+    <title>Solvia — Cobra a tiempo, sin perseguir a nadie</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a light/dark flash (see src/ui/theme/ThemeProvider.tsx).
+      (function () {
+        var preference = 'system';
+        try {
+          preference = localStorage.getItem('solvia.theme') || 'system';
+        } catch (e) {}
+        var dark =
+          preference === 'dark' ||
+          (preference === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
