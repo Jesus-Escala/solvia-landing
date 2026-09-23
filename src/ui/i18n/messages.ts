@@ -3,6 +3,14 @@
  */
 
 export const uiEs = {
+  phone: {
+    country: 'País del número',
+    search: 'Buscar país o código…',
+    frequent: 'Frecuentes',
+    all: 'Todos los países',
+    noResults: 'Sin resultados',
+    invalid: 'Número no válido para el país elegido',
+  },
   prefs: {
     language: 'Idioma',
     theme: 'Tema',
@@ -64,6 +72,14 @@ export const uiEs = {
 };
 
 export const uiEn: UiMessages = {
+  phone: {
+    country: 'Phone country',
+    search: 'Search country or code…',
+    frequent: 'Frequent',
+    all: 'All countries',
+    noResults: 'No results',
+    invalid: 'Not a valid number for the selected country',
+  },
   prefs: {
     language: 'Language',
     theme: 'Theme',

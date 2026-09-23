@@ -1,4 +1,4 @@
-import { Alert, Button, Field, Mascot, useErrorText } from '@/ui';
+import { Alert, Button, Field, Mascot, useErrorText, PhoneInput, isValidPhone } from '@/ui';
 import { Send } from 'lucide-react';
 import { useRef, useState, type FormEvent } from 'react';
 import { useI18n } from '../i18n/useI18n';
@@ -8,7 +8,6 @@ import { IndustrySelect } from './IndustrySelect';
 
 const MESSAGE_MAX = 1000;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const PHONE_PATTERN = /^[\d\s+-]{6,20}$/;
 
 type FieldName = 'businessName' | 'contactName' | 'email' | 'phone' | 'message';
 type ClientErrors = Partial<Record<FieldName, string>>;
@@ -77,7 +76,7 @@ export function AccessRequestForm({
     if (!between(values.businessName)) errors.businessName = t('access.errors.length');
     if (!between(values.contactName)) errors.contactName = t('access.errors.length');
     if (!EMAIL_PATTERN.test(values.email.trim())) errors.email = t('access.errors.email');
-    if (!PHONE_PATTERN.test(values.phone.trim())) errors.phone = t('access.errors.phone');
+    if (!isValidPhone(values.phone)) errors.phone = t('access.errors.phone');
     if (composeMessage(values.plan, values.message).length > MESSAGE_MAX) {
       errors.message = t('access.errors.message', { max: MESSAGE_MAX });
     }
@@ -196,20 +195,14 @@ export function AccessRequestForm({
           error={fieldError('phone')}
         >
           {(id, describedBy) => (
-            <input
+            <PhoneInput
               id={id}
               name="phone"
-              type="tel"
-              className="input"
-              autoComplete="tel"
-              inputMode="tel"
-              placeholder="+51 987 654 321"
               required
-              maxLength={20}
-              aria-invalid={Boolean(fieldError('phone'))}
-              aria-describedby={describedBy}
+              invalid={Boolean(fieldError('phone'))}
+              describedBy={describedBy}
               value={values.phone}
-              onChange={(event) => set('phone', event.target.value)}
+              onChange={(value) => set('phone', value)}
             />
           )}
         </Field>

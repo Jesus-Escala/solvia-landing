@@ -18,7 +18,7 @@ export const es = {
     fields: {
       ...uiEs.errors.fields,
       contactName: 'Mínimo 2 caracteres',
-      phone: 'Usa de 6 a 20 caracteres: dígitos, espacios, + o -',
+      phone: 'Número no válido para el país elegido',
       industry: 'Máximo 80 caracteres',
       message: 'Máximo 1000 caracteres',
     },
@@ -265,7 +265,7 @@ export const es = {
       contactName: 'Tu nombre',
       email: 'Correo',
       phone: 'Teléfono / WhatsApp',
-      phoneHint: 'Con código de país, p. ej. +51',
+      phoneHint: 'Elige el país; te escribiremos por WhatsApp a este número.',
       industry: 'Rubro',
       plan: 'Plan de interés',
       planPlaceholder: 'Aún no lo sé',
@@ -293,7 +293,7 @@ export const es = {
     errors: {
       length: 'Escribe entre 2 y 120 caracteres',
       email: 'Ingresa un correo válido',
-      phone: 'Usa de 6 a 20 caracteres: dígitos, espacios, + o -',
+      phone: 'Número no válido para el país elegido',
       message: 'Máximo {max} caracteres',
     },
     success: {

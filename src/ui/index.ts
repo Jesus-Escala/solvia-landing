@@ -25,6 +25,8 @@ export {
   useFeedback,
   type MenuItem,
 } from './components/Overlays';
+export { PhoneInput } from './components/PhoneInput';
+export { isValidPhone } from './components/phoneCountries';
 export { PreferencesControls } from './components/PreferencesControls';
 export { Reveal } from './components/Reveal';
 

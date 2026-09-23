@@ -16,7 +16,7 @@ export const en: Messages = {
     fields: {
       ...uiEn.errors.fields,
       contactName: 'At least 2 characters',
-      phone: 'Use 6 to 20 characters: digits, spaces, + or -',
+      phone: 'Not a valid number for the selected country',
       industry: 'At most 80 characters',
       message: 'At most 1000 characters',
     },
@@ -262,7 +262,7 @@ export const en: Messages = {
       contactName: 'Your name',
       email: 'Email',
       phone: 'Phone / WhatsApp',
-      phoneHint: 'With country code, e.g. +51',
+      phoneHint: "Pick the country; we'll message you on WhatsApp at this number.",
       industry: 'Industry',
       plan: 'Plan of interest',
       planPlaceholder: 'Not sure yet',
@@ -290,7 +290,7 @@ export const en: Messages = {
     errors: {
       length: 'Use between 2 and 120 characters',
       email: 'Enter a valid email address',
-      phone: 'Use 6 to 20 characters: digits, spaces, + or -',
+      phone: 'Not a valid number for the selected country',
       message: 'At most {max} characters',
     },
     success: {
