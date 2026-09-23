@@ -30,6 +30,9 @@ export { isValidPhone } from './components/phoneCountries';
 export { PreferencesControls } from './components/PreferencesControls';
 export { Reveal } from './components/Reveal';
 
+// Hooks
+export { useMinimumLoading } from './hooks/useMinimumLoading';
+
 // Brand
 export { Logo, LogoMark } from './brand/Logo';
 export { Mascot, type MascotMood } from './brand/Mascot';

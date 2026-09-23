@@ -3,6 +3,9 @@
  */
 
 export const uiEs = {
+  activity: {
+    loading: 'Cargando…',
+  },
   phone: {
     country: 'País del número',
     search: 'Buscar país o código…',
@@ -72,6 +75,9 @@ export const uiEs = {
 };
 
 export const uiEn: UiMessages = {
+  activity: {
+    loading: 'Loading…',
+  },
   phone: {
     country: 'Phone country',
     search: 'Search country or code…',
