@@ -17,6 +17,7 @@ export {
   type SegmentOption,
   type TabItem,
 } from './components/Form';
+export { LoadingOverlay, LoadingPill } from './components/LoadingOverlay';
 export { Modal, type ModalProps } from './components/Modal';
 export {
   FeedbackProvider,
