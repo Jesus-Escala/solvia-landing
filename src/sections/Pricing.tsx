@@ -202,7 +202,7 @@ export function Pricing() {
                   {t('pricing.ladder.title')}
                 </p>
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[520px] text-sm">
+                  <table className="w-full min-w-[560px] text-sm whitespace-nowrap">
                     <thead>
                       <tr className="text-left text-xs text-muted">
                         <th className="px-5 py-2.5 font-medium">{t('pricing.ladder.modules')}</th>
