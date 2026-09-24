@@ -44,21 +44,27 @@ interface Values {
 type Start = '' | 'free' | Billing;
 const STARTS: Exclude<Start, ''>[] = ['free', 'monthly', 'annual'];
 
-/** Spanish plan names, as the backoffice shows them. */
-const PLAN_NAMES_ES: Record<PlanId, string> = { free: 'Gratis', starter: 'Básico', pro: 'Negocio' };
-const BILLING_ES: Record<Billing, string> = { monthly: 'pago mensual', annual: 'pago anual' };
+/** Module names in Spanish, as the backoffice reads them. */
+const MODULE_NAMES_ES = {
+  collections: 'Cobranza',
+  sales: 'Ventas',
+  inventory: 'Inventario',
+} as const;
+const BILLING_ES: Record<Billing, string> = { monthly: 'mensual', annual: 'anual' };
 
 /**
  * The message sent to the platform team. The API has no plan field, so the plan goes on the first
- * line (always in Spanish, the language of the backoffice): the tier the modules call for, the
- * billing and the quoted price, e.g. "Plan de interés: Negocio · pago anual · S/ 51.00 al mes".
+ * line (always in Spanish, the language of the backoffice): the billing (the backoffice reads it:
+ * gratis, mensual or anual), the modules and the quoted price, e.g.
+ * "Plan de interés: anual · Cobranza + Ventas · S/ 68.71 al mes".
  */
 function composeMessage(start: Start, modules: ModuleId[], message: string) {
   let plan = '';
-  if (start === 'free') plan = `Plan de interés: ${PLAN_NAMES_ES.free}`;
+  if (start === 'free') plan = 'Plan de interés: gratis';
   else if (start) {
     const price = quote(modules, start);
-    plan = `Plan de interés: ${PLAN_NAMES_ES[price.tier]} · ${BILLING_ES[start]} · S/ ${price.perMonth.toFixed(2)} al mes`;
+    const names = price.chosen.map((module) => MODULE_NAMES_ES[module.id]).join(' + ');
+    plan = `Plan de interés: ${BILLING_ES[start]} · ${names} · S/ ${price.perMonth.toFixed(2)} al mes`;
   }
   return [plan, message.trim()].filter(Boolean).join('\n');
 }
