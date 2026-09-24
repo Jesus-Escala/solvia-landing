@@ -75,3 +75,5 @@ export {
   type TokenStore,
 } from './lib/http';
 export { PaperBackdrop } from './components/PaperBackdrop';
+export { InfoTip } from './components/InfoTip';
+export { downloadCsv } from './lib/csv';

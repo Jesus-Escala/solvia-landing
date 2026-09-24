@@ -3,6 +3,16 @@
  */
 
 export const uiEs = {
+  card: {
+    expand: 'Ver en pantalla completa',
+    close: 'Cerrar',
+  },
+  info: {
+    label: '¿Cómo se calcula?',
+  },
+  export: {
+    csv: 'Exportar a Excel (CSV)',
+  },
   toast: {
     region: 'Notificaciones',
     close: 'Cerrar notificación',
@@ -107,6 +117,16 @@ export const uiEs = {
 };
 
 export const uiEn: UiMessages = {
+  card: {
+    expand: 'Open full screen',
+    close: 'Close',
+  },
+  info: {
+    label: 'How is this calculated?',
+  },
+  export: {
+    csv: 'Export to Excel (CSV)',
+  },
   toast: {
     region: 'Notifications',
     close: 'Dismiss notification',
