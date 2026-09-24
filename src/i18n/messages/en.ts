@@ -28,8 +28,8 @@ export const en: Messages = {
     label: 'Main',
     skip: 'Skip to content',
     home: 'Solvia, go to top',
-    features: 'Features',
-    howItWorks: 'How it works',
+    features: 'What is included',
+    howItWorks: 'How to start',
     pricing: 'Pricing',
     faq: 'FAQ',
     login: 'Sign in',
@@ -44,7 +44,7 @@ export const en: Messages = {
     subtitle:
       'Record your sales, collect what you give on credit with WhatsApp reminders and know how much stock you have left. All in one place, no notebooks.',
     primaryCta: 'I want to try it free',
-    secondaryCta: 'See how it works',
+    secondaryCta: 'See what is included',
     newBadge: 'New',
     newText: 'Sales and Inventory now available',
     trustLabel: 'Benefits',
@@ -244,7 +244,7 @@ export const en: Messages = {
     },
   },
   how: {
-    eyebrow: 'How it works',
+    eyebrow: 'How to start',
     title: 'Start today in three steps',
     subtitle: 'Nothing to install and no computer skills needed.',
     step: 'Step {number}',
@@ -329,12 +329,12 @@ export const en: Messages = {
       off: '{percent} off',
       noDiscount: 'Regular price',
       whatsapp: 'automatic messages a month',
-      manualValue: 'Unlimited manual WhatsApp',
+      manualValue: 'Sent from your phone: free',
       usersValue: '{count|# user|# users}',
       customersValue: 'Up to {count} customers',
       customersUnlimited: 'Unlimited customers',
       packs:
-        'Need more automatic messages? Add packs of {messages} for {price}. Reminders you send from your own WhatsApp are unlimited in every plan.',
+        'Automatic messages (the ones Solvia sends by itself) have a cost, so they grow with your modules and you can add packs of {messages} for {price}. The ones you send from your phone, in one tap, cost nothing: free in every plan.',
     },
     bowl: {
       one: 'A good start: collect without chasing anyone.',
@@ -342,7 +342,7 @@ export const en: Messages = {
       three: 'Your whole business in order! 15% off.',
     },
     summary: {
-      manual: '+ unlimited reminders from your own WhatsApp',
+      manual: '+ the ones you send from your phone, free',
       title: 'Your plan',
       saving: 'Module discount ({percent})',
       savingAnnual: 'Module and yearly discount',

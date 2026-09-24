@@ -59,7 +59,7 @@ export function Hero() {
             <RequestAccessButton size="lg" icon={<ArrowRight />}>
               {t('hero.primaryCta')}
             </RequestAccessButton>
-            <LinkButton href={`#${SECTION_IDS.howItWorks}`} size="lg" variant="secondary">
+            <LinkButton href={`#${SECTION_IDS.features}`} size="lg" variant="secondary">
               {t('hero.secondaryCta')}
             </LinkButton>
           </div>

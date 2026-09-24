@@ -30,8 +30,8 @@ export const es = {
     label: 'Principal',
     skip: 'Saltar al contenido',
     home: 'Solvia, ir al inicio',
-    features: 'Funciones',
-    howItWorks: 'Cómo funciona',
+    features: 'Qué incluye',
+    howItWorks: 'Cómo empezar',
     pricing: 'Precios',
     faq: 'Preguntas',
     login: 'Iniciar sesión',
@@ -46,7 +46,7 @@ export const es = {
     subtitle:
       'Registra tus ventas, cobra lo que fías con recordatorios por WhatsApp y sabe cuánto stock te queda. Todo en un solo lugar y sin cuadernos.',
     primaryCta: 'Quiero probarlo gratis',
-    secondaryCta: 'Ver cómo funciona',
+    secondaryCta: 'Ver qué incluye',
     newBadge: 'Nuevo',
     newText: 'Ventas e Inventario ya disponibles',
     trustLabel: 'Ventajas',
@@ -245,7 +245,7 @@ export const es = {
     },
   },
   how: {
-    eyebrow: 'Cómo funciona',
+    eyebrow: 'Cómo empezar',
     title: 'Empieza hoy en tres pasos',
     subtitle: 'No tienes que instalar nada ni saber de computadoras.',
     step: 'Paso {number}',
@@ -329,12 +329,12 @@ export const es = {
       off: '{percent} menos',
       noDiscount: 'Precio normal',
       whatsapp: 'mensajes automáticos al mes',
-      manualValue: 'WhatsApp manual ilimitado',
+      manualValue: 'Envíos desde tu celular: gratis',
       usersValue: '{count|# usuario|# usuarios}',
       customersValue: 'Hasta {count} clientes',
       customersUnlimited: 'Clientes ilimitados',
       packs:
-        '¿Necesitas más mensajes automáticos? Suma paquetes de {messages} por {price}. Los recordatorios que envías desde tu propio WhatsApp son ilimitados en todos los planes.',
+        'Los mensajes automáticos (los que Solvia envía sola) tienen costo, por eso crecen con tus módulos y puedes sumar paquetes de {messages} por {price}. Los que envías tú desde tu celular, con un toque, no tienen costo: son gratis en todos los planes.',
     },
     bowl: {
       one: 'Buen comienzo: cobra sin perseguir a nadie.',
@@ -342,7 +342,7 @@ export const es = {
       three: '¡Todo tu negocio en orden! 15% menos.',
     },
     summary: {
-      manual: '+ recordatorios desde tu WhatsApp ilimitados',
+      manual: '+ los que envías desde tu celular, gratis',
       title: 'Tu plan',
       saving: 'Descuento por módulos ({percent})',
       savingAnnual: 'Descuento por módulos y pago anual',
