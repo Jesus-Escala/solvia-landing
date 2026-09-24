@@ -7,10 +7,10 @@ import { SECTION_IDS } from '../lib/config';
 
 const QUESTIONS = [
   'signup',
+  'sales',
   'install',
   'whatsapp',
   'customers',
-  'sales',
   'reports',
   'security',
   'plans',

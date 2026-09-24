@@ -1,5 +1,5 @@
-import { Reveal, WhatsAppIcon } from '@/ui';
-import { HandCoins, UserPlus } from 'lucide-react';
+import { Reveal } from '@/ui';
+import { BarChart3, Rocket, ShoppingCart } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Container } from '../components/Container';
 import { SectionHeading } from '../components/SectionHeading';
@@ -7,10 +7,10 @@ import { Section } from '../components/Section';
 import { useI18n } from '../i18n/useI18n';
 import { SECTION_IDS } from '../lib/config';
 
-const STEPS: Array<{ key: 'register' | 'remind' | 'collect'; icon: ReactNode }> = [
-  { key: 'register', icon: <UserPlus /> },
-  { key: 'remind', icon: <WhatsAppIcon /> },
-  { key: 'collect', icon: <HandCoins /> },
+const STEPS: Array<{ key: 'start' | 'sell' | 'grow'; icon: ReactNode }> = [
+  { key: 'start', icon: <Rocket /> },
+  { key: 'sell', icon: <ShoppingCart /> },
+  { key: 'grow', icon: <BarChart3 /> },
 ];
 
 /**

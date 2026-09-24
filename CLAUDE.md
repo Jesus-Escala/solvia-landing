@@ -40,6 +40,10 @@ CI runs `npm ci`, lint, format:check, build.
 
 ## Rules
 
+- Positioning: Solvia puts the whole small business in order (sell, collect, track stock) from
+  the phone. Collections is the core, included in every plan; Ventas and Inventario are paid
+  add-on modules. Keep hero, sections and FAQ consistent with that.
+
 - All text through i18n (`src/i18n/messages/es.ts` source of truth, `en.ts` mirrors it). Only
   claim features the product really has; prices in `sections/plans.ts` are reference prices.
 - One separator per descriptive line (no chains of "·"/"—").

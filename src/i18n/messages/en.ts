@@ -22,7 +22,7 @@ export const en: Messages = {
     },
   },
   meta: {
-    title: 'Solvia — Get paid on time, without chasing anyone',
+    title: 'Solvia — Your business in order: sell, collect and track your stock',
   },
   nav: {
     label: 'Main',
@@ -39,70 +39,81 @@ export const en: Messages = {
     closeMenu: 'Close menu',
   },
   hero: {
-    eyebrow: 'For corner shops, hardware stores and any business that sells on credit',
-    titleStart: 'Get paid on time,',
-    titleHighlight: 'without chasing your customers.',
+    eyebrow: 'For corner shops, hardware stores, minimarkets and distributors',
+    titleStart: 'Your business in order,',
+    titleHighlight: 'from your phone.',
     subtitle:
-      'Write down who owes you, and Solvia reminds them on WhatsApp to pay. No notebook, and no messaging each customer yourself.',
+      'Record your sales, collect what you give on credit with WhatsApp reminders and know how much stock you have left. All in one place, no notebooks.',
     primaryCta: 'I want to try it free',
     secondaryCta: 'See how it works',
     newBadge: 'New',
-    newText: 'Sales and Inventory',
-    trustLabel: 'Highlights',
+    newText: 'Sales and Inventory now available',
+    trustLabel: 'Benefits',
     trust: {
       activation: 'Free to start',
-      noCard: 'Nothing to install: works on your phone',
+      noCard: 'Nothing to install: it works on your phone',
       currency: 'Activated in under 24 h',
     },
   },
   mock: {
     label: 'Illustrative preview of the Solvia dashboard',
-    title: 'Collections overview',
+    title: 'Your business today',
     period: 'This month',
-    collected: 'Collected',
-    receivable: 'Receivable',
-    overdue: 'Overdue',
-    chartTitle: 'What you will be paid each week',
-    chartLabel: 'Illustrative chart of weekly collections with a projection line',
+    sold: 'Sold',
+    receivable: 'Owed to you',
+    lowStock: 'Running low',
+    lowStockValue: '3 products',
+    chartTitle: 'What you sell each week',
+    chartLabel: 'Illustrative chart of weekly sales with a trend line',
     weeks: 'Wk 1,Wk 2,Wk 3,Wk 4,Wk 5,Wk 6',
-    riskLow: 'Low risk',
+    product: 'Primor oil 1 L',
+    productLeft: '3 units left',
+    runningLow: 'Running low',
     reminderApp: 'WhatsApp · reminder',
     reminderText: 'Hi Rosa, your {amount} installment is due tomorrow. You can pay here:',
     reminderLink: 'Pay with Yape',
-    toastTitle: 'Payment received',
-    toastBody: '{name} paid {amount} via Yape',
+    toastTitle: 'Sale recorded',
+    toastBody: 'Sale #{number} · {amount} with Yape',
   },
   problem: {
-    title: 'From chasing payments to watching them arrive',
-    subtitle: 'What takes you hours today, Solvia handles for you.',
+    title: 'From the notebook to a business in order',
+    subtitle: 'What takes you hours today, Solvia does for you.',
     before: 'Before',
     after: 'With Solvia',
     items: {
-      reminders: {
-        before: 'Messaging every customer, one by one, to remind them what they owe.',
-        after: 'Automatic WhatsApp reminders before and after the due date.',
+      sales: {
+        before:
+          'Sales jotted down in a hurry, and at the end of the day you do not know how much you sold.',
+        after:
+          'Every sale recorded in seconds by scanning the product, with the day total in sight.',
       },
-      payments: {
-        before: 'Payments written in a notebook and Yape screenshots lost in the chat.',
-        after: 'Every payment recorded with its proof and the balance updated instantly.',
+      credit: {
+        before: 'Messaging each customer, one by one, to remind them what they owe.',
+        after: 'Solvia reminds them on WhatsApp and you just mark when they pay.',
       },
-      cash: {
-        before: 'Not knowing how much cash is coming this month or who is falling behind.',
-        after: 'Weekly or monthly cash-flow projection and a risk score per customer.',
+      stock: {
+        before: 'Finding out a product ran out when the customer already asked for it.',
+        after: 'Stock goes down with each sale and it tells you what is running low.',
+      },
+      numbers: {
+        before: 'Not knowing how much you make, who owes you most or what sells best.',
+        after: 'Clear PDF or Excel reports: sales, payments, stock and profit.',
       },
     },
   },
   trust: {
-    payLabel: 'Record payments by',
-    remindLabel: 'Remind via',
+    payLabel: 'Records payments by',
+    worksWith: 'Works with',
     cash: 'Cash',
-    transfer: 'Transfer',
-    madeFor: 'Made for businesses that sell on credit',
+    transfer: 'Bank transfer',
+    barcode: 'Barcodes',
+    reports: 'PDF and Excel',
+    madeFor: 'Made for businesses in Peru',
   },
   features: {
-    eyebrow: 'Features',
-    title: 'Everything you need to collect better',
-    subtitle: 'Simple tools built for businesses that sell on credit.',
+    eyebrow: 'Collections',
+    title: 'Collect what you are owed without chasing anyone',
+    subtitle: 'The heart of Solvia, included in every plan.',
     demo: {
       chatName: 'San Martín Store',
       chatOnline: 'online',
@@ -155,28 +166,29 @@ export const en: Messages = {
   },
   how: {
     eyebrow: 'How it works',
-    title: 'Start collecting in three steps',
+    title: 'Start today in three steps',
     subtitle: 'Nothing to install and no computer skills needed.',
     step: 'Step {number}',
     steps: {
-      register: {
-        title: 'Write down what you sell on credit',
-        body: 'Type your customer’s name, how much they owe and when they will pay.',
+      start: {
+        title: 'We activate your account',
+        body: 'Leave your details and in under 24 hours you are in from your phone, with your customers and products.',
       },
-      remind: {
-        title: 'Solvia reminds them on WhatsApp',
-        body: 'Solvia reminds your customer on its own, on the days you choose, with a link to pay.',
+      sell: {
+        title: 'Sell and record what you give on credit',
+        body: 'Record every sale in seconds. On credit, it goes into what you are owed and Solvia reminds your customer on WhatsApp.',
       },
-      collect: {
-        title: 'Mark it when they pay',
-        body: 'Mark the payment and that’s it: Solvia updates the debt and tells you how much is left to collect.',
+      grow: {
+        title: 'See how your business is doing',
+        body: 'How much you sold, what you are owed, what is running low and your reports ready as PDF or Excel.',
       },
     },
   },
   pricing: {
     eyebrow: 'Pricing',
     title: 'A plan for every stage of your business',
-    subtitle: 'Start free. If your business grows, switch plans whenever you want.',
+    subtitle:
+      'Start free with collections and add Sales and Inventory when your business needs them.',
     perMonth: '/mo',
     recommended: 'Recommended',
     note: 'Monthly prices in Peruvian soles.',
@@ -217,10 +229,10 @@ export const en: Messages = {
     },
   },
   modules: {
-    eyebrow: 'Add-on modules',
-    title: 'When your business grows, Solvia grows with it',
+    eyebrow: 'Sales and Inventory',
+    title: 'Sell faster and never run out of stock',
     subtitle:
-      'Besides collecting, you can record your sales and keep track of your stock. Add them to any plan for an extra monthly fee and we turn them on the same day.',
+      'Add them to any plan for an extra monthly fee and we turn them on the same day. They work with your collections: what you sell on credit goes into what you are owed.',
     sales: {
       name: 'Sales',
       short: 'Record what you sell, cash or on credit.',
@@ -319,8 +331,8 @@ export const en: Messages = {
     },
   },
   finalCta: {
-    title: 'Let Solvia do the reminding',
-    body: 'Try it free. We activate your account in under 24 hours.',
+    title: 'Put your business in order today',
+    body: 'Try it free: sell, collect and track your stock. We activate your account in under 24 hours.',
     primary: 'I want to try it free',
     secondary: 'I already have an account',
   },
@@ -377,7 +389,7 @@ export const en: Messages = {
   },
   footer: {
     description:
-      'Write down what you sell on credit and Solvia reminds your customer on WhatsApp. For small shops in Peru.',
+      'Sell, collect what you are owed and track your stock from your phone. For corner shops, hardware stores and businesses in Peru.',
     product: 'Product',
     account: 'Account',
     rights: '© {year} Solvia. All rights reserved.',

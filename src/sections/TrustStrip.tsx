@@ -1,6 +1,8 @@
 import { WhatsAppIcon } from '@/ui';
 import {
   Banknote,
+  FileSpreadsheet,
+  ScanBarcode,
   Briefcase,
   Hammer,
   HeartPulse,
@@ -51,7 +53,7 @@ function Chip({ children }: { children: ReactNode }) {
 }
 
 /**
- * Right under the hero: the payment methods and the channel Solvia works with, and a slow
+ * Right under the hero: the payment methods and what Solvia works with, and a slow
  * ribbon of the kinds of businesses it is made for.
  */
 export function TrustStrip() {
@@ -84,13 +86,21 @@ export function TrustStrip() {
               {t('trust.transfer')}
             </Chip>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <span className="mr-1 text-xs font-semibold tracking-wide text-subtle uppercase">
-              {t('trust.remindLabel')}
+              {t('trust.worksWith')}
             </span>
             <Chip>
               <WhatsAppIcon />
               WhatsApp
+            </Chip>
+            <Chip>
+              <ScanBarcode className="text-primary" />
+              {t('trust.barcode')}
+            </Chip>
+            <Chip>
+              <FileSpreadsheet className="text-success" />
+              {t('trust.reports')}
             </Chip>
           </div>
         </div>

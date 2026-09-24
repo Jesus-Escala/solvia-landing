@@ -24,7 +24,7 @@ export const es = {
     },
   },
   meta: {
-    title: 'Solvia — Cobra a tiempo, sin perseguir a nadie',
+    title: 'Solvia — Tu negocio en orden: vende, cobra y controla tu stock',
   },
   nav: {
     label: 'Principal',
@@ -41,15 +41,15 @@ export const es = {
     closeMenu: 'Cerrar menú',
   },
   hero: {
-    eyebrow: 'Para bodegas, ferreterías y negocios que fían',
-    titleStart: 'Cobra a tiempo,',
-    titleHighlight: 'sin perseguir a tus clientes.',
+    eyebrow: 'Para bodegas, ferreterías, minimarkets y distribuidoras',
+    titleStart: 'Tu negocio en orden,',
+    titleHighlight: 'desde tu celular.',
     subtitle:
-      'Anota quién te debe, y Solvia le recuerda por WhatsApp que te pague. Sin cuaderno y sin tener que escribirle tú a cada uno.',
+      'Registra tus ventas, cobra lo que fías con recordatorios por WhatsApp y sabe cuánto stock te queda. Todo en un solo lugar y sin cuadernos.',
     primaryCta: 'Quiero probarlo gratis',
     secondaryCta: 'Ver cómo funciona',
     newBadge: 'Nuevo',
-    newText: 'Ventas e Inventario',
+    newText: 'Ventas e Inventario ya disponibles',
     trustLabel: 'Ventajas',
     trust: {
       activation: 'Gratis para empezar',
@@ -59,52 +59,62 @@ export const es = {
   },
   mock: {
     label: 'Vista previa ilustrativa del panel de Solvia',
-    title: 'Resumen de cobranzas',
+    title: 'Tu negocio hoy',
     period: 'Este mes',
-    collected: 'Cobrado',
-    receivable: 'Por cobrar',
-    overdue: 'Vencido',
-    chartTitle: 'Lo que te van a pagar cada semana',
-    chartLabel: 'Gráfico ilustrativo de cobros por semana con línea de proyección',
+    sold: 'Vendido',
+    receivable: 'Te deben',
+    lowStock: 'Por acabarse',
+    lowStockValue: '3 productos',
+    chartTitle: 'Lo que vendes cada semana',
+    chartLabel: 'Gráfico ilustrativo de ventas por semana con línea de tendencia',
     weeks: 'Sem 1,Sem 2,Sem 3,Sem 4,Sem 5,Sem 6',
-    riskLow: 'Riesgo bajo',
+    product: 'Aceite Primor 1 L',
+    productLeft: 'Quedan 3 unidades',
+    runningLow: 'Por acabarse',
     reminderApp: 'WhatsApp · recordatorio',
     reminderText: 'Hola Rosa, tu cuota de {amount} vence mañana. Puedes pagar aquí:',
     reminderLink: 'Pagar con Yape',
-    toastTitle: 'Pago recibido',
-    toastBody: '{name} pagó {amount} con Yape',
+    toastTitle: 'Venta registrada',
+    toastBody: 'Venta #{number} · {amount} con Yape',
   },
   problem: {
-    title: 'De perseguir pagos a verlos llegar',
-    subtitle: 'Lo que hoy te quita horas, Solvia lo resuelve por ti.',
+    title: 'Del cuaderno a tener todo tu negocio en orden',
+    subtitle: 'Lo que hoy te quita horas, Solvia lo hace por ti.',
     before: 'Antes',
     after: 'Con Solvia',
     items: {
-      reminders: {
+      sales: {
+        before: 'Ventas anotadas a la rápida y al final del día no sabes cuánto vendiste.',
+        after:
+          'Cada venta registrada en segundos, escaneando el producto, y el total del día a la vista.',
+      },
+      credit: {
         before: 'Escribir a cada cliente, uno por uno, para recordarle que te debe.',
-        after: 'Recordatorios automáticos por WhatsApp antes y después del vencimiento.',
+        after: 'Solvia le recuerda por WhatsApp y tú solo marcas cuando te paga.',
       },
-      payments: {
-        before: 'Pagos anotados en un cuaderno y capturas de Yape perdidas en el chat.',
-        after: 'Cada abono registrado con su comprobante y el saldo actualizado al instante.',
+      stock: {
+        before: 'Darte cuenta de que se acabó un producto cuando el cliente ya lo pidió.',
+        after: 'El stock baja solo con cada venta y te avisa lo que se está acabando.',
       },
-      cash: {
-        before: 'No saber cuánto dinero entrará este mes ni quién se está atrasando.',
-        after: 'Sabes cuánta plata entra esta semana y quién suele atrasarse.',
+      numbers: {
+        before: 'No saber cuánto ganas, quién te debe más ni qué es lo que más vendes.',
+        after: 'Reportes claros en PDF o Excel: ventas, cobros, stock y ganancias.',
       },
     },
   },
   trust: {
     payLabel: 'Registra pagos por',
-    remindLabel: 'Recuerda por',
+    worksWith: 'Funciona con',
     cash: 'Efectivo',
     transfer: 'Transferencia',
-    madeFor: 'Hecho para negocios que fían',
+    barcode: 'Código de barras',
+    reports: 'PDF y Excel',
+    madeFor: 'Hecho para negocios del Perú',
   },
   features: {
-    eyebrow: 'Funciones',
-    title: 'Todo lo que necesitas para cobrar mejor',
-    subtitle: 'Simple, en tu celular, pensado para negocios que fían.',
+    eyebrow: 'Cobranza',
+    title: 'Cobra lo que fías, sin perseguir a nadie',
+    subtitle: 'El corazón de Solvia, incluido en todos los planes.',
     demo: {
       chatName: 'Bodega San Martín',
       chatOnline: 'en línea',
@@ -157,28 +167,29 @@ export const es = {
   },
   how: {
     eyebrow: 'Cómo funciona',
-    title: 'Empieza a cobrar en tres pasos',
+    title: 'Empieza hoy en tres pasos',
     subtitle: 'No tienes que instalar nada ni saber de computadoras.',
     step: 'Paso {number}',
     steps: {
-      register: {
-        title: 'Anota lo que fías',
-        body: 'Escribe el nombre de tu cliente, cuánto te debe y para cuándo te paga.',
+      start: {
+        title: 'Te activamos tu cuenta',
+        body: 'Déjanos tus datos y en menos de 24 horas entras desde tu celular, con tus clientes y productos.',
       },
-      remind: {
-        title: 'Solvia recuerda por WhatsApp',
-        body: 'Solvia le avisa solo a tu cliente, en los días que tú elijas, con un enlace para pagar.',
+      sell: {
+        title: 'Vende y anota lo que fías',
+        body: 'Registra cada venta en segundos. Si es fiado, se anota sola y Solvia le recuerda a tu cliente por WhatsApp.',
       },
-      collect: {
-        title: 'Anota cuando te pagan',
-        body: 'Marca el pago y listo: Solvia descuenta la deuda sola y te dice cuánto te falta cobrar.',
+      grow: {
+        title: 'Mira cómo va tu negocio',
+        body: 'Cuánto vendiste, cuánto te deben, qué se está acabando y tus reportes listos en PDF o Excel.',
       },
     },
   },
   pricing: {
     eyebrow: 'Precios',
     title: 'Un plan para cada etapa de tu negocio',
-    subtitle: 'Empieza gratis. Si tu negocio crece, cambias de plan cuando quieras.',
+    subtitle:
+      'Empieza gratis con la cobranza y suma Ventas e Inventario cuando tu negocio lo pida.',
     perMonth: '/mes',
     recommended: 'Recomendado',
     note: 'Precios mensuales en soles.',
@@ -219,10 +230,10 @@ export const es = {
     },
   },
   modules: {
-    eyebrow: 'Módulos adicionales',
-    title: 'Cuando tu negocio crezca, Solvia crece contigo',
+    eyebrow: 'Ventas e Inventario',
+    title: 'Vende más rápido y nunca te quedes sin stock',
     subtitle:
-      'Además de cobrar, puedes registrar tus ventas y controlar tu stock. Súmalos a cualquier plan por un pago extra al mes y te los activamos en el día.',
+      'Súmalos a cualquier plan por un pago extra al mes y te los activamos en el día. Funcionan con tu cobranza: lo que vendes fiado se anota solo en «Me deben».',
     sales: {
       name: 'Ventas',
       short: 'Registra lo que vendes, al contado o fiado.',
@@ -319,8 +330,8 @@ export const es = {
     },
   },
   finalCta: {
-    title: 'Deja que Solvia se encargue de recordar',
-    body: 'Pruébalo gratis. Te activamos tu cuenta en menos de 24 horas.',
+    title: 'Pon tu negocio en orden desde hoy',
+    body: 'Pruébalo gratis: vende, cobra y controla tu stock. Te activamos tu cuenta en menos de 24 horas.',
     primary: 'Quiero probarlo gratis',
     secondary: 'Ya tengo cuenta',
   },
@@ -377,7 +388,7 @@ export const es = {
   },
   footer: {
     description:
-      'Anota lo que fías y Solvia le recuerda a tu cliente por WhatsApp. Para bodegas, ferreterías y negocios del Perú.',
+      'Vende, cobra lo que fías y controla tu stock desde el celular. Para bodegas, ferreterías y negocios del Perú.',
     product: 'Producto',
     account: 'Cuenta',
     rights: '© {year} Solvia. Todos los derechos reservados.',

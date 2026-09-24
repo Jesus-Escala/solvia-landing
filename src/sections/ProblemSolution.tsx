@@ -1,5 +1,5 @@
 import { Reveal } from '@/ui';
-import { BellRing, CircleCheck, CircleX, Receipt, TrendingUp } from 'lucide-react';
+import { BarChart3, BellRing, Boxes, CircleCheck, CircleX, ShoppingCart } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Container } from '../components/Container';
 import { GlassCard } from '../components/GlassCard';
@@ -8,13 +8,14 @@ import { SectionHeading } from '../components/SectionHeading';
 import { Section } from '../components/Section';
 import { useI18n } from '../i18n/useI18n';
 
-const ITEMS: Array<{ key: 'reminders' | 'payments' | 'cash'; icon: ReactNode }> = [
-  { key: 'reminders', icon: <BellRing /> },
-  { key: 'payments', icon: <Receipt /> },
-  { key: 'cash', icon: <TrendingUp /> },
+const ITEMS: Array<{ key: 'sales' | 'credit' | 'stock' | 'numbers'; icon: ReactNode }> = [
+  { key: 'sales', icon: <ShoppingCart /> },
+  { key: 'credit', icon: <BellRing /> },
+  { key: 'stock', icon: <Boxes /> },
+  { key: 'numbers', icon: <BarChart3 /> },
 ];
 
-/** "Problem → solution" band: what collecting looks like before and with Solvia. */
+/** "Problem → solution" band: selling, collecting, stock and numbers, before and with Solvia. */
 export function ProblemSolution() {
   const { t } = useI18n();
 
@@ -26,7 +27,7 @@ export function ProblemSolution() {
           title={t('problem.title')}
           subtitle={t('problem.subtitle')}
         />
-        <ul className="mt-12 grid gap-5 md:grid-cols-3">
+        <ul className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {ITEMS.map((item, index) => (
             <Reveal as="li" key={item.key} delay={index * 80}>
               <GlassCard hoverLift className="h-full p-6">
