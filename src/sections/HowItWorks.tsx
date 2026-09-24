@@ -51,7 +51,7 @@ export function HowItWorks() {
                 className="how-step relative text-center"
                 style={{ animationDelay: `${250 + index * 220}ms` }}
               >
-                <div className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white ring-1 ring-white/20 backdrop-blur-sm [&>svg]:h-6 [&>svg]:w-6">
+                <div className="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#17524b] text-white shadow-[0_0_0_6px_#0f3b36] ring-1 ring-white/20 dark:bg-[#143f3a] dark:shadow-[0_0_0_6px_#0c2724] [&>svg]:h-6 [&>svg]:w-6">
                   {step.icon}
                   <span
                     aria-hidden="true"
