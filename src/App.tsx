@@ -10,6 +10,7 @@ import { HowItWorks } from './sections/HowItWorks';
 import { MeetSoli } from './sections/MeetSoli';
 import { Pricing } from './sections/Pricing';
 import { ProblemSolution } from './sections/ProblemSolution';
+import { TrustStrip } from './sections/TrustStrip';
 
 /** The public one-page site. */
 export function App() {
@@ -24,6 +25,7 @@ export function App() {
       <Navbar />
       <main id="main" tabIndex={-1} className="focus:outline-none">
         <Hero />
+        <TrustStrip />
         <ProblemSolution />
         <Features />
         <HowItWorks />

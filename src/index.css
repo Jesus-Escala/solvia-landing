@@ -11,3 +11,163 @@ html {
     scroll-behavior: smooth;
   }
 }
+
+/* Industries ribbon under the hero (pauses on hover). */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+
+/*
+ * Features bento: each mini demo plays when its tile scrolls into view (`.is-visible` comes
+ * from <Reveal>). The chat loops so the tile always feels alive.
+ */
+@keyframes bento-chat {
+  0% {
+    opacity: 0;
+    translate: 0 10px;
+    scale: 0.96;
+  }
+  8%,
+  88% {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    translate: 0 -4px;
+  }
+}
+
+@keyframes bento-ticks {
+  0%,
+  45% {
+    color: #8696a0;
+  }
+  55%,
+  100% {
+    color: #53bdeb;
+  }
+}
+
+@keyframes bento-fill {
+  from {
+    width: 38%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes bento-needle {
+  0% {
+    rotate: 65deg;
+  }
+  70% {
+    rotate: -62deg;
+  }
+  100% {
+    rotate: -52deg;
+  }
+}
+
+@keyframes bento-bar {
+  from {
+    scale: 1 0;
+  }
+}
+
+@keyframes bento-row {
+  from {
+    opacity: 0;
+    translate: -10px 0;
+  }
+}
+
+@keyframes bento-stamp {
+  0%,
+  40% {
+    opacity: 0;
+    scale: 1.8;
+  }
+  70% {
+    opacity: 1;
+    scale: 0.92;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.bento-pop {
+  animation: bento-chat 7s var(--ease-out) infinite both;
+}
+.bento-ticks {
+  animation: bento-ticks 7s linear infinite;
+}
+.bento-fill {
+  animation: bento-fill 1.4s 0.5s var(--ease-out) both;
+}
+.bento-needle {
+  animation: bento-needle 1.6s 0.3s var(--ease-out) both;
+}
+.bento-bar {
+  transform-origin: bottom;
+  animation: bento-bar 900ms var(--ease-out) both;
+}
+.bento-row {
+  animation: bento-row 600ms var(--ease-out) both;
+}
+.bento-stamp {
+  animation: bento-stamp 1.2s 0.4s var(--ease-out) both;
+}
+
+/* Declared after the shorthands above so it wins: demos wait until their tile is visible. */
+.bento-pop,
+.bento-ticks,
+.bento-fill,
+.bento-needle,
+.bento-bar,
+.bento-row,
+.bento-stamp {
+  animation-play-state: paused;
+}
+
+.is-visible
+  :is(.bento-pop, .bento-ticks, .bento-fill, .bento-needle, .bento-bar, .bento-row, .bento-stamp) {
+  animation-play-state: running;
+}
+
+/* How it works: the connector draws from left to right, then each step rises in. */
+@keyframes how-line {
+  from {
+    scale: 0 1;
+  }
+}
+
+@keyframes how-step {
+  from {
+    opacity: 0;
+    translate: 0 16px;
+  }
+}
+
+.how-line {
+  transform-origin: left;
+  animation: how-line 1.2s var(--ease-out) both paused;
+}
+
+.how-step {
+  animation: how-step 700ms var(--ease-out) both paused;
+}
+
+.how-steps.is-visible :is(.how-line, .how-step) {
+  animation-play-state: running;
+}
