@@ -194,76 +194,6 @@ export function Pricing() {
                   );
                 })}
               </ul>
-
-              {/* The more modules, the better */}
-              <div className="mt-6 overflow-hidden rounded-3xl border border-line bg-surface">
-                <p className="flex items-center gap-2 border-b border-line bg-surface-2 px-5 py-3 text-sm font-semibold text-ink">
-                  <Sparkles className="h-4 w-4 text-primary" aria-hidden="true" />
-                  {t('pricing.ladder.title')}
-                </p>
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[560px] text-sm whitespace-nowrap">
-                    <thead>
-                      <tr className="text-left text-xs text-muted">
-                        <th className="px-5 py-2.5 font-medium">{t('pricing.ladder.modules')}</th>
-                        <th className="px-3 py-2.5 text-right font-medium">
-                          {t('pricing.ladder.discount')}
-                        </th>
-                        <th className="px-3 py-2.5 text-right font-medium">
-                          {t('pricing.ladder.whatsapp')}
-                        </th>
-                        <th className="px-3 py-2.5 text-right font-medium">
-                          {t('pricing.ladder.manual')}
-                        </th>
-                        <th className="px-3 py-2.5 text-right font-medium">
-                          {t('pricing.ladder.users')}
-                        </th>
-                        <th className="px-5 py-2.5 text-right font-medium">
-                          {t('pricing.ladder.customers')}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {([1, 2, 3] as const).map((count) => {
-                        const row = ALLOWANCES[count];
-                        const active = count === current.count;
-                        return (
-                          <tr
-                            key={count}
-                            className={cx(
-                              'border-t border-line tabular-nums transition',
-                              active && 'bg-primary-soft/60 font-semibold text-ink',
-                            )}
-                          >
-                            <td className="px-5 py-2.5">{t('pricing.ladder.count', { count })}</td>
-                            <td className="px-3 py-2.5 text-right">
-                              {row.discount ? `−${fmt.percent(row.discount)}` : '—'}
-                            </td>
-                            <td className="px-3 py-2.5 text-right">{fmt.number(row.whatsapp)}</td>
-                            <td className="px-3 py-2.5 text-right">{t('pricing.unlimited')}</td>
-                            <td className="px-3 py-2.5 text-right">{fmt.number(row.users)}</td>
-                            <td className="px-5 py-2.5 text-right">
-                              {row.customers === null
-                                ? t('pricing.unlimitedMany')
-                                : fmt.number(row.customers)}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-                <p className="flex items-start gap-2 border-t border-line px-5 py-3 text-xs text-muted">
-                  <MessageCircle
-                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary"
-                    aria-hidden="true"
-                  />
-                  {t('pricing.ladder.packs', {
-                    messages: fmt.number(MESSAGE_PACK.messages),
-                    price: price(MESSAGE_PACK.price),
-                  })}
-                </p>
-              </div>
             </fieldset>
           </Reveal>
 
@@ -376,6 +306,78 @@ export function Pricing() {
             </aside>
           </Reveal>
         </div>
+
+        <Reveal delay={120}>
+          {/* The more modules, the better */}
+          <div className="mt-6 overflow-hidden rounded-3xl border border-line bg-surface">
+            <p className="flex items-center gap-2 border-b border-line bg-surface-2 px-5 py-3 text-sm font-semibold text-ink">
+              <Sparkles className="h-4 w-4 text-primary" aria-hidden="true" />
+              {t('pricing.ladder.title')}
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[560px] text-sm whitespace-nowrap">
+                <thead>
+                  <tr className="text-left text-xs text-muted">
+                    <th className="px-5 py-2.5 font-medium">{t('pricing.ladder.modules')}</th>
+                    <th className="px-3 py-2.5 text-right font-medium">
+                      {t('pricing.ladder.discount')}
+                    </th>
+                    <th className="px-3 py-2.5 text-right font-medium">
+                      {t('pricing.ladder.whatsapp')}
+                    </th>
+                    <th className="px-3 py-2.5 text-right font-medium">
+                      {t('pricing.ladder.manual')}
+                    </th>
+                    <th className="px-3 py-2.5 text-right font-medium">
+                      {t('pricing.ladder.users')}
+                    </th>
+                    <th className="px-5 py-2.5 text-right font-medium">
+                      {t('pricing.ladder.customers')}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {([1, 2, 3] as const).map((count) => {
+                    const row = ALLOWANCES[count];
+                    const active = count === current.count;
+                    return (
+                      <tr
+                        key={count}
+                        className={cx(
+                          'border-t border-line tabular-nums transition',
+                          active && 'bg-primary-soft/60 font-semibold text-ink',
+                        )}
+                      >
+                        <td className="px-5 py-2.5">{t('pricing.ladder.count', { count })}</td>
+                        <td className="px-3 py-2.5 text-right">
+                          {row.discount ? `−${fmt.percent(row.discount)}` : '—'}
+                        </td>
+                        <td className="px-3 py-2.5 text-right">{fmt.number(row.whatsapp)}</td>
+                        <td className="px-3 py-2.5 text-right">{t('pricing.unlimited')}</td>
+                        <td className="px-3 py-2.5 text-right">{fmt.number(row.users)}</td>
+                        <td className="px-5 py-2.5 text-right">
+                          {row.customers === null
+                            ? t('pricing.unlimitedMany')
+                            : fmt.number(row.customers)}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            <p className="flex items-start gap-2 border-t border-line px-5 py-3 text-xs text-muted">
+              <MessageCircle
+                className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary"
+                aria-hidden="true"
+              />
+              {t('pricing.ladder.packs', {
+                messages: fmt.number(MESSAGE_PACK.messages),
+                price: price(MESSAGE_PACK.price),
+              })}
+            </p>
+          </div>
+        </Reveal>
 
         {/* Free plan to start */}
         <Reveal delay={150}>
