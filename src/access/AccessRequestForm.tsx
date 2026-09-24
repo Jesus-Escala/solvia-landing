@@ -1,4 +1,4 @@
-import { Alert, Button, Field, Mascot, useErrorText, PhoneInput, isValidPhone } from '@/ui';
+import { Button, Field, Mascot, useErrorText, PhoneInput, isValidPhone, useErrorToast } from '@/ui';
 import { Send } from 'lucide-react';
 import { useRef, useState, type FormEvent } from 'react';
 import { useI18n } from '../i18n/useI18n';
@@ -61,6 +61,7 @@ export function AccessRequestForm({
   });
   const [clientErrors, setClientErrors] = useState<ClientErrors>({});
   const [serverError, setServerError] = useState<unknown>(null);
+  useErrorToast(serverError, t('toast.sendFailed'));
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -136,8 +137,6 @@ export function AccessRequestForm({
 
   return (
     <form ref={formRef} noValidate onSubmit={handleSubmit} className="space-y-4">
-      {serverError !== null && <Alert tone="danger">{errorText.message(serverError)}</Alert>}
-
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label={t('access.fields.businessName')} error={fieldError('businessName')}>
           {(id, describedBy) => (

@@ -23,8 +23,10 @@ export {
   FeedbackProvider,
   MenuItems,
   Popover,
+  useErrorToast,
   useFeedback,
   type MenuItem,
+  type ToastApi,
 } from './components/Overlays';
 export { PhoneInput } from './components/PhoneInput';
 export { isValidPhone } from './components/phoneCountries';

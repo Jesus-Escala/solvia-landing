@@ -42,3 +42,8 @@ CI runs `npm ci`, lint, format:check, build.
 - One separator per descriptive line (no chains of "·"/"—").
 - Semantic color tokens, `<Reveal>` for scroll animations (respects reduced motion).
 - Before committing: `npm run lint && npm run build`, check desktop + phone width, light/dark.
+
+## Feedback
+
+`FeedbackProvider` wraps the app (see `main.tsx`). Request errors are shown as toasts via
+`useErrorToast(error, title)` (the access-request form does this), never as inline alert boxes.

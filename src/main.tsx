@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@/ui';
+import { FeedbackProvider, ThemeProvider } from '@/ui';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
@@ -14,11 +14,13 @@ createRoot(root).render(
   <StrictMode>
     <ThemeProvider>
       <I18nProvider>
-        <AccessRequestProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </AccessRequestProvider>
+        <FeedbackProvider>
+          <AccessRequestProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </AccessRequestProvider>
+        </FeedbackProvider>
       </I18nProvider>
     </ThemeProvider>
   </StrictMode>,
