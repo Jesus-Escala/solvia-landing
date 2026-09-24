@@ -1,3 +1,4 @@
+import { WhatsAppIcon } from '@/ui';
 import {
   Banknote,
   Briefcase,
@@ -14,7 +15,6 @@ import {
 } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Container } from '../components/Container';
-import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { useI18n } from '../i18n/useI18n';
 
 type Industry =

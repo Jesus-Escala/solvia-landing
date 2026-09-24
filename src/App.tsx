@@ -6,6 +6,7 @@ import { Faq } from './sections/Faq';
 import { Features } from './sections/Features';
 import { FinalCta } from './sections/FinalCta';
 import { Hero } from './sections/Hero';
+import { Modules } from './sections/Modules';
 import { HowItWorks } from './sections/HowItWorks';
 import { Pricing } from './sections/Pricing';
 import { ProblemSolution } from './sections/ProblemSolution';
@@ -27,6 +28,7 @@ export function App() {
         <TrustStrip />
         <ProblemSolution />
         <Features />
+        <Modules />
         <HowItWorks />
         <Pricing />
         <Faq />

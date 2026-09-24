@@ -33,6 +33,7 @@ export const es = {
     features: 'Funciones',
     howItWorks: 'Cómo funciona',
     pricing: 'Precios',
+    modules: 'Módulos',
     faq: 'Preguntas',
     login: 'Iniciar sesión',
     requestAccess: 'Probar gratis',
@@ -47,6 +48,8 @@ export const es = {
       'Anota quién te debe, y Solvia le recuerda por WhatsApp que te pague. Sin cuaderno y sin tener que escribirle tú a cada uno.',
     primaryCta: 'Quiero probarlo gratis',
     secondaryCta: 'Ver cómo funciona',
+    newBadge: 'Nuevo',
+    newText: 'Ventas e Inventario',
     trustLabel: 'Ventajas',
     trust: {
       activation: 'Gratis para empezar',
@@ -179,6 +182,7 @@ export const es = {
     perMonth: '/mes',
     recommended: 'Recomendado',
     note: 'Precios mensuales en soles.',
+    modulesLink: '¿Vendes o manejas stock? Suma Ventas e Inventario.',
     listLabel: 'Incluye en el plan {plan}',
     plans: {
       free: {
@@ -210,14 +214,68 @@ export const es = {
       risk: 'Quién paga puntual y quién se atrasa',
       statements: 'Resumen de deuda en PDF para tu cliente',
       roles: 'Tus trabajadores cobran sin ver todo',
+      reports: 'Reportes en PDF y Excel, sin salir de Solvia',
       monthlyReport: 'Resumen de cada mes',
     },
+  },
+  modules: {
+    eyebrow: 'Módulos adicionales',
+    title: 'Cuando tu negocio crezca, Solvia crece contigo',
+    subtitle:
+      'Además de cobrar, puedes registrar tus ventas y controlar tu stock. Súmalos a cualquier plan por un pago extra al mes y te los activamos en el día.',
+    sales: {
+      name: 'Ventas',
+      short: 'Registra lo que vendes, al contado o fiado.',
+      description: 'Vende rápido desde el celular o la caja y deja todo anotado sin esfuerzo.',
+      points: {
+        quick: 'Registra una venta en segundos, al contado o fiada',
+        scanner: 'Busca o escanea el código de barras del producto',
+        credit: 'Si es fiado, la deuda se anota sola en «Me deben»',
+        receipts: 'Guarda el número de boleta, factura o nota de venta',
+        reports: 'Reportes de ventas por cliente y por producto',
+      },
+      cta: 'Quiero sumar Ventas',
+    },
+    inventory: {
+      name: 'Inventario',
+      short: 'Compras, proveedores y stock al día.',
+      description: 'Sabe cuánto te queda de cada producto sin contar a mano todos los días.',
+      points: {
+        stock: 'El stock baja solo con cada venta y sube con cada compra',
+        purchases: 'Registra lo que te llega y actualiza tus costos',
+        suppliers: 'Tus proveedores a un toque de WhatsApp',
+        alerts: 'Te avisa qué productos se están acabando',
+        traceability: 'Sabes cuándo se vendió algo sin stock, para cuadrar tus cuentas',
+      },
+      cta: 'Quiero sumar Inventario',
+    },
+    bundle: {
+      title: 'Los dos juntos por {price} al mes',
+      body: 'Ventas e Inventario trabajan juntos: cada venta descuenta tu stock. Ahorras {saving} al mes.',
+      cta: 'Quiero los dos',
+    },
+    note: 'Todos los reportes se ven en PDF o Excel sin salir de Solvia, y se descargan con un toque. Puedes quitar un módulo cuando quieras.',
   },
   faq: {
     eyebrow: 'Preguntas frecuentes',
     title: '¿Tienes dudas?',
     subtitle: 'Estas son las preguntas que más nos hacen.',
     items: {
+      sales: {
+        question: '¿Solvia sirve para registrar mis ventas y mi stock?',
+        answer:
+          'Sí. Con el módulo Ventas registras cada venta, al contado o fiada, buscando o escaneando el producto. Con el módulo Inventario tu stock baja solo con cada venta, sube con cada compra y te avisa lo que se está acabando.',
+      },
+      modulesPrice: {
+        question: '¿Cuánto cuestan los módulos y puedo quitarlos?',
+        answer:
+          'Cada módulo cuesta un pago extra al mes sobre tu plan, y los dos juntos salen más baratos. Los activamos en el día y puedes quitarlos cuando quieras, sin perder lo que ya registraste.',
+      },
+      reports: {
+        question: '¿Puedo sacar reportes en Excel o PDF?',
+        answer:
+          'Sí. Ves tus reportes en PDF o Excel dentro de Solvia, sin descargar nada, y si quieres los bajas con un toque: cobros por cliente, ventas por cliente o producto, stock y lo vendido sin stock.',
+      },
       whatsapp: {
         question: '¿Cómo se envían los recordatorios por WhatsApp?',
         answer:
@@ -282,6 +340,7 @@ export const es = {
       phoneHint: 'Elige el país; te escribiremos por WhatsApp a este número.',
       industry: '¿Qué tipo de negocio tienes?',
       plan: '¿Qué plan te interesa?',
+      modules: '¿Quieres sumar algún módulo?',
       planPlaceholder: 'Aún no sé (lo decido después)',
       message: '¿Algo que quieras contarnos?',
       messagePlaceholder: 'Cuéntanos cuántos clientes tienes o qué te gustaría resolver.',

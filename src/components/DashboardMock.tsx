@@ -1,6 +1,5 @@
-import { Badge, cx, Mascot } from '@/ui';
+import { Badge, cx, Mascot, WhatsAppIcon } from '@/ui';
 import { CheckCircle2, Link2 } from 'lucide-react';
-import { WhatsAppIcon } from './WhatsAppIcon';
 import { useI18n } from '../i18n/useI18n';
 import { CashFlowChart } from './CashFlowChart';
 import { Drift } from './Drift';

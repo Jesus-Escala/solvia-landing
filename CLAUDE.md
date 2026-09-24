@@ -25,10 +25,13 @@ CI runs `npm ci`, lint, format:check, build.
 
 ## Structure
 
-- `src/sections/` — page sections in order (Hero, ProblemSolution, Features, HowItWorks,
-  MeetSoli, Pricing + `plans.ts`, Faq, FinalCta).
-- `src/access/` — request access modal: context/provider (open with an optional plan, hash deep
-  link), form with client validation mirroring the backend, industry select.
+- `src/sections/` — page sections in order (Hero, ProblemSolution, Features, Modules,
+  HowItWorks, Pricing + `plans.ts`, Faq, FinalCta). `plans.ts` also holds the add-on modules
+  (`ADD_ONS`, Ventas and Inventario, extra monthly price, and the bundle price); the backoffice
+  shows the same prices (solvia-admin `MODULE_PRICES`), keep them in sync.
+- `src/access/` — request access modal: context/provider (open with an optional plan and/or modules,
+  hash deep link `#solicitar-acceso-starter` / `#solicitar-acceso-sales`; checked modules are
+  sent as `modules`), form with client validation mirroring the backend, industry select.
 - `src/components/` — Navbar, Footer, layout helpers (Container, Section, SectionHeading),
   visual pieces (DashboardMock, CashFlowChart, AuroraBackground, Drift, GlassCard).
 - `src/ui/` — a **subset** of the Solvia UI kit imported as `@/ui` (Button, Modal, Form, Popover,

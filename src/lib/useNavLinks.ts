@@ -8,6 +8,7 @@ export function useNavLinks() {
     { href: `#${SECTION_IDS.features}`, label: t('nav.features') },
     { href: `#${SECTION_IDS.howItWorks}`, label: t('nav.howItWorks') },
     { href: `#${SECTION_IDS.pricing}`, label: t('nav.pricing') },
+    { href: `#${SECTION_IDS.modules}`, label: t('nav.modules') },
     { href: `#${SECTION_IDS.faq}`, label: t('nav.faq') },
   ];
 }

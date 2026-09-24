@@ -1,9 +1,18 @@
-import { Button, Field, Mascot, useErrorText, PhoneInput, isValidPhone, useErrorToast } from '@/ui';
-import { Send } from 'lucide-react';
+import {
+  Button,
+  cx,
+  Field,
+  Mascot,
+  useErrorText,
+  PhoneInput,
+  isValidPhone,
+  useErrorToast,
+} from '@/ui';
+import { Check, Send } from 'lucide-react';
 import { useRef, useState, type FormEvent } from 'react';
 import { useI18n } from '../i18n/useI18n';
 import { api } from '../lib/api';
-import { PLANS, type PlanId } from '../sections/plans';
+import { ADD_ONS, PLANS, type ModuleId, type PlanId } from '../sections/plans';
 import { IndustrySelect } from './IndustrySelect';
 
 const MESSAGE_MAX = 1000;
@@ -19,6 +28,7 @@ interface Values {
   phone: string;
   industry: string;
   plan: PlanId | '';
+  modules: ModuleId[];
   message: string;
   /** Honeypot: people never see it, bots tend to fill it. */
   website: string;
@@ -41,10 +51,12 @@ function composeMessage(plan: PlanId | '', message: string) {
 /** "Solicitar acceso" form, shown inside the modal of `AccessRequestProvider`. */
 export function AccessRequestForm({
   initialPlan,
+  initialModules = [],
   onSent,
   onClose,
 }: {
   initialPlan?: PlanId;
+  initialModules?: ModuleId[];
   onSent: () => void;
   onClose: () => void;
 }) {
@@ -58,6 +70,7 @@ export function AccessRequestForm({
     phone: '',
     industry: '',
     plan: initialPlan ?? '',
+    modules: initialModules,
     message: '',
     website: '',
   });
@@ -109,6 +122,7 @@ export function AccessRequestForm({
         phone: values.phone.trim(),
         industry: values.industry || undefined,
         message: message || undefined,
+        modules: values.modules,
         website: values.website,
       });
       setSent(true);
@@ -240,6 +254,55 @@ export function AccessRequestForm({
           )}
         </Field>
       </div>
+
+      <fieldset>
+        <legend className="label">
+          {t('access.fields.modules')} <span className="font-normal text-subtle">({optional})</span>
+        </legend>
+        <div className="grid gap-2 sm:grid-cols-2">
+          {ADD_ONS.map((addOn) => {
+            const checked = values.modules.includes(addOn.id);
+            return (
+              <button
+                key={addOn.id}
+                type="button"
+                role="checkbox"
+                aria-checked={checked}
+                onClick={() =>
+                  set(
+                    'modules',
+                    checked
+                      ? values.modules.filter((item) => item !== addOn.id)
+                      : [...values.modules, addOn.id],
+                  )
+                }
+                className={cx(
+                  'flex items-start gap-2.5 rounded-xl border px-3 py-2.5 text-left transition',
+                  checked
+                    ? 'border-primary/50 bg-primary-soft/60'
+                    : 'border-line bg-surface hover:border-line-strong',
+                )}
+              >
+                <span
+                  aria-hidden="true"
+                  className={cx(
+                    'mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded border',
+                    checked ? 'border-primary bg-primary text-on-primary' : 'border-line-strong',
+                  )}
+                >
+                  {checked && <Check className="h-3 w-3" />}
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-semibold text-ink">
+                    {t(`modules.${addOn.id}.name`)}
+                  </span>
+                  <span className="block text-xs text-muted">{t(`modules.${addOn.id}.short`)}</span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </fieldset>
 
       <Field
         label={t('access.fields.message')}

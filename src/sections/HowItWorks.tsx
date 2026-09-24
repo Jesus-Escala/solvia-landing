@@ -1,8 +1,7 @@
-import { Reveal } from '@/ui';
+import { Reveal, WhatsAppIcon } from '@/ui';
 import { HandCoins, UserPlus } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Container } from '../components/Container';
-import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { SectionHeading } from '../components/SectionHeading';
 import { Section } from '../components/Section';
 import { useI18n } from '../i18n/useI18n';

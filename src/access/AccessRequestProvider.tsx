@@ -1,9 +1,12 @@
 import { Modal } from '@/ui';
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useI18n } from '../i18n/useI18n';
-import type { PlanId } from '../sections/plans';
 import { AccessRequestForm } from './AccessRequestForm';
-import { AccessRequestContext, parseAccessRequestHash } from './accessRequestContext';
+import {
+  AccessRequestContext,
+  parseAccessRequestHash,
+  type AccessRequestPreset,
+} from './accessRequestContext';
 
 /**
  * Holds the request access modal and lets any CTA open it through `useAccessRequest()`.
@@ -12,13 +15,13 @@ import { AccessRequestContext, parseAccessRequestHash } from './accessRequestCon
 export function AccessRequestProvider({ children }: { children: ReactNode }) {
   const { t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
-  const [plan, setPlan] = useState<PlanId | undefined>();
+  const [preset, setPreset] = useState<AccessRequestPreset>({});
   const [sent, setSent] = useState(false);
   // A new key per opening remounts the form, so it always starts empty (also after a success).
   const [session, setSession] = useState(0);
 
-  const open = useCallback((nextPlan?: PlanId) => {
-    setPlan(nextPlan);
+  const open = useCallback((next: AccessRequestPreset = {}) => {
+    setPreset(next);
     setSent(false);
     setSession((value) => value + 1);
     setIsOpen(true);
@@ -40,7 +43,7 @@ export function AccessRequestProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const openFromHash = () => {
       const link = parseAccessRequestHash(window.location.hash);
-      if (link) open(link.plan);
+      if (link) open(link);
     };
     openFromHash();
     window.addEventListener('hashchange', openFromHash);
@@ -62,7 +65,8 @@ export function AccessRequestProvider({ children }: { children: ReactNode }) {
       >
         <AccessRequestForm
           key={session}
-          initialPlan={plan}
+          initialPlan={preset.plan}
+          initialModules={preset.modules ?? []}
           onSent={() => setSent(true)}
           onClose={close}
         />

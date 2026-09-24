@@ -10,5 +10,6 @@ export const SECTION_IDS = {
   features: 'features',
   howItWorks: 'how-it-works',
   pricing: 'pricing',
+  modules: 'modulos',
   faq: 'faq',
 } as const;

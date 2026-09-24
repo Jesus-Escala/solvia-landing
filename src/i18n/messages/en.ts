@@ -31,6 +31,7 @@ export const en: Messages = {
     features: 'Features',
     howItWorks: 'How it works',
     pricing: 'Pricing',
+    modules: 'Modules',
     faq: 'FAQ',
     login: 'Sign in',
     requestAccess: 'Try it free',
@@ -45,6 +46,8 @@ export const en: Messages = {
       'Write down who owes you, and Solvia reminds them on WhatsApp to pay. No notebook, and no messaging each customer yourself.',
     primaryCta: 'I want to try it free',
     secondaryCta: 'See how it works',
+    newBadge: 'New',
+    newText: 'Sales and Inventory',
     trustLabel: 'Highlights',
     trust: {
       activation: 'Free to start',
@@ -177,6 +180,7 @@ export const en: Messages = {
     perMonth: '/mo',
     recommended: 'Recommended',
     note: 'Monthly prices in Peruvian soles.',
+    modulesLink: 'Do you sell or keep stock? Add Sales and Inventory.',
     listLabel: 'Included in the {plan} plan',
     plans: {
       free: {
@@ -208,14 +212,70 @@ export const en: Messages = {
       risk: 'Who pays on time and who is late',
       statements: 'PDF debt summary for your customer',
       roles: 'Your staff collect without seeing everything',
+      reports: 'PDF and Excel reports, right inside Solvia',
       monthlyReport: 'Summary of each month',
     },
+  },
+  modules: {
+    eyebrow: 'Add-on modules',
+    title: 'When your business grows, Solvia grows with it',
+    subtitle:
+      'Besides collecting, you can record your sales and keep track of your stock. Add them to any plan for an extra monthly fee and we turn them on the same day.',
+    sales: {
+      name: 'Sales',
+      short: 'Record what you sell, cash or on credit.',
+      description:
+        'Sell fast from your phone or the counter and keep everything recorded with no effort.',
+      points: {
+        quick: 'Record a sale in seconds, cash or on credit',
+        scanner: 'Search or scan the product barcode',
+        credit: 'On credit, the debt goes into “Owed to me” on its own',
+        receipts: 'Keep the receipt or invoice number',
+        reports: 'Sales reports by customer and by product',
+      },
+      cta: 'I want Sales',
+    },
+    inventory: {
+      name: 'Inventory',
+      short: 'Purchases, suppliers and stock up to date.',
+      description:
+        'Know how much of each product you have left without counting by hand every day.',
+      points: {
+        stock: 'Stock goes down with each sale and up with each purchase',
+        purchases: 'Record what arrives and update your costs',
+        suppliers: 'Your suppliers one WhatsApp tap away',
+        alerts: 'It tells you which products are running low',
+        traceability: 'You know when something was sold without stock, to balance your books',
+      },
+      cta: 'I want Inventory',
+    },
+    bundle: {
+      title: 'Both for {price} a month',
+      body: 'Sales and Inventory work together: every sale takes stock out. You save {saving} a month.',
+      cta: 'I want both',
+    },
+    note: 'Every report opens as PDF or Excel inside Solvia and downloads in one tap. You can remove a module whenever you want.',
   },
   faq: {
     eyebrow: 'FAQ',
     title: 'Questions?',
     subtitle: 'These are the ones we hear most often.',
     items: {
+      sales: {
+        question: 'Can Solvia record my sales and my stock?',
+        answer:
+          'Yes. With the Sales module you record every sale, cash or on credit, searching or scanning the product. With the Inventory module your stock goes down with each sale, up with each purchase, and it tells you what is running low.',
+      },
+      modulesPrice: {
+        question: 'How much do the modules cost, and can I remove them?',
+        answer:
+          'Each module is an extra monthly fee on top of your plan, and both together cost less. We turn them on the same day and you can remove them whenever you want without losing what you recorded.',
+      },
+      reports: {
+        question: 'Can I get reports in Excel or PDF?',
+        answer:
+          'Yes. You see your reports as PDF or Excel inside Solvia without downloading anything, and download them in one tap if you want: payments by customer, sales by customer or product, stock and what was sold without stock.',
+      },
       whatsapp: {
         question: 'How are the WhatsApp reminders sent?',
         answer:
@@ -280,6 +340,7 @@ export const en: Messages = {
       phoneHint: "Pick the country; we'll message you on WhatsApp at this number.",
       industry: 'What kind of business do you have?',
       plan: 'Which plan interests you?',
+      modules: 'Would you like to add a module?',
       planPlaceholder: 'Not sure yet (decide later)',
       message: 'Anything you want to tell us?',
       messagePlaceholder: 'Tell us how many customers you have or what you would like to solve.',

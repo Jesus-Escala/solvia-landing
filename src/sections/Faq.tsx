@@ -10,8 +10,11 @@ const QUESTIONS = [
   'install',
   'whatsapp',
   'customers',
+  'sales',
+  'reports',
   'security',
   'plans',
+  'modulesPrice',
   'cancel',
   'google',
 ] as const;

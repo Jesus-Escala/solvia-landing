@@ -1,9 +1,10 @@
 import { createContext, useContext } from 'react';
-import { PLANS, type PlanId } from '../sections/plans';
+import { ADD_ONS, PLANS, type ModuleId, type PlanId } from '../sections/plans';
 
 /**
  * Deep link that opens the request access form on load, e.g. from the web app's login page:
- * `https://landing/#solicitar-acceso`. Append a plan to preselect it: `#solicitar-acceso-starter`.
+ * `https://landing/#solicitar-acceso`. Append a plan or a module to preselect it:
+ * `#solicitar-acceso-starter`, `#solicitar-acceso-sales`.
  */
 export const ACCESS_REQUEST_HASH = 'solicitar-acceso';
 
@@ -11,17 +12,25 @@ export const ACCESS_REQUEST_HASH = 'solicitar-acceso';
  * Reads the deep link from a location hash: `undefined` when it is not the request access link,
  * otherwise the (optional) plan it asks for.
  */
-export function parseAccessRequestHash(hash: string): { plan?: PlanId } | undefined {
+export function parseAccessRequestHash(hash: string): AccessRequestPreset | undefined {
   const value = decodeURIComponent(hash.replace(/^#/, '')).toLowerCase();
   if (value === ACCESS_REQUEST_HASH) return {};
   if (!value.startsWith(`${ACCESS_REQUEST_HASH}-`)) return undefined;
   const plan = PLANS.find((item) => `${ACCESS_REQUEST_HASH}-${item.id}` === value);
-  return plan ? { plan: plan.id } : {};
+  if (plan) return { plan: plan.id };
+  const addOn = ADD_ONS.find((item) => `${ACCESS_REQUEST_HASH}-${item.id}` === value);
+  return addOn ? { modules: [addOn.id] } : {};
+}
+
+/** What the form starts with: a plan and/or modules of interest. */
+export interface AccessRequestPreset {
+  plan?: PlanId;
+  modules?: ModuleId[];
 }
 
 export interface AccessRequestValue {
-  /** Opens the request access form, optionally with a plan preselected. */
-  open: (plan?: PlanId) => void;
+  /** Opens the request access form, optionally with a plan or modules preselected. */
+  open: (preset?: AccessRequestPreset) => void;
 }
 
 export const AccessRequestContext = createContext<AccessRequestValue | null>(null);

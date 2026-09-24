@@ -87,7 +87,13 @@ export function Pricing() {
         </ul>
         <p className="mt-10 text-center text-sm text-balance text-subtle">
           <Info className="mr-1.5 inline h-4 w-4 align-[-3px]" aria-hidden="true" />
-          {t('pricing.note')}
+          {t('pricing.note')}{' '}
+          <a
+            href={`#${SECTION_IDS.modules}`}
+            className="font-semibold text-primary-ink underline-offset-2 hover:underline"
+          >
+            {t('pricing.modulesLink')}
+          </a>
         </p>
       </Container>
     </Section>
