@@ -25,7 +25,9 @@ CI runs `npm ci`, lint, format:check, build.
 
 ## Structure
 
-- `src/sections/` — page sections in order (Hero, ProblemSolution, Features, Modules,
+- `src/sections/` — page sections in order (Hero, TrustStrip, ProblemSolution,
+  (one row per area: Ventas, Inventario, Compras, Cobranza, Dashboard, Reportes, each with an
+  illustrative screen from and whether it is included or an add-on), Modules,
   HowItWorks, Pricing + `plans.ts`, Faq, FinalCta). `plans.ts` also holds the add-on modules
   (`ADD_ONS`, Ventas and Inventario, extra monthly price, and the bundle price); the backoffice
   shows the same prices (solvia-admin `MODULE_PRICES`), keep them in sync.

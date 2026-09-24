@@ -112,56 +112,136 @@ export const es = {
     madeFor: 'Hecho para negocios del Perú',
   },
   features: {
-    eyebrow: 'Cobranza',
-    title: 'Cobra lo que fías, sin perseguir a nadie',
-    subtitle: 'El corazón de Solvia, incluido en todos los planes.',
     demo: {
-      chatName: 'Bodega San Martín',
-      chatOnline: 'en línea',
-      paymentLogged: 'Pago registrado · S/ 350.00',
       reminderSent: 'Recordatorio enviado',
       reminderText: 'Hola Rosa, tu cuota de S/ 350.00 vence mañana. Paga aquí:',
       payLink: 'Pagar ahora',
-      replyText: '¡Listo! Ya pagué por Yape 🙌',
-      paymentIn: 'Pago recibido',
-      paymentBy: 'Rosa Q. · por Yape',
-      balance: 'Saldo',
-      paidOff: 'Deuda saldada',
-      riskLow: 'Riesgo bajo',
-      riskHint: 'Paga a tiempo el 94% de las veces',
       cashIn: 'Entrará esta semana',
       week: 'Sem {number}',
-      statement: 'Estado de cuenta',
-      sent: 'Enviado',
       statusPending: 'Pendiente',
       statusPartial: 'Parcial',
       statusPaid: 'Pagada',
       statusOverdue: 'Vencida',
     },
-    items: {
-      receivables: {
-        title: 'Quién te debe y cuánto',
-        body: 'Anota cada fiado con la fecha en que te deben pagar. Ves al momento quién te pagó, quién te pagó una parte y quién está atrasado.',
+  },
+  product: {
+    eyebrow: 'Todo en una sola app',
+    title: 'Todo tu negocio, en un solo lugar',
+    subtitle:
+      'Vende, controla tu stock, cobra y mira tus números. Cada parte trabaja con las demás, sin pasar datos de un lado a otro.',
+    navLabel: 'Partes de Solvia',
+    availability: {
+      included: 'Incluido en todos los planes',
+      salesModule: 'Módulo Ventas',
+      inventoryModule: 'Módulo Inventario',
+    },
+    areas: {
+      sales: {
+        name: 'Ventas',
+        title: 'Vende en segundos, desde el celular o la caja',
+        body: 'Busca o escanea el producto, elige si es al contado o fiado y listo. Solvia calcula el total y deja todo anotado.',
+        points: {
+          p1: 'Escanea el código de barras o busca por nombre',
+          p2: 'Al contado con Yape, Plin, efectivo o transferencia',
+          p3: 'Si es fiado, la deuda pasa sola a «Cobranza»',
+          p4: 'Te avisa si vendes algo sin stock y queda anotado',
+        },
       },
-      reminders: {
-        title: 'Recordatorios por WhatsApp',
-        body: 'Solvia le escribe a tu cliente antes y después de la fecha de pago, con un mensaje que puedes escribir a tu manera y un enlace para pagar.',
+      stock: {
+        name: 'Inventario',
+        title: 'Tu stock siempre al día, sin contar a mano',
+        body: 'Cada venta descuenta y cada compra suma. Ves cuánto te queda de cada producto y qué se está acabando.',
+        points: {
+          p1: 'Alertas de lo que se está acabando',
+          p2: 'Historial de movimientos de cada producto',
+          p3: 'Ajustes por conteo, pérdida o daño',
+          p4: 'Cuánto vale tu stock a costo y a precio de venta',
+        },
       },
-      payments: {
-        title: 'Pagos con comprobante',
-        body: 'Anota si te pagó todo o una parte, en efectivo, Yape, Plin o transferencia, y guarda la foto de la captura.',
+      purchases: {
+        name: 'Compras',
+        title: 'Registra lo que te llega de tus proveedores',
+        body: 'Anota cada compra con su costo: tu stock sube solo y tus ganancias se calculan con lo que pagaste.',
+        points: {
+          p1: 'Proveedores con su RUC y WhatsApp',
+          p2: 'Actualiza el costo de tus productos al comprar',
+          p3: 'Guarda el número de factura o boleta',
+        },
       },
-      risk: {
-        title: '¿A quién le fío?',
-        body: 'Solvia te dice quién paga puntual y quién suele atrasarse, para que sepas a quién darle más fiado.',
+      collections: {
+        name: 'Cobranza',
+        title: 'Cobra lo que fías, sin perseguir a nadie',
+        body: 'Anota quién te debe y para cuándo. Solvia le recuerda por WhatsApp y tú solo marcas cuando te paga.',
+        points: {
+          p1: 'Recordatorios automáticos por WhatsApp',
+          p2: 'Pagos parciales con foto del comprobante',
+          p3: 'Quién paga puntual y quién se atrasa',
+          p4: 'Estado de cuenta en PDF para tu cliente',
+        },
       },
       dashboard: {
-        title: 'Resumen de tu negocio',
-        body: 'Cuánto cobraste, cuánto te falta cobrar, quién te debe más y cuánta plata debería entrar esta semana.',
+        name: 'Dashboard',
+        title: 'Entiende tu negocio de un vistazo',
+        body: 'Cuánto cobraste frente al mes pasado, a quién cobrarle primero y cuánta plata debería entrar esta semana.',
+        points: {
+          p1: 'Comparación con el periodo anterior',
+          p2: 'A quién cobrarle primero',
+          p3: 'Lo que vas a cobrar cada semana',
+        },
       },
-      statements: {
-        title: 'Resumen de deuda para tu cliente',
-        body: 'Mándale a tu cliente, en un toque, un PDF con todo lo que te debe y lo que ya te pagó.',
+      reports: {
+        name: 'Reportes',
+        title: 'Reportes en PDF y Excel, sin salir de Solvia',
+        body: 'Elige el reporte y las fechas, míralo en la misma pantalla y descárgalo con un toque para tu contador.',
+        points: {
+          p1: 'Ventas por cliente y por producto',
+          p2: 'Cobros por cliente y medio de pago',
+          p3: 'Stock valorizado y productos por acabarse',
+          p4: 'Cuándo se vendió algo sin stock',
+        },
+      },
+    },
+    mocks: {
+      sales: {
+        title: 'Nueva venta',
+        search: 'Escanea o escribe el producto…',
+        cash: 'Al contado',
+        credit: 'Fiado',
+        charge: 'Cobrar {amount}',
+      },
+      stock: {
+        title: 'Productos',
+        ok: 'Bien',
+        low: 'Por acabarse',
+        out: 'Sin stock',
+        movement: 'Venta #128 · Aceite Primor 1 L · quedan 3',
+      },
+      purchases: {
+        title: 'Nueva compra',
+        invoice: 'Factura F001-2231',
+        total: 'Total de la compra',
+        costs: 'Stock y costos actualizados',
+      },
+      collections: {
+        title: 'Cobranza',
+      },
+      dashboard: {
+        title: 'Dashboard',
+        collected: 'Cobrado este mes',
+        vsLast: '+18% que el mes pasado',
+        first: 'Cobrar primero a',
+        owes: 'Debe S/ 1,547.70',
+        cash: 'Efectivo',
+        transfer: 'Transferencia',
+      },
+      reports: {
+        title: 'Reportes · Cobros por cliente',
+        pdf: 'Ver PDF',
+        excel: 'Ver Excel',
+        download: 'Descargar',
+        customer: 'Cliente',
+        paid: 'Te pagó',
+        payments: 'Pagos',
       },
     },
   },
@@ -233,7 +313,7 @@ export const es = {
     eyebrow: 'Ventas e Inventario',
     title: 'Vende más rápido y nunca te quedes sin stock',
     subtitle:
-      'Súmalos a cualquier plan por un pago extra al mes y te los activamos en el día. Funcionan con tu cobranza: lo que vendes fiado se anota solo en «Me deben».',
+      'Súmalos a cualquier plan por un pago extra al mes y te los activamos en el día. Funcionan con tu cobranza: lo que vendes fiado se anota solo en «Cobranza».',
     sales: {
       name: 'Ventas',
       short: 'Registra lo que vendes, al contado o fiado.',
@@ -241,7 +321,7 @@ export const es = {
       points: {
         quick: 'Registra una venta en segundos, al contado o fiada',
         scanner: 'Busca o escanea el código de barras del producto',
-        credit: 'Si es fiado, la deuda se anota sola en «Me deben»',
+        credit: 'Si es fiado, la deuda se anota sola en «Cobranza»',
         receipts: 'Guarda el número de boleta, factura o nota de venta',
         reports: 'Reportes de ventas por cliente y por producto',
       },

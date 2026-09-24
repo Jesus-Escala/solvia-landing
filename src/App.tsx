@@ -3,12 +3,12 @@ import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
 import { useI18n } from './i18n/useI18n';
 import { Faq } from './sections/Faq';
-import { Features } from './sections/Features';
 import { FinalCta } from './sections/FinalCta';
 import { Hero } from './sections/Hero';
 import { Modules } from './sections/Modules';
 import { HowItWorks } from './sections/HowItWorks';
 import { Pricing } from './sections/Pricing';
+import { Product } from './sections/product/Product';
 import { ProblemSolution } from './sections/ProblemSolution';
 import { TrustStrip } from './sections/TrustStrip';
 
@@ -27,7 +27,7 @@ export function App() {
         <Hero />
         <TrustStrip />
         <ProblemSolution />
-        <Features />
+        <Product />
         <Modules />
         <HowItWorks />
         <Pricing />
