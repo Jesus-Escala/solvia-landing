@@ -1,7 +1,8 @@
 import { Reveal } from '@/ui';
-import { HandCoins, MessageCircle, UserPlus } from 'lucide-react';
+import { HandCoins, UserPlus } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Container } from '../components/Container';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { SectionHeading } from '../components/SectionHeading';
 import { Section } from '../components/Section';
 import { useI18n } from '../i18n/useI18n';
@@ -9,7 +10,7 @@ import { SECTION_IDS } from '../lib/config';
 
 const STEPS: Array<{ key: 'register' | 'remind' | 'collect'; icon: ReactNode }> = [
   { key: 'register', icon: <UserPlus /> },
-  { key: 'remind', icon: <MessageCircle /> },
+  { key: 'remind', icon: <WhatsAppIcon /> },
   { key: 'collect', icon: <HandCoins /> },
 ];
 

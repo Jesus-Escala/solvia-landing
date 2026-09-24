@@ -1,5 +1,6 @@
 import { Badge, cx, Mascot } from '@/ui';
-import { CheckCircle2, Link2, MessageCircle } from 'lucide-react';
+import { CheckCircle2, Link2 } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import { useI18n } from '../i18n/useI18n';
 import { CashFlowChart } from './CashFlowChart';
 import { Drift } from './Drift';
@@ -89,7 +90,7 @@ export function DashboardMock({ className }: { className?: string }) {
             className="animate-pop-in rounded-2xl rounded-tl-sm border border-white/60 bg-[#dcfce7]/95 p-3 text-[#14532d] shadow-pop backdrop-blur-md dark:border-white/10 dark:bg-[#123524]/95 dark:text-[#bbf7d0]"
           >
             <p className="flex items-center gap-1.5 text-[11px] font-semibold">
-              <MessageCircle className="h-3.5 w-3.5" />
+              <WhatsAppIcon className="h-3.5 w-3.5" />
               {t('mock.reminderApp')}
             </p>
             <p className="mt-1 text-xs leading-snug">

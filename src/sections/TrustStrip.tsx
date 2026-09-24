@@ -4,7 +4,6 @@ import {
   Hammer,
   HeartPulse,
   Landmark,
-  MessageCircle,
   Pill,
   Shirt,
   ShoppingBasket,
@@ -15,6 +14,7 @@ import {
 } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Container } from '../components/Container';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { useI18n } from '../i18n/useI18n';
 
 type Industry =
@@ -89,7 +89,7 @@ export function TrustStrip() {
               {t('trust.remindLabel')}
             </span>
             <Chip>
-              <MessageCircle className="text-[#25d366]" />
+              <WhatsAppIcon />
               WhatsApp
             </Chip>
           </div>
