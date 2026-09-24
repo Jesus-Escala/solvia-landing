@@ -267,9 +267,11 @@ export const en: Messages = {
     eyebrow: 'Pricing',
     title: 'Build your plan and pay only for what you use',
     subtitle:
-      'Pick your modules. The more you add, the cheaper each one gets and the more WhatsApp messages, users and customers it includes.',
+      'Pick your modules. The more you add, the cheaper each one gets and the more users, customers and automatic WhatsApp messages it includes.',
     perMonth: '/mo',
     pick: 'Pick your modules',
+    unlimited: 'Unlimited',
+    unlimitedMany: 'Unlimited',
     alwaysIncluded: 'Always included',
     note: 'Reference monthly prices in Peruvian soles. Change your modules whenever you want.',
     billing: {
@@ -321,29 +323,33 @@ export const en: Messages = {
       },
     },
     ladder: {
+      packs:
+        'Need more automatic messages? Add packs of {messages} for {price}. Reminders you send from your own WhatsApp are unlimited in every plan.',
+      manual: 'Manual WhatsApp',
       title: 'The more modules, the better',
       modules: 'Modules',
       count: '{count|# module|# modules}',
       discount: 'Discount',
-      whatsapp: 'WhatsApp per month',
+      whatsapp: 'Automatic WhatsApp',
       users: 'Users',
       customers: 'Customers',
     },
     summary: {
+      manual: '+ unlimited reminders from your own WhatsApp',
       title: 'Your plan',
       saving: 'Module discount ({percent})',
       savingAnnual: 'Module and yearly discount',
       yearly: 'You pay {amount} a year',
-      whatsapp: 'WhatsApp messages a month',
+      whatsapp: 'automatic messages a month',
       users: 'users',
       customers: 'customers',
-      nudge: 'Add one more module to get {percent} off and {whatsapp} WhatsApp messages a month.',
+      nudge: 'Add one more module to get {percent} off and {whatsapp} automatic messages a month.',
       cta: 'I want this plan',
       noCard: 'No card needed: we message you to activate it.',
     },
     free: {
       title: 'Just starting? Try the Free plan',
-      body: 'Collections for up to {customers} customers, 1 user and {whatsapp} WhatsApp messages a month. Add modules as you grow.',
+      body: 'Collections for up to {customers} customers and 1 user, with unlimited reminders from your own WhatsApp. When you want Solvia to send them for you, add modules.',
       cta: 'Start free',
     },
   },
@@ -360,7 +366,7 @@ export const en: Messages = {
       modulesPrice: {
         question: 'How much do the modules cost, and can I remove them?',
         answer:
-          'Each module has its price and they add up: with 2 modules you get 10% off and with all 3, 20%. Paying yearly gives you 2 months free. You can remove a module whenever you want without losing what you recorded.',
+          'Each module has its price and they add up: with 2 modules you get 10% off and with all 3, 15%, plus more users, customers and automatic messages. Paying yearly gives you 2 months free. You can remove a module whenever you want without losing what you recorded.',
       },
       reports: {
         question: 'Can I get reports in Excel or PDF?',
@@ -370,7 +376,7 @@ export const en: Messages = {
       whatsapp: {
         question: 'How are the WhatsApp reminders sent?',
         answer:
-          'Solvia messages your customer on WhatsApp a few days before and after the payment date. You choose how many days and what the message says. Each message has a link to pay.',
+          'In two ways. From your own WhatsApp: Solvia prepares the message and you send it in one tap; unlimited in every plan. Or automatically: Solvia messages your customer before and after the due date. Each plan includes automatic messages a month and you can add packs if you need more.',
       },
       security: {
         question: 'Is my data safe?',
@@ -380,7 +386,7 @@ export const en: Messages = {
       plans: {
         question: 'Which plan suits me?',
         answer:
-          'Start with Collections (or the Free plan if you are just starting) and add Sales or Inventory when you need them. The more modules, the bigger the discount and the more WhatsApp messages.',
+          'Start with Collections (or the Free plan if you are just starting) and add Sales or Inventory when you need them. The more modules, the bigger the discount and the more users and automatic WhatsApp messages.',
       },
       google: {
         question: 'Can I sign in with my Google account?',

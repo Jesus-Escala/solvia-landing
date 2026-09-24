@@ -31,7 +31,9 @@ CI runs `npm ci`, lint, format:check, build.
   HowItWorks, Pricing + `plans.ts`, Faq, FinalCta). The header links follow this order.
 - Pricing is modular and the plan builder is the only place with prices: `plans.ts`
   (`PRICED_MODULES` with what each one includes, `ALLOWANCES` by number of modules — discount,
-  WhatsApp messages, users, customers —, `quote()`, free plan, yearly billing). The backoffice and
+  automatic WhatsApp messages, users, customers —, message packs, `quote()`, free plan,
+  yearly billing). Generous in what costs little (customers, users, manual WhatsApp reminders from
+  the owner phone, unlimited) and measured in what costs money (automatic messages via Meta). The backoffice and
   the app show the same module prices (solvia-admin `MODULE_PRICES`, solvia-app `ModulesOffer`).
 - `src/access/` — request access modal: context/provider (open with an optional plan and/or modules,
   hash deep link `#solicitar-acceso-starter` / `#solicitar-acceso-sales`; checked modules are

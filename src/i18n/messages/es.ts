@@ -268,9 +268,11 @@ export const es = {
     eyebrow: 'Precios',
     title: 'Arma tu plan y paga solo lo que usas',
     subtitle:
-      'Elige tus módulos. Mientras más sumes, más barato te sale cada uno y más mensajes de WhatsApp, usuarios y clientes incluye.',
+      'Elige tus módulos. Mientras más sumes, más barato te sale cada uno y más usuarios, clientes y mensajes automáticos de WhatsApp incluye.',
     perMonth: '/mes',
     pick: 'Elige tus módulos',
+    unlimited: 'Ilimitado',
+    unlimitedMany: 'Ilimitados',
     alwaysIncluded: 'Siempre incluido',
     note: 'Precios referenciales mensuales en soles. Cambias tus módulos cuando quieras.',
     billing: {
@@ -321,30 +323,34 @@ export const es = {
       },
     },
     ladder: {
+      packs:
+        '¿Necesitas más mensajes automáticos? Suma paquetes de {messages} por {price}. Los recordatorios que envías desde tu propio WhatsApp son ilimitados en todos los planes.',
+      manual: 'WhatsApp manual',
       title: 'Mientras más módulos, mejor',
       modules: 'Módulos',
       count: '{count|# módulo|# módulos}',
       discount: 'Descuento',
-      whatsapp: 'WhatsApp al mes',
+      whatsapp: 'WhatsApp automático',
       users: 'Usuarios',
       customers: 'Clientes',
     },
     summary: {
+      manual: '+ recordatorios desde tu WhatsApp ilimitados',
       title: 'Tu plan',
       saving: 'Descuento por módulos ({percent})',
       savingAnnual: 'Descuento por módulos y pago anual',
       yearly: 'Pagas {amount} al año',
-      whatsapp: 'mensajes de WhatsApp al mes',
+      whatsapp: 'mensajes automáticos al mes',
       users: 'usuarios',
       customers: 'clientes',
       nudge:
-        'Suma un módulo más y tendrás {percent} de descuento y {whatsapp} mensajes de WhatsApp al mes.',
+        'Suma un módulo más y tendrás {percent} de descuento y {whatsapp} mensajes automáticos al mes.',
       cta: 'Quiero este plan',
       noCard: 'Sin tarjeta: te escribimos para activarlo.',
     },
     free: {
       title: '¿Recién empiezas? Prueba el plan Gratis',
-      body: 'Cobranza para hasta {customers} clientes, 1 usuario y {whatsapp} mensajes de WhatsApp al mes. Cuando crezcas, sumas módulos.',
+      body: 'Cobranza para hasta {customers} clientes y 1 usuario, con recordatorios ilimitados desde tu WhatsApp. Cuando quieras que Solvia los envíe sola, sumas módulos.',
       cta: 'Empezar gratis',
     },
   },
@@ -361,7 +367,7 @@ export const es = {
       modulesPrice: {
         question: '¿Cuánto cuestan los módulos y puedo quitarlos?',
         answer:
-          'Cada módulo tiene su precio y se suman: con 2 módulos tienes 10% de descuento y con los 3, 20%. Pagando el año tienes 2 meses gratis. Puedes quitar un módulo cuando quieras, sin perder lo que ya registraste.',
+          'Cada módulo tiene su precio y se suman: con 2 módulos tienes 10% de descuento y con los 3, 15%, además de más usuarios, clientes y mensajes automáticos. Pagando el año tienes 2 meses gratis. Puedes quitar un módulo cuando quieras, sin perder lo que ya registraste.',
       },
       reports: {
         question: '¿Puedo sacar reportes en Excel o PDF?',
@@ -371,7 +377,7 @@ export const es = {
       whatsapp: {
         question: '¿Cómo se envían los recordatorios por WhatsApp?',
         answer:
-          'Solvia le avisa solo a tu cliente por WhatsApp unos días antes y después de la fecha de pago. Tú eliges cuántos días y qué dice el mensaje. Cada mensaje trae un enlace para pagar.',
+          'De dos formas. Desde tu propio WhatsApp: Solvia te deja el mensaje listo y tú lo envías con un toque; es ilimitado en todos los planes. O automáticos: Solvia le escribe solo a tu cliente antes y después de la fecha de pago. Cada plan trae mensajes automáticos al mes y puedes sumar paquetes si necesitas más.',
       },
       security: {
         question: '¿Mis datos están seguros?',
@@ -381,7 +387,7 @@ export const es = {
       plans: {
         question: '¿Qué plan me conviene?',
         answer:
-          'Empieza con la Cobranza (o el plan Gratis si recién empiezas) y suma Ventas o Inventario cuando los necesites. Mientras más módulos, más descuento y más mensajes de WhatsApp.',
+          'Empieza con la Cobranza (o el plan Gratis si recién empiezas) y suma Ventas o Inventario cuando los necesites. Mientras más módulos, más descuento, más usuarios y más mensajes automáticos de WhatsApp.',
       },
       google: {
         question: '¿Puedo entrar con mi cuenta de Google?',

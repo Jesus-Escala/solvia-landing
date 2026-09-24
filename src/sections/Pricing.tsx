@@ -22,6 +22,7 @@ import { SECTION_IDS } from '../lib/config';
 import {
   ALLOWANCES,
   FREE_PLAN,
+  MESSAGE_PACK,
   PRICED_MODULES,
   quote,
   type Billing,
@@ -201,7 +202,7 @@ export function Pricing() {
                   {t('pricing.ladder.title')}
                 </p>
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[420px] text-sm">
+                  <table className="w-full min-w-[520px] text-sm">
                     <thead>
                       <tr className="text-left text-xs text-muted">
                         <th className="px-5 py-2.5 font-medium">{t('pricing.ladder.modules')}</th>
@@ -210,6 +211,9 @@ export function Pricing() {
                         </th>
                         <th className="px-3 py-2.5 text-right font-medium">
                           {t('pricing.ladder.whatsapp')}
+                        </th>
+                        <th className="px-3 py-2.5 text-right font-medium">
+                          {t('pricing.ladder.manual')}
                         </th>
                         <th className="px-3 py-2.5 text-right font-medium">
                           {t('pricing.ladder.users')}
@@ -236,14 +240,29 @@ export function Pricing() {
                               {row.discount ? `−${fmt.percent(row.discount)}` : '—'}
                             </td>
                             <td className="px-3 py-2.5 text-right">{fmt.number(row.whatsapp)}</td>
+                            <td className="px-3 py-2.5 text-right">{t('pricing.unlimited')}</td>
                             <td className="px-3 py-2.5 text-right">{fmt.number(row.users)}</td>
-                            <td className="px-5 py-2.5 text-right">{fmt.number(row.customers)}</td>
+                            <td className="px-5 py-2.5 text-right">
+                              {row.customers === null
+                                ? t('pricing.unlimitedMany')
+                                : fmt.number(row.customers)}
+                            </td>
                           </tr>
                         );
                       })}
                     </tbody>
                   </table>
                 </div>
+                <p className="flex items-start gap-2 border-t border-line px-5 py-3 text-xs text-muted">
+                  <MessageCircle
+                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary"
+                    aria-hidden="true"
+                  />
+                  {t('pricing.ladder.packs', {
+                    messages: fmt.number(MESSAGE_PACK.messages),
+                    price: price(MESSAGE_PACK.price),
+                  })}
+                </p>
               </div>
             </fieldset>
           </Reveal>
@@ -311,7 +330,10 @@ export function Pricing() {
                   },
                   {
                     icon: <Users />,
-                    value: fmt.number(current.allowance.customers),
+                    value:
+                      current.allowance.customers === null
+                        ? t('pricing.unlimitedMany')
+                        : fmt.number(current.allowance.customers),
                     label: t('pricing.summary.customers'),
                   },
                 ].map((item) => (
@@ -329,6 +351,8 @@ export function Pricing() {
                   </li>
                 ))}
               </ul>
+
+              <p className="mt-2 text-center text-xs text-muted">{t('pricing.summary.manual')}</p>
 
               {next && (
                 <p className="mt-4 flex items-start gap-2 rounded-2xl bg-accent/15 px-3 py-2.5 text-xs text-ink">
@@ -359,10 +383,7 @@ export function Pricing() {
             <div className="min-w-0 flex-1">
               <p className="text-lg font-semibold text-ink">{t('pricing.free.title')}</p>
               <p className="mt-1 text-sm text-muted">
-                {t('pricing.free.body', {
-                  customers: fmt.number(FREE_PLAN.customers),
-                  whatsapp: fmt.number(FREE_PLAN.whatsapp),
-                })}
+                {t('pricing.free.body', { customers: fmt.number(FREE_PLAN.customers) })}
               </p>
             </div>
             <RequestAccessButton plan="free" variant="secondary" className="w-full sm:w-auto">

@@ -49,20 +49,31 @@ export const PRICED_MODULES: PricedModule[] = [
 export interface Allowance {
   /** Share off the sum of the module prices. */
   discount: number;
+  /**
+   * Automatic WhatsApp messages a month (sent by Solvia; each one has a cost with Meta). Manual
+   * reminders, sent from the owner's own WhatsApp, are unlimited in every plan.
+   */
   whatsapp: number;
   users: number;
-  customers: number;
+  /** null: unlimited (customers cost almost nothing to keep). */
+  customers: number | null;
 }
 
-/** What a plan includes by number of modules (1 = only Cobranza). */
+/**
+ * What a plan includes by number of modules (1 = only Cobranza). Generous in what costs little
+ * (customers, users) and measured in what has a real cost (automatic WhatsApp messages).
+ */
 export const ALLOWANCES: Record<1 | 2 | 3, Allowance> = {
-  1: { discount: 0, whatsapp: 500, users: 2, customers: 300 },
-  2: { discount: 0.1, whatsapp: 1500, users: 4, customers: 1000 },
-  3: { discount: 0.2, whatsapp: 4000, users: 8, customers: 3000 },
+  1: { discount: 0, whatsapp: 150, users: 2, customers: 500 },
+  2: { discount: 0.1, whatsapp: 400, users: 4, customers: 2000 },
+  3: { discount: 0.15, whatsapp: 1000, users: 8, customers: null },
 };
 
-/** The free plan: Cobranza for a small business that is starting. */
-export const FREE_PLAN = { whatsapp: 100, users: 1, customers: 25 };
+/** Extra automatic WhatsApp messages, bought in packs when a plan's allowance is not enough. */
+export const MESSAGE_PACK = { messages: 500, price: 75 };
+
+/** The free plan: Cobranza for a small business that is starting (manual reminders only). */
+export const FREE_PLAN = { whatsapp: 0, users: 1, customers: 25 };
 
 /** Paying the year upfront: 12 months for the price of 10. */
 export const ANNUAL_MONTHS_PAID = 10;
