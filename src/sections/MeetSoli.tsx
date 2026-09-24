@@ -31,7 +31,7 @@ export function MeetSoli() {
               {t('soli.greeting')}
             </p>
           </Drift>
-          <Mascot size={220} mood="happy" title="Soli" className="relative drop-shadow-xl" />
+          <Mascot size={220} mood="happy" title="Bowl" className="relative drop-shadow-xl" />
         </Reveal>
 
         <div>

@@ -173,9 +173,9 @@ export const es = {
     },
   },
   soli: {
-    eyebrow: 'Conoce a Soli',
+    eyebrow: 'Conoce a Bowl',
     title: 'Tu asistente de cobranzas',
-    body: 'Soli es la lechuza de Solvia. Te acompaña desde el primer día para que aproveches cada función sin perderte.',
+    body: 'Bowl es la lechuza de Solvia. Te acompaña desde el primer día para que aproveches cada función sin perderte.',
     greeting: '¡Hola! Te muestro cómo funciona todo.',
     points: {
       tour: {
@@ -188,7 +188,7 @@ export const es = {
       },
       chat: {
         title: 'Asistente por chat',
-        body: 'Pronto podrás preguntarle a Soli sobre tu cobranza.',
+        body: 'Pronto podrás preguntarle a Bowl sobre tu cobranza.',
         badge: 'Próximamente',
       },
     },

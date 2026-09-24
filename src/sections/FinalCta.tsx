@@ -7,7 +7,7 @@ import { Section } from '../components/Section';
 import { useI18n } from '../i18n/useI18n';
 import { LOGIN_URL } from '../lib/config';
 
-/** Closing call to action on a deep teal band with Soli. */
+/** Closing call to action on a deep teal band with Bowl. */
 export function FinalCta() {
   const { t } = useI18n();
 

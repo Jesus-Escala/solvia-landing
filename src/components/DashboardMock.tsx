@@ -24,7 +24,7 @@ export function DashboardMock({ className }: { className?: string }) {
     <figure className={cx('relative mx-auto w-full max-w-lg pt-20', className)}>
       <figcaption className="sr-only">{t('mock.label')}</figcaption>
       <div aria-hidden="true">
-        {/* Soli perches on the top edge of the card, waving. */}
+        {/* Bowl perches on the top edge of the card, waving. */}
         <Mascot
           size={92}
           mood="wave"

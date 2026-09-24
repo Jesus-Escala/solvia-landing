@@ -81,7 +81,7 @@ Vite inlines `VITE_*` values **at build time**.
 
 ### The UI kit (`src/ui`)
 
-`src/ui` is a **subset** of the Solvia UI kit used by the web app and the backoffice. It includes the basic components (`Button`, `IconButton`, `Card`, `Badge`, `Alert`, `Field`, `Modal`, `Popover`, `MenuItems`, `FeedbackProvider`, `PreferencesControls`, `Reveal`, `cx`), the brand (logo and Soli), the theme, the i18n core, the API client and `styles.css`.
+`src/ui` is a **subset** of the Solvia UI kit used by the web app and the backoffice. It includes the basic components (`Button`, `IconButton`, `Card`, `Badge`, `Alert`, `Field`, `Modal`, `Popover`, `MenuItems`, `FeedbackProvider`, `PreferencesControls`, `Reveal`, `cx`), the brand (logo and Bowl), the theme, the i18n core, the API client and `styles.css`.
 
 It also has the phone field, the same files as the web app:
 

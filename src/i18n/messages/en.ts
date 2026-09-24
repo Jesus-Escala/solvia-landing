@@ -171,9 +171,9 @@ export const en: Messages = {
     },
   },
   soli: {
-    eyebrow: 'Meet Soli',
+    eyebrow: 'Meet Bowl',
     title: 'Your collections assistant',
-    body: 'Soli is Solvia’s owl. It is with you from day one so you can make the most of every feature without getting lost.',
+    body: 'Bowl is Solvia’s owl. It is with you from day one so you can make the most of every feature without getting lost.',
     greeting: 'Hi! Let me show you around.',
     points: {
       tour: {
@@ -186,7 +186,7 @@ export const en: Messages = {
       },
       chat: {
         title: 'Chat assistant',
-        body: 'Soon you will be able to ask Soli about your collections.',
+        body: 'Soon you will be able to ask Bowl about your collections.',
         badge: 'Coming soon',
       },
     },

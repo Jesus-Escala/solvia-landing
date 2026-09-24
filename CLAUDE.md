@@ -1,6 +1,6 @@
 # solvia-landing
 
-Public marketing page of Solvia: hero with product mock, features, how it works, Soli, pricing,
+Public marketing page of Solvia: hero with product mock, features, how it works, Bowl, pricing,
 FAQ and the **"Solicitar acceso"** (request access) form. React 19 + TypeScript + Vite 7 +
 Tailwind v4. Spanish by default, English available, light/dark themes, scroll animations.
 
