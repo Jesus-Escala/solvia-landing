@@ -24,15 +24,17 @@ interface Values {
   website: string;
 }
 
-/** Display name of a plan (the same in both languages). */
-const planName = (plan: PlanId) => plan.charAt(0).toUpperCase() + plan.slice(1);
+/** Spanish plan names, as the backoffice shows them. */
+const PLAN_NAMES_ES: Record<PlanId, string> = { free: 'Gratis', starter: 'Básico', pro: 'Negocio' };
 
 /**
  * The message sent to the platform team. The API has no plan field, so the chosen plan goes on the
  * first line (always in Spanish, the language of the backoffice).
  */
 function composeMessage(plan: PlanId | '', message: string) {
-  const lines = [plan ? `Plan de interés: ${planName(plan)}` : '', message.trim()].filter(Boolean);
+  const lines = [plan ? `Plan de interés: ${PLAN_NAMES_ES[plan]}` : '', message.trim()].filter(
+    Boolean,
+  );
   return lines.join('\n');
 }
 

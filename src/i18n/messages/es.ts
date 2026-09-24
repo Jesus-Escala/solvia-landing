@@ -35,23 +35,23 @@ export const es = {
     pricing: 'Precios',
     faq: 'Preguntas',
     login: 'Iniciar sesión',
-    requestAccess: 'Solicitar acceso',
+    requestAccess: 'Probar gratis',
     openMenu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
   },
   hero: {
-    eyebrow: 'Créditos y cobranzas para pequeñas empresas',
+    eyebrow: 'Para bodegas, ferreterías y negocios que fían',
     titleStart: 'Cobra a tiempo,',
     titleHighlight: 'sin perseguir a tus clientes.',
     subtitle:
-      'Solvia envía recordatorios por WhatsApp con link de pago, registra cada abono con su comprobante y te muestra cuánto dinero entrará esta semana.',
-    primaryCta: 'Solicitar acceso',
+      'Anota quién te debe, y Solvia le recuerda por WhatsApp que te pague. Sin cuaderno y sin tener que escribirle tú a cada uno.',
+    primaryCta: 'Quiero probarlo gratis',
     secondaryCta: 'Ver cómo funciona',
     trustLabel: 'Ventajas',
     trust: {
-      activation: 'Te activamos en menos de 24 h',
-      noCard: 'Sin tarjeta',
-      currency: 'En soles (PEN)',
+      activation: 'Gratis para empezar',
+      noCard: 'No instalas nada: funciona en tu celular',
+      currency: 'Te activamos en menos de 24 h',
     },
   },
   mock: {
@@ -61,13 +61,13 @@ export const es = {
     collected: 'Cobrado',
     receivable: 'Por cobrar',
     overdue: 'Vencido',
-    chartTitle: 'Proyección de flujo de caja',
+    chartTitle: 'Lo que te van a pagar cada semana',
     chartLabel: 'Gráfico ilustrativo de cobros por semana con línea de proyección',
     weeks: 'Sem 1,Sem 2,Sem 3,Sem 4,Sem 5,Sem 6',
     riskLow: 'Riesgo bajo',
     reminderApp: 'WhatsApp · recordatorio',
     reminderText: 'Hola Rosa, tu cuota de {amount} vence mañana. Puedes pagar aquí:',
-    reminderLink: 'Link de pago',
+    reminderLink: 'Pagar con Yape',
     toastTitle: 'Pago recibido',
     toastBody: '{name} pagó {amount} con Yape',
   },
@@ -87,7 +87,7 @@ export const es = {
       },
       cash: {
         before: 'No saber cuánto dinero entrará este mes ni quién se está atrasando.',
-        after: 'Proyección de flujo de caja por semana o mes y riesgo por cliente.',
+        after: 'Sabes cuánta plata entra esta semana y quién suele atrasarse.',
       },
     },
   },
@@ -96,12 +96,12 @@ export const es = {
     remindLabel: 'Recuerda por',
     cash: 'Efectivo',
     transfer: 'Transferencia',
-    madeFor: 'Hecho para negocios que venden al crédito',
+    madeFor: 'Hecho para negocios que fían',
   },
   features: {
     eyebrow: 'Funciones',
     title: 'Todo lo que necesitas para cobrar mejor',
-    subtitle: 'Herramientas simples, pensadas para negocios que venden al crédito.',
+    subtitle: 'Simple, en tu celular, pensado para negocios que fían.',
     demo: {
       chatName: 'Bodega San Martín',
       chatOnline: 'en línea',
@@ -127,96 +127,74 @@ export const es = {
     },
     items: {
       receivables: {
-        title: 'Clientes y cuentas por cobrar',
-        body: 'Registra clientes y deudas con fecha de vencimiento. Mira al instante qué está pendiente, parcial, pagado o vencido.',
+        title: 'Quién te debe y cuánto',
+        body: 'Anota cada fiado con la fecha en que te deben pagar. Ves al momento quién te pagó, quién te pagó una parte y quién está atrasado.',
       },
       reminders: {
         title: 'Recordatorios por WhatsApp',
-        body: 'Mensajes automáticos antes y después del vencimiento, con plantillas y variables a tu medida y un link de pago en cada uno.',
+        body: 'Solvia le escribe a tu cliente antes y después de la fecha de pago, con un mensaje que puedes escribir a tu manera y un enlace para pagar.',
       },
       payments: {
         title: 'Pagos con comprobante',
-        body: 'Registra pagos parciales o totales en efectivo, transferencia, Yape/Plin o tarjeta, y adjunta el voucher en imagen o PDF.',
+        body: 'Anota si te pagó todo o una parte, en efectivo, Yape, Plin o transferencia, y guarda la foto de la captura.',
       },
       risk: {
-        title: 'Riesgo por cliente',
-        body: 'Solvia califica a cada cliente con riesgo bajo, medio o alto según cómo paga, para que decidas a quién dar más crédito.',
+        title: '¿A quién le fío?',
+        body: 'Solvia te dice quién paga puntual y quién suele atrasarse, para que sepas a quién darle más fiado.',
       },
       dashboard: {
-        title: 'Panel y flujo de caja',
-        body: 'Proyección por semana o mes, tendencia de cobranza, antigüedad de deudas, principales deudores y distribución de riesgo.',
+        title: 'Resumen de tu negocio',
+        body: 'Cuánto cobraste, cuánto te falta cobrar, quién te debe más y cuánta plata debería entrar esta semana.',
       },
       statements: {
-        title: 'Estados de cuenta en PDF',
-        body: 'Genera el estado de cuenta de cualquier cliente en un clic y recibe un reporte mensual de tu cobranza.',
+        title: 'Resumen de deuda para tu cliente',
+        body: 'Mándale a tu cliente, en un toque, un PDF con todo lo que te debe y lo que ya te pagó.',
       },
     },
   },
   how: {
     eyebrow: 'Cómo funciona',
     title: 'Empieza a cobrar en tres pasos',
-    subtitle: 'Sin instalaciones ni capacitaciones largas.',
+    subtitle: 'No tienes que instalar nada ni saber de computadoras.',
     step: 'Paso {number}',
     steps: {
       register: {
-        title: 'Registra clientes y deudas',
-        body: 'Agrega a tus clientes y lo que te deben, con montos y fechas de vencimiento.',
+        title: 'Anota lo que fías',
+        body: 'Escribe el nombre de tu cliente, cuánto te debe y para cuándo te paga.',
       },
       remind: {
         title: 'Solvia recuerda por WhatsApp',
-        body: 'Cada hora revisa los vencimientos y envía el recordatorio con el link de pago, en los días que tú elijas.',
+        body: 'Solvia le avisa solo a tu cliente, en los días que tú elijas, con un enlace para pagar.',
       },
       collect: {
-        title: 'Registra pagos y mira tu caja',
-        body: 'Anota cada abono con su comprobante; los saldos se actualizan solos y ves tu flujo de caja proyectado.',
-      },
-    },
-  },
-  soli: {
-    eyebrow: 'Conoce a Bowl',
-    title: 'Tu asistente de cobranzas',
-    body: 'Bowl es la lechuza de Solvia. Te acompaña desde el primer día para que aproveches cada función sin perderte.',
-    greeting: '¡Hola! Te muestro cómo funciona todo.',
-    points: {
-      tour: {
-        title: 'Tour guiado',
-        body: 'Un recorrido paso a paso por el panel, clientes, deudas y configuración.',
-      },
-      help: {
-        title: 'Centro de ayuda',
-        body: 'Respuestas claras a las dudas más comunes, siempre a la mano.',
-      },
-      chat: {
-        title: 'Asistente por chat',
-        body: 'Pronto podrás preguntarle a Bowl sobre tu cobranza.',
-        badge: 'Próximamente',
+        title: 'Anota cuando te pagan',
+        body: 'Marca el pago y listo: Solvia descuenta la deuda sola y te dice cuánto te falta cobrar.',
       },
     },
   },
   pricing: {
     eyebrow: 'Precios',
     title: 'Un plan para cada etapa de tu negocio',
-    subtitle:
-      'Empieza gratis y cambia de plan cuando lo necesites. Nuestro equipo activa tu cuenta.',
+    subtitle: 'Empieza gratis. Si tu negocio crece, cambias de plan cuando quieras.',
     perMonth: '/mes',
     recommended: 'Recomendado',
-    note: 'Precios referenciales en soles (PEN), sujetos a cambios.',
+    note: 'Precios mensuales en soles.',
     listLabel: 'Incluye en el plan {plan}',
     plans: {
       free: {
-        name: 'Free',
-        description: 'Para ordenar tus primeras cuentas por cobrar.',
-        cta: 'Solicitar Free',
+        name: 'Gratis',
+        description: 'Para dejar el cuaderno y anotar quién te debe.',
+        cta: 'Empezar gratis',
       },
       starter: {
-        name: 'Starter',
+        name: 'Básico',
         description: 'Para negocios que cobran cada semana.',
-        cta: 'Solicitar Starter',
+        cta: 'Elegir este plan',
       },
       pro: {
-        name: 'Pro',
-        description: 'Para equipos de cobranza con más clientes.',
-        cta: 'Solicitar Pro',
+        name: 'Negocio',
+        description: 'Para negocios con varios vendedores o cobradores.',
+        cta: 'Elegir este plan',
       },
     },
     limits: {
@@ -226,13 +204,13 @@ export const es = {
       reminders: '{count|# recordatorio|# recordatorios} por WhatsApp al mes',
     },
     perks: {
-      payments: 'Pagos con comprobante',
-      dashboard: 'Panel con flujo de caja',
-      templates: 'Plantillas de mensajes personalizadas',
-      risk: 'Riesgo por cliente',
-      statements: 'Estados de cuenta en PDF',
-      roles: 'Roles de administrador y cobrador',
-      monthlyReport: 'Reporte mensual de cobranza',
+      payments: 'Guarda la foto de cada pago',
+      dashboard: 'Resumen de lo que te van a pagar',
+      templates: 'Escribe tus propios mensajes',
+      risk: 'Quién paga puntual y quién se atrasa',
+      statements: 'Resumen de deuda en PDF para tu cliente',
+      roles: 'Tus trabajadores cobran sin ver todo',
+      monthlyReport: 'Resumen de cada mes',
     },
   },
   faq: {
@@ -243,17 +221,17 @@ export const es = {
       whatsapp: {
         question: '¿Cómo se envían los recordatorios por WhatsApp?',
         answer:
-          'Solvia revisa cada hora las deudas por vencer y vencidas, y envía el mensaje según los días que configures antes y después del vencimiento. Tú eliges las plantillas y cada mensaje incluye un link de pago.',
+          'Solvia le avisa solo a tu cliente por WhatsApp unos días antes y después de la fecha de pago. Tú eliges cuántos días y qué dice el mensaje. Cada mensaje trae un enlace para pagar.',
       },
       security: {
         question: '¿Mis datos están seguros?',
         answer:
-          'Cada negocio tiene su información aislada: nadie de otra empresa puede ver tus clientes, deudas ni pagos. Además, dentro de tu equipo puedes asignar roles de administrador o cobrador.',
+          'Sí. Nadie más ve tus clientes ni tus cuentas. Y si tienes trabajadores, puedes dejar que cobren sin que vean todo.',
       },
       plans: {
         question: '¿Qué plan me conviene?',
         answer:
-          'Free es ideal para empezar a ordenar tus cuentas. Si cobras cada semana o trabajas con más clientes, Starter o Pro te dan más recordatorios, usuarios y funciones. Indica el plan que te interesa al solicitar acceso y el equipo de Solvia activará tu cuenta con ese plan. Los precios mostrados son referenciales.',
+          'Empieza con el plan Gratis. Si tienes muchos clientes o varios trabajadores, el Básico o el Negocio te dan más mensajes y usuarios. Puedes cambiar cuando quieras.',
       },
       google: {
         question: '¿Puedo entrar con mi cuenta de Google?',
@@ -263,48 +241,54 @@ export const es = {
       signup: {
         question: '¿Cómo empiezo a usar Solvia?',
         answer:
-          'Solicita acceso con los datos de tu negocio. El equipo de Solvia crea tu cuenta, te contacta por WhatsApp o correo en menos de 24 horas y te entrega una contraseña temporal, que cambiarás al iniciar sesión por primera vez.',
+          'Déjanos tus datos con el botón «Quiero probarlo gratis». Te escribimos por WhatsApp en menos de 24 horas con tu usuario y una clave para entrar. La primera vez que entres, eliges tu propia clave.',
       },
-      currency: {
-        question: '¿En qué moneda trabaja Solvia?',
+      install: {
+        question: '¿Necesito instalar algo?',
         answer:
-          'Solvia está pensado para negocios en Perú: los montos se manejan en soles (PEN). La interfaz está disponible en español e inglés.',
+          'No. Solvia se abre en el navegador de tu celular o computadora, como una página web. Si quieres, puedes agregarlo a la pantalla de tu celular como una app.',
       },
       cancel: {
         question: '¿Puedo cancelar cuando quiera?',
         answer:
-          'Sí. No hay contratos de permanencia: escríbenos para cambiar de plan o dejar de usar Solvia cuando quieras y el equipo de Solvia lo gestiona por ti.',
+          'Sí. No hay contratos: escríbenos cuando quieras cambiar de plan o dejar de usar Solvia.',
+      },
+      customers: {
+        question: '¿Mis clientes tienen que descargar algo?',
+        answer:
+          'No. A tus clientes les llega un mensaje normal de WhatsApp. Si quieren, pagan con Yape o Plin desde el enlace del mensaje.',
       },
     },
   },
   finalCta: {
     title: 'Deja que Solvia se encargue de recordar',
-    body: 'Solicita acceso y te activamos tu cuenta en menos de 24 horas.',
-    primary: 'Solicitar acceso',
+    body: 'Pruébalo gratis. Te activamos tu cuenta en menos de 24 horas.',
+    primary: 'Quiero probarlo gratis',
     secondary: 'Ya tengo cuenta',
   },
   access: {
-    title: 'Solicitar acceso',
-    description: 'Cuéntanos de tu negocio y te activamos la cuenta en menos de 24 horas.',
+    title: 'Prueba Solvia gratis',
+    description:
+      'Déjanos tus datos y te escribimos por WhatsApp en menos de 24 horas para activar tu cuenta.',
     close: 'Cerrar',
     optional: 'opcional',
-    submit: 'Enviar solicitud',
+    submit: 'Enviar mis datos',
     privacy: 'Usaremos tus datos solo para contactarte sobre Solvia.',
     fields: {
       businessName: 'Nombre del negocio',
       contactName: 'Tu nombre',
-      email: 'Correo',
+      email: 'Correo (lo usarás para entrar)',
       phone: 'Teléfono / WhatsApp',
       phoneHint: 'Elige el país; te escribiremos por WhatsApp a este número.',
-      industry: 'Rubro',
-      plan: 'Plan de interés',
-      planPlaceholder: 'Aún no lo sé',
-      message: 'Mensaje',
+      industry: '¿Qué tipo de negocio tienes?',
+      plan: '¿Qué plan te interesa?',
+      planPlaceholder: 'Aún no sé (lo decido después)',
+      message: '¿Algo que quieras contarnos?',
       messagePlaceholder: 'Cuéntanos cuántos clientes tienes o qué te gustaría resolver.',
       messageCount: '{count}/{max} caracteres',
     },
     industries: {
-      placeholder: 'Selecciona tu rubro',
+      placeholder: 'Elige uno',
       grocery: 'Bodega o minimarket',
       hardware: 'Ferretería',
       wholesale: 'Distribuidora o mayorista',
@@ -318,7 +302,7 @@ export const es = {
       construction: 'Construcción',
       transport: 'Transporte y logística',
       other: 'Otro',
-      otherPlaceholder: 'Escribe tu rubro',
+      otherPlaceholder: 'Escribe tu tipo de negocio',
     },
     errors: {
       length: 'Escribe entre 2 y 120 caracteres',
@@ -334,7 +318,7 @@ export const es = {
   },
   footer: {
     description:
-      'Créditos y cobranzas para pequeñas empresas en Perú: recordatorios por WhatsApp, pagos con comprobante y flujo de caja.',
+      'Anota lo que fías y Solvia le recuerda a tu cliente por WhatsApp. Para bodegas, ferreterías y negocios del Perú.',
     product: 'Producto',
     account: 'Cuenta',
     rights: '© {year} Solvia. Todos los derechos reservados.',

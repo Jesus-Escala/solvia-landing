@@ -7,12 +7,13 @@ import { SECTION_IDS } from '../lib/config';
 
 const QUESTIONS = [
   'signup',
+  'install',
   'whatsapp',
+  'customers',
   'security',
   'plans',
-  'google',
-  'currency',
   'cancel',
+  'google',
 ] as const;
 
 export function Faq() {

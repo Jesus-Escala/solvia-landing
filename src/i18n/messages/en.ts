@@ -33,23 +33,23 @@ export const en: Messages = {
     pricing: 'Pricing',
     faq: 'FAQ',
     login: 'Sign in',
-    requestAccess: 'Request access',
+    requestAccess: 'Try it free',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
   },
   hero: {
-    eyebrow: 'Credit & collections for small businesses',
+    eyebrow: 'For corner shops, hardware stores and any business that sells on credit',
     titleStart: 'Get paid on time,',
     titleHighlight: 'without chasing your customers.',
     subtitle:
-      'Solvia sends WhatsApp reminders with a payment link, records every payment with its proof and shows you how much cash is coming in this week.',
-    primaryCta: 'Request access',
+      'Write down who owes you, and Solvia reminds them on WhatsApp to pay. No notebook, and no messaging each customer yourself.',
+    primaryCta: 'I want to try it free',
     secondaryCta: 'See how it works',
     trustLabel: 'Highlights',
     trust: {
-      activation: 'Activated in under 24 h',
-      noCard: 'No card required',
-      currency: 'In soles (PEN)',
+      activation: 'Free to start',
+      noCard: 'Nothing to install: works on your phone',
+      currency: 'Activated in under 24 h',
     },
   },
   mock: {
@@ -59,13 +59,13 @@ export const en: Messages = {
     collected: 'Collected',
     receivable: 'Receivable',
     overdue: 'Overdue',
-    chartTitle: 'Cash-flow projection',
+    chartTitle: 'What you will be paid each week',
     chartLabel: 'Illustrative chart of weekly collections with a projection line',
     weeks: 'Wk 1,Wk 2,Wk 3,Wk 4,Wk 5,Wk 6',
     riskLow: 'Low risk',
     reminderApp: 'WhatsApp · reminder',
     reminderText: 'Hi Rosa, your {amount} installment is due tomorrow. You can pay here:',
-    reminderLink: 'Payment link',
+    reminderLink: 'Pay with Yape',
     toastTitle: 'Payment received',
     toastBody: '{name} paid {amount} via Yape',
   },
@@ -125,95 +125,74 @@ export const en: Messages = {
     },
     items: {
       receivables: {
-        title: 'Customers & receivables',
-        body: 'Track customers and debts with due dates. See at a glance what is pending, partial, paid or overdue.',
+        title: 'Who owes you and how much',
+        body: 'Write down each sale on credit with the date they should pay. See at once who paid, who paid part and who is late.',
       },
       reminders: {
         title: 'WhatsApp reminders',
-        body: 'Automatic messages before and after the due date, with your own templates and variables and a payment link in each one.',
+        body: 'Solvia messages your customer before and after the payment date, with a text you can write your way and a link to pay.',
       },
       payments: {
-        title: 'Payments with proof',
-        body: 'Record partial or full payments by cash, transfer, Yape/Plin or card, and attach the voucher as an image or PDF.',
+        title: 'Payments with a photo',
+        body: 'Note whether they paid all or part, in cash, Yape, Plin or transfer, and keep the photo of the receipt.',
       },
       risk: {
-        title: 'Customer risk score',
-        body: 'Solvia rates each customer as low, medium or high risk based on how they pay, so you can decide who gets more credit.',
+        title: 'Who should you trust?',
+        body: 'Solvia tells you who pays on time and who tends to be late, so you know who to give more credit.',
       },
       dashboard: {
-        title: 'Dashboard & cash flow',
-        body: 'Weekly or monthly projection, collection trend, receivables aging, top debtors and risk distribution.',
+        title: 'Your business at a glance',
+        body: 'How much you collected, how much is still owed, who owes the most and how much money should come in this week.',
       },
       statements: {
-        title: 'PDF account statements',
-        body: 'Generate any customer’s account statement in one click and get a monthly collections report.',
+        title: 'Debt summary for your customer',
+        body: 'Send your customer, in one tap, a PDF with everything they owe and what they already paid.',
       },
     },
   },
   how: {
     eyebrow: 'How it works',
     title: 'Start collecting in three steps',
-    subtitle: 'No installs, no lengthy training.',
+    subtitle: 'Nothing to install and no computer skills needed.',
     step: 'Step {number}',
     steps: {
       register: {
-        title: 'Add customers and debts',
-        body: 'Add your customers and what they owe you, with amounts and due dates.',
+        title: 'Write down what you sell on credit',
+        body: 'Type your customer’s name, how much they owe and when they will pay.',
       },
       remind: {
         title: 'Solvia reminds them on WhatsApp',
-        body: 'Every hour it checks due dates and sends the reminder with a payment link, on the days you choose.',
+        body: 'Solvia reminds your customer on its own, on the days you choose, with a link to pay.',
       },
       collect: {
-        title: 'Record payments, watch your cash',
-        body: 'Log each payment with its proof; balances update on their own and you see your projected cash flow.',
-      },
-    },
-  },
-  soli: {
-    eyebrow: 'Meet Bowl',
-    title: 'Your collections assistant',
-    body: 'Bowl is Solvia’s owl. It is with you from day one so you can make the most of every feature without getting lost.',
-    greeting: 'Hi! Let me show you around.',
-    points: {
-      tour: {
-        title: 'Guided tour',
-        body: 'A step-by-step walkthrough of the dashboard, customers, debts and settings.',
-      },
-      help: {
-        title: 'Help center',
-        body: 'Clear answers to the most common questions, always at hand.',
-      },
-      chat: {
-        title: 'Chat assistant',
-        body: 'Soon you will be able to ask Bowl about your collections.',
-        badge: 'Coming soon',
+        title: 'Mark it when they pay',
+        body: 'Mark the payment and that’s it: Solvia updates the debt and tells you how much is left to collect.',
       },
     },
   },
   pricing: {
     eyebrow: 'Pricing',
     title: 'A plan for every stage of your business',
-    subtitle: 'Start free and switch plans whenever you need. Our team activates your account.',
+    subtitle: 'Start free. If your business grows, switch plans whenever you want.',
     perMonth: '/mo',
     recommended: 'Recommended',
-    note: 'Reference prices in Peruvian soles (PEN), subject to change.',
+    note: 'Monthly prices in Peruvian soles.',
     listLabel: 'Included in the {plan} plan',
     plans: {
       free: {
         name: 'Free',
-        description: 'To organize your first receivables.',
-        cta: 'Request Free',
+        description: 'To ditch the notebook and track who owes you.',
+        cta: 'Start free',
       },
       starter: {
-        name: 'Starter',
+        name: 'Basic',
         description: 'For businesses that collect every week.',
-        cta: 'Request Starter',
+        cta: 'Choose this plan',
       },
       pro: {
-        name: 'Pro',
-        description: 'For collection teams with more customers.',
-        cta: 'Request Pro',
+        name: 'Business',
+        description: 'For businesses with several sellers or collectors.',
+        cta: 'Choose this plan',
       },
     },
     limits: {
@@ -223,13 +202,13 @@ export const en: Messages = {
       reminders: '{count} WhatsApp reminders per month',
     },
     perks: {
-      payments: 'Payments with proof',
-      dashboard: 'Cash-flow dashboard',
-      templates: 'Custom message templates',
-      risk: 'Customer risk score',
-      statements: 'PDF account statements',
-      roles: 'Admin and collector roles',
-      monthlyReport: 'Monthly collections report',
+      payments: 'Keep a photo of each payment',
+      dashboard: 'Summary of what you will be paid',
+      templates: 'Write your own messages',
+      risk: 'Who pays on time and who is late',
+      statements: 'PDF debt summary for your customer',
+      roles: 'Your staff collect without seeing everything',
+      monthlyReport: 'Summary of each month',
     },
   },
   faq: {
@@ -238,19 +217,19 @@ export const en: Messages = {
     subtitle: 'These are the ones we hear most often.',
     items: {
       whatsapp: {
-        question: 'How are WhatsApp reminders sent?',
+        question: 'How are the WhatsApp reminders sent?',
         answer:
-          'Every hour Solvia checks upcoming and overdue debts and sends the message on the days you set before and after the due date. You choose the templates, and every message includes a payment link.',
+          'Solvia messages your customer on WhatsApp a few days before and after the payment date. You choose how many days and what the message says. Each message has a link to pay.',
       },
       security: {
         question: 'Is my data safe?',
         answer:
-          'Each business has its own isolated data: no one from another company can see your customers, debts or payments. Within your team you can also assign admin or collector roles.',
+          'Yes. Nobody else sees your customers or your accounts. And if you have staff, they can collect without seeing everything.',
       },
       plans: {
         question: 'Which plan is right for me?',
         answer:
-          'Free is great to get your receivables in order. If you collect every week or work with more customers, Starter or Pro give you more reminders, users and features. Tell us the plan you want when you request access and the Solvia team will activate your account on it. Prices shown are for reference.',
+          'Start with the Free plan. If you have many customers or several staff, Basic or Business give you more messages and users. You can switch whenever you want.',
       },
       google: {
         question: 'Can I sign in with my Google account?',
@@ -258,45 +237,51 @@ export const en: Messages = {
           'Yes. Once your account is active, you can sign in with your email and password or with the Google account of that same email.',
       },
       signup: {
-        question: 'How do I get started with Solvia?',
+        question: 'How do I start using Solvia?',
         answer:
-          'Request access with your business details. The Solvia team creates your account, contacts you by WhatsApp or email within 24 hours and gives you a temporary password, which you will change the first time you sign in.',
+          'Leave us your details with the “I want to try it free” button. We message you on WhatsApp within 24 hours with your user and a password. The first time you sign in, you choose your own password.',
       },
-      currency: {
-        question: 'Which currency does Solvia use?',
+      install: {
+        question: 'Do I need to install anything?',
         answer:
-          'Solvia is built for businesses in Peru: amounts are handled in soles (PEN). The interface is available in Spanish and English.',
+          'No. Solvia opens in the browser of your phone or computer, like a website. If you like, you can add it to your phone’s home screen like an app.',
       },
       cancel: {
         question: 'Can I cancel anytime?',
         answer:
-          'Yes. There are no lock-in contracts: write to us to switch plans or stop using Solvia whenever you want and the Solvia team takes care of it.',
+          'Yes. There are no contracts: write to us whenever you want to switch plans or stop using Solvia.',
+      },
+      customers: {
+        question: 'Do my customers have to download anything?',
+        answer:
+          'No. Your customers get a normal WhatsApp message. If they want, they pay with Yape or Plin from the link in the message.',
       },
     },
   },
   finalCta: {
     title: 'Let Solvia do the reminding',
-    body: 'Request access and we will activate your account within 24 hours.',
-    primary: 'Request access',
+    body: 'Try it free. We activate your account in under 24 hours.',
+    primary: 'I want to try it free',
     secondary: 'I already have an account',
   },
   access: {
-    title: 'Request access',
-    description: 'Tell us about your business and we will activate your account within 24 hours.',
+    title: 'Try Solvia free',
+    description:
+      'Leave us your details and we will message you on WhatsApp within 24 hours to activate your account.',
     close: 'Close',
     optional: 'optional',
-    submit: 'Send request',
+    submit: 'Send my details',
     privacy: 'We will only use your details to contact you about Solvia.',
     fields: {
       businessName: 'Business name',
       contactName: 'Your name',
-      email: 'Email',
+      email: 'Email (you will use it to sign in)',
       phone: 'Phone / WhatsApp',
       phoneHint: "Pick the country; we'll message you on WhatsApp at this number.",
-      industry: 'Industry',
-      plan: 'Plan of interest',
-      planPlaceholder: 'Not sure yet',
-      message: 'Message',
+      industry: 'What kind of business do you have?',
+      plan: 'Which plan interests you?',
+      planPlaceholder: 'Not sure yet (decide later)',
+      message: 'Anything you want to tell us?',
       messagePlaceholder: 'Tell us how many customers you have or what you would like to solve.',
       messageCount: '{count}/{max} characters',
     },
@@ -331,7 +316,7 @@ export const en: Messages = {
   },
   footer: {
     description:
-      'Credit & collections for small businesses in Peru: WhatsApp reminders, payments with proof and cash flow.',
+      'Write down what you sell on credit and Solvia reminds your customer on WhatsApp. For small shops in Peru.',
     product: 'Product',
     account: 'Account',
     rights: '© {year} Solvia. All rights reserved.',

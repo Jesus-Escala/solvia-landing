@@ -7,7 +7,6 @@ import { Features } from './sections/Features';
 import { FinalCta } from './sections/FinalCta';
 import { Hero } from './sections/Hero';
 import { HowItWorks } from './sections/HowItWorks';
-import { MeetSoli } from './sections/MeetSoli';
 import { Pricing } from './sections/Pricing';
 import { ProblemSolution } from './sections/ProblemSolution';
 import { TrustStrip } from './sections/TrustStrip';
@@ -29,7 +28,6 @@ export function App() {
         <ProblemSolution />
         <Features />
         <HowItWorks />
-        <MeetSoli />
         <Pricing />
         <Faq />
         <FinalCta />
