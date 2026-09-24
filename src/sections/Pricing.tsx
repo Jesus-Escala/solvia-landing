@@ -1,4 +1,4 @@
-import { cx, Reveal } from '@/ui';
+import { cx, Mascot, Reveal, WhatsAppIcon, type MascotMood } from '@/ui';
 import {
   ArrowRight,
   Boxes,
@@ -36,6 +36,10 @@ const ICONS: Record<PricedModuleId, ReactNode> = {
   inventory: <Boxes />,
 };
 
+/** Bowl's pose for 1, 2 and 3 modules: calm, waving, flying. */
+const BOWL_MOODS: Record<1 | 2 | 3, MascotMood> = { 1: 'default', 2: 'wave', 3: 'fly' };
+const BOWL_KEYS = { 1: 'one', 2: 'two', 3: 'three' } as const;
+
 /** "S/ 39" without trailing zeros, "S/ 61.20" otherwise. */
 function usePrice() {
   const { fmt } = useI18n();
@@ -57,6 +61,17 @@ export function Pricing() {
 
   const toggle = (id: ModuleId) =>
     setModules((list) => (list.includes(id) ? list.filter((item) => item !== id) : [...list, id]));
+  /** From the tier cards: 1 = only Cobranza, 3 = everything, 2 = keep one optional module. */
+  const chooseCount = (count: 1 | 2 | 3) =>
+    setModules((list) =>
+      count === 1
+        ? []
+        : count === 3
+          ? ['sales', 'inventory']
+          : list.length === 1
+            ? list
+            : ['sales'],
+    );
 
   return (
     <Section id={SECTION_IDS.pricing} labelledBy="pricing-title">
@@ -201,8 +216,20 @@ export function Pricing() {
           <Reveal delay={120} className="lg:sticky lg:top-24">
             <aside
               aria-labelledby="pricing-summary"
-              className="rounded-3xl border border-primary/40 bg-gradient-to-b from-primary-soft to-surface p-6 shadow-[0_28px_56px_-28px_rgba(13,148,136,0.6)] ring-1 ring-primary/20 sm:p-7 dark:shadow-[0_28px_56px_-28px_rgba(0,0,0,0.9)]"
+              className="relative mt-16 rounded-3xl border border-primary/40 bg-gradient-to-b from-primary-soft to-surface p-6 shadow-[0_28px_56px_-28px_rgba(13,148,136,0.6)] ring-1 ring-primary/20 sm:p-7 dark:shadow-[0_28px_56px_-28px_rgba(0,0,0,0.9)]"
             >
+              {/* Bowl perches on the card and cheers more the more modules you pick. */}
+              <div aria-hidden="true" className="absolute -top-16 right-4 flex items-end gap-2">
+                <span
+                  key={`bubble-${current.count}`}
+                  className="animate-pop-in mb-10 max-w-[11rem] rounded-2xl rounded-br-sm border border-line bg-surface px-3 py-2 text-xs font-semibold text-ink shadow-pop"
+                >
+                  {t(`pricing.bowl.${BOWL_KEYS[current.count]}`)}
+                </span>
+                <span key={`bowl-${current.count}`} className="animate-pop-in">
+                  <Mascot size={88} mood={BOWL_MOODS[current.count]} className="drop-shadow-md" />
+                </span>
+              </div>
               <h3 id="pricing-summary" className="text-sm font-semibold text-muted">
                 {t('pricing.summary.title')}
               </h3>
@@ -308,65 +335,89 @@ export function Pricing() {
         </div>
 
         <Reveal delay={120}>
-          {/* The more modules, the better */}
-          <div className="mt-6 overflow-hidden rounded-3xl border border-line bg-surface">
-            <p className="flex items-center gap-2 border-b border-line bg-surface-2 px-5 py-3 text-sm font-semibold text-ink">
+          {/* The more modules, the better: one card per tier, the chosen one stands out */}
+          <div className="mt-10">
+            <p className="flex items-center justify-center gap-2 text-center text-sm font-semibold text-ink">
               <Sparkles className="h-4 w-4 text-primary" aria-hidden="true" />
               {t('pricing.ladder.title')}
             </p>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[560px] text-sm whitespace-nowrap">
-                <thead>
-                  <tr className="text-left text-xs text-muted">
-                    <th className="px-5 py-2.5 font-medium">{t('pricing.ladder.modules')}</th>
-                    <th className="px-3 py-2.5 text-right font-medium">
-                      {t('pricing.ladder.discount')}
-                    </th>
-                    <th className="px-3 py-2.5 text-right font-medium">
-                      {t('pricing.ladder.whatsapp')}
-                    </th>
-                    <th className="px-3 py-2.5 text-right font-medium">
-                      {t('pricing.ladder.manual')}
-                    </th>
-                    <th className="px-3 py-2.5 text-right font-medium">
-                      {t('pricing.ladder.users')}
-                    </th>
-                    <th className="px-5 py-2.5 text-right font-medium">
-                      {t('pricing.ladder.customers')}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {([1, 2, 3] as const).map((count) => {
-                    const row = ALLOWANCES[count];
-                    const active = count === current.count;
-                    return (
-                      <tr
-                        key={count}
-                        className={cx(
-                          'border-t border-line tabular-nums transition',
-                          active && 'bg-primary-soft/60 font-semibold text-ink',
-                        )}
-                      >
-                        <td className="px-5 py-2.5">{t('pricing.ladder.count', { count })}</td>
-                        <td className="px-3 py-2.5 text-right">
-                          {row.discount ? `−${fmt.percent(row.discount)}` : '—'}
-                        </td>
-                        <td className="px-3 py-2.5 text-right">{fmt.number(row.whatsapp)}</td>
-                        <td className="px-3 py-2.5 text-right">{t('pricing.unlimited')}</td>
-                        <td className="px-3 py-2.5 text-right">{fmt.number(row.users)}</td>
-                        <td className="px-5 py-2.5 text-right">
-                          {row.customers === null
-                            ? t('pricing.unlimitedMany')
-                            : fmt.number(row.customers)}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-            <p className="flex items-start gap-2 border-t border-line px-5 py-3 text-xs text-muted">
+            <ul className="mt-5 grid gap-4 sm:grid-cols-3 sm:items-end">
+              {([1, 2, 3] as const).map((count) => {
+                const row = ALLOWANCES[count];
+                const active = count === current.count;
+                return (
+                  <li key={count}>
+                    <button
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => chooseCount(count)}
+                      className={cx(
+                        'relative w-full rounded-3xl border p-5 text-left transition duration-300 ease-(--ease-out)',
+                        active
+                          ? 'border-primary bg-gradient-to-b from-primary-soft to-surface shadow-[0_24px_48px_-24px_rgba(13,148,136,0.55)] ring-2 ring-primary/30 sm:-translate-y-2 sm:py-7'
+                          : 'border-line bg-surface hover:-translate-y-1 hover:border-line-strong hover:shadow-card',
+                      )}
+                    >
+                      {active && (
+                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-[11px] font-bold whitespace-nowrap text-on-primary shadow-sm">
+                          {t('pricing.ladder.yours')}
+                        </span>
+                      )}
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-base font-semibold whitespace-nowrap text-ink">
+                          {t('pricing.ladder.count', { count })}
+                        </span>
+                        <span
+                          className={cx(
+                            'rounded-full px-2.5 py-0.5 text-xs font-bold whitespace-nowrap',
+                            row.discount ? 'bg-accent/25 text-ink' : 'bg-surface-3 text-muted',
+                          )}
+                        >
+                          {row.discount
+                            ? t('pricing.ladder.off', { percent: fmt.percent(row.discount) })
+                            : t('pricing.ladder.noDiscount')}
+                        </span>
+                      </span>
+                      <span className="mt-4 flex items-baseline gap-1.5">
+                        <span className="font-display text-4xl font-bold text-ink tabular-nums">
+                          {fmt.number(row.whatsapp)}
+                        </span>
+                        <span className="text-xs leading-tight text-muted">
+                          {t('pricing.ladder.whatsapp')}
+                        </span>
+                      </span>
+                      <span className="mt-4 block space-y-2 border-t border-line/70 pt-4 text-sm">
+                        {[
+                          {
+                            icon: <WhatsAppIcon className="h-4 w-4" />,
+                            text: t('pricing.ladder.manualValue'),
+                          },
+                          {
+                            icon: <UserRound className="h-4 w-4 text-primary" />,
+                            text: t('pricing.ladder.usersValue', { count: row.users }),
+                          },
+                          {
+                            icon: <Users className="h-4 w-4 text-primary" />,
+                            text:
+                              row.customers === null
+                                ? t('pricing.ladder.customersUnlimited')
+                                : t('pricing.ladder.customersValue', {
+                                    count: fmt.number(row.customers),
+                                  }),
+                          },
+                        ].map((item) => (
+                          <span key={item.text} className="flex items-center gap-2 text-ink">
+                            {item.icon}
+                            {item.text}
+                          </span>
+                        ))}
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+            <p className="mt-4 flex items-start justify-center gap-2 text-center text-xs text-muted">
               <MessageCircle
                 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary"
                 aria-hidden="true"
