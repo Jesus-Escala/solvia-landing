@@ -30,12 +30,10 @@ export function Hero() {
           <h1
             id="hero-title"
             style={enter(80)}
-            className="animate-page-in mt-5 text-4xl leading-[1.08] font-extrabold tracking-tight text-balance sm:text-5xl lg:text-6xl"
+            className="animate-page-in mt-5 text-[2.6rem] leading-[1.04] font-semibold text-balance sm:text-6xl lg:text-7xl"
           >
             {t('hero.titleStart')}{' '}
-            <span className="bg-gradient-to-r from-[#0f766e] via-[#0d9488] to-[#d97706] bg-clip-text text-transparent dark:from-[#5eead4] dark:via-[#2dd4bf] dark:to-[#fbbf24]">
-              {t('hero.titleHighlight')}
-            </span>
+            <span className="marker text-primary">{t('hero.titleHighlight')}</span>
           </h1>
           <p
             style={enter(160)}

@@ -190,10 +190,10 @@ export const es = {
       },
     },
     limits: {
-      customers: 'Hasta {count} clientes',
-      users: 'Hasta {count} usuarios',
+      customers: 'Hasta {count|# cliente|# clientes}',
+      users: 'Hasta {count|# usuario|# usuarios}',
       singleUser: '1 usuario',
-      reminders: '{count} recordatorios por WhatsApp al mes',
+      reminders: '{count|# recordatorio|# recordatorios} por WhatsApp al mes',
     },
     perks: {
       payments: 'Pagos con comprobante',

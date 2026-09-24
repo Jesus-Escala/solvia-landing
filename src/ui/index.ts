@@ -74,3 +74,4 @@ export {
   type Query,
   type TokenStore,
 } from './lib/http';
+export { PaperBackdrop } from './components/PaperBackdrop';

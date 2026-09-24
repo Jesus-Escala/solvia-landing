@@ -187,8 +187,8 @@ export const en: Messages = {
       },
     },
     limits: {
-      customers: 'Up to {count} customers',
-      users: 'Up to {count} users',
+      customers: 'Up to {count|# customer|# customers}',
+      users: 'Up to {count|# user|# users}',
       singleUser: '1 user',
       reminders: '{count} WhatsApp reminders per month',
     },

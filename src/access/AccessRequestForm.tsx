@@ -122,7 +122,7 @@ export function AccessRequestForm({
     return (
       <div role="status" className="flex flex-col items-center py-4 text-center">
         <Mascot size={120} mood="happy" className="drop-shadow-lg" />
-        <h3 className="mt-4 text-xl font-bold tracking-tight text-ink">
+        <h3 className="mt-4 font-display text-2xl font-semibold text-ink">
           {t('access.success.title')}
         </h3>
         <p className="mt-2 max-w-sm text-sm text-pretty text-muted">{t('access.success.body')}</p>
