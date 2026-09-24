@@ -5,7 +5,6 @@ import { useI18n } from './i18n/useI18n';
 import { Faq } from './sections/Faq';
 import { FinalCta } from './sections/FinalCta';
 import { Hero } from './sections/Hero';
-import { Modules } from './sections/Modules';
 import { HowItWorks } from './sections/HowItWorks';
 import { Pricing } from './sections/Pricing';
 import { Product } from './sections/product/Product';
@@ -28,7 +27,6 @@ export function App() {
         <TrustStrip />
         <ProblemSolution />
         <Product />
-        <Modules />
         <HowItWorks />
         <Pricing />
         <Faq />

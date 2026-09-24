@@ -1,12 +1,13 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { CTA_ICON_CLASS, ctaClass, type CtaSize, type CtaVariant } from '../components/ctaStyles';
-import type { ModuleId, PlanId } from '../sections/plans';
+import type { Billing, ModuleId, PlanId } from '../sections/plans';
 import { useAccessRequest } from './accessRequestContext';
 
 /** CTA that opens the request access form (optionally with a plan or modules preselected). */
 export function RequestAccessButton({
   plan,
   modules,
+  billing,
   variant = 'primary',
   size = 'md',
   icon,
@@ -17,6 +18,7 @@ export function RequestAccessButton({
 }: ButtonHTMLAttributes<HTMLButtonElement> & {
   plan?: PlanId;
   modules?: ModuleId[];
+  billing?: Billing;
   variant?: CtaVariant;
   size?: CtaSize;
   icon?: ReactNode;
@@ -29,7 +31,7 @@ export function RequestAccessButton({
       className={ctaClass(variant, size, className)}
       onClick={(event) => {
         onClick?.(event);
-        open({ ...(plan && { plan }), ...(modules && { modules }) });
+        open({ ...(plan && { plan }), ...(modules && { modules }), ...(billing && { billing }) });
       }}
       {...props}
     >

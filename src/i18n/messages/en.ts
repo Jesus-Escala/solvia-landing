@@ -31,7 +31,6 @@ export const en: Messages = {
     features: 'Features',
     howItWorks: 'How it works',
     pricing: 'Pricing',
-    modules: 'Modules',
     faq: 'FAQ',
     login: 'Sign in',
     requestAccess: 'Try it free',
@@ -266,87 +265,87 @@ export const en: Messages = {
   },
   pricing: {
     eyebrow: 'Pricing',
-    title: 'A plan for every stage of your business',
+    title: 'Build your plan and pay only for what you use',
     subtitle:
-      'Start free with collections and add Sales and Inventory when your business needs them.',
+      'Pick your modules. The more you add, the cheaper each one gets and the more WhatsApp messages, users and customers it includes.',
     perMonth: '/mo',
-    recommended: 'Recommended',
-    note: 'Monthly prices in Peruvian soles.',
-    modulesLink: 'Do you sell or keep stock? Add Sales and Inventory.',
-    listLabel: 'Included in the {plan} plan',
-    plans: {
-      free: {
-        name: 'Free',
-        description: 'To ditch the notebook and track who owes you.',
-        cta: 'Start free',
+    pick: 'Pick your modules',
+    alwaysIncluded: 'Always included',
+    note: 'Reference monthly prices in Peruvian soles. Change your modules whenever you want.',
+    billing: {
+      label: 'Billing',
+      monthly: 'Monthly',
+      annual: 'Yearly',
+      annualBadge: '2 months free',
+    },
+    modules: {
+      collections: {
+        name: 'Collections',
+        short: 'Credit and WhatsApp reminders.',
+        description:
+          'The heart of Solvia: record what you give on credit and collect without chasing anyone.',
+        points: {
+          reminders: 'Automatic WhatsApp reminders',
+          payments: 'Payments with a photo of the receipt',
+          risk: 'Who pays on time and who is late',
+          statements: 'PDF account statement for your customer',
+          dashboard: 'Dashboard with what you will collect',
+          reports: 'Payment reports as PDF and Excel',
+        },
       },
-      starter: {
-        name: 'Basic',
-        description: 'For businesses that collect every week.',
-        cta: 'Choose this plan',
+      sales: {
+        name: 'Sales',
+        short: 'Record what you sell, cash or on credit.',
+        description: 'Sell fast from your phone or the counter and keep it all recorded.',
+        points: {
+          quick: 'Sales in seconds, cash or on credit',
+          scanner: 'Scan the barcode or search',
+          credit: 'Credit goes into Collections by itself',
+          receipts: 'Receipt or invoice number',
+          shortage: 'A warning when you sell without stock',
+          reports: 'Sales reports by customer and product',
+        },
       },
-      pro: {
-        name: 'Business',
-        description: 'For businesses with several sellers or collectors.',
-        cta: 'Choose this plan',
+      inventory: {
+        name: 'Inventory',
+        short: 'Purchases, suppliers and stock up to date.',
+        description: 'Know how much of each product is left without counting by hand.',
+        points: {
+          stock: 'Stock that goes down and up by itself',
+          alerts: 'Alerts for what is running low',
+          purchases: 'Purchases that update your costs',
+          suppliers: 'Suppliers one WhatsApp tap away',
+          adjustments: 'Adjustments for counts, losses or damage',
+          reports: 'Stock value report',
+        },
       },
     },
-    limits: {
-      customers: 'Up to {count|# customer|# customers}',
-      users: 'Up to {count|# user|# users}',
-      singleUser: '1 user',
-      reminders: '{count} WhatsApp reminders per month',
+    ladder: {
+      title: 'The more modules, the better',
+      modules: 'Modules',
+      count: '{count|# module|# modules}',
+      discount: 'Discount',
+      whatsapp: 'WhatsApp per month',
+      users: 'Users',
+      customers: 'Customers',
     },
-    perks: {
-      payments: 'Keep a photo of each payment',
-      dashboard: 'Summary of what you will be paid',
-      templates: 'Write your own messages',
-      risk: 'Who pays on time and who is late',
-      statements: 'PDF debt summary for your customer',
-      roles: 'Your staff collect without seeing everything',
-      reports: 'PDF and Excel reports, right inside Solvia',
-      monthlyReport: 'Summary of each month',
+    summary: {
+      title: 'Your plan',
+      saving: 'Module discount ({percent})',
+      savingAnnual: 'Module and yearly discount',
+      yearly: 'You pay {amount} a year',
+      whatsapp: 'WhatsApp messages a month',
+      users: 'users',
+      customers: 'customers',
+      nudge: 'Add one more module to get {percent} off and {whatsapp} WhatsApp messages a month.',
+      cta: 'I want this plan',
+      noCard: 'No card needed: we message you to activate it.',
     },
-  },
-  modules: {
-    eyebrow: 'Sales and Inventory',
-    title: 'Sell faster and never run out of stock',
-    subtitle:
-      'Add them to any plan for an extra monthly fee and we turn them on the same day. They work with your collections: what you sell on credit goes into what you are owed.',
-    sales: {
-      name: 'Sales',
-      short: 'Record what you sell, cash or on credit.',
-      description:
-        'Sell fast from your phone or the counter and keep everything recorded with no effort.',
-      points: {
-        quick: 'Record a sale in seconds, cash or on credit',
-        scanner: 'Search or scan the product barcode',
-        credit: 'On credit, the debt goes into “Collections” on its own',
-        receipts: 'Keep the receipt or invoice number',
-        reports: 'Sales reports by customer and by product',
-      },
-      cta: 'I want Sales',
+    free: {
+      title: 'Just starting? Try the Free plan',
+      body: 'Collections for up to {customers} customers, 1 user and {whatsapp} WhatsApp messages a month. Add modules as you grow.',
+      cta: 'Start free',
     },
-    inventory: {
-      name: 'Inventory',
-      short: 'Purchases, suppliers and stock up to date.',
-      description:
-        'Know how much of each product you have left without counting by hand every day.',
-      points: {
-        stock: 'Stock goes down with each sale and up with each purchase',
-        purchases: 'Record what arrives and update your costs',
-        suppliers: 'Your suppliers one WhatsApp tap away',
-        alerts: 'It tells you which products are running low',
-        traceability: 'You know when something was sold without stock, to balance your books',
-      },
-      cta: 'I want Inventory',
-    },
-    bundle: {
-      title: 'Both for {price} a month',
-      body: 'Sales and Inventory work together: every sale takes stock out. You save {saving} a month.',
-      cta: 'I want both',
-    },
-    note: 'Every report opens as PDF or Excel inside Solvia and downloads in one tap. You can remove a module whenever you want.',
   },
   faq: {
     eyebrow: 'FAQ',
@@ -361,7 +360,7 @@ export const en: Messages = {
       modulesPrice: {
         question: 'How much do the modules cost, and can I remove them?',
         answer:
-          'Each module is an extra monthly fee on top of your plan, and both together cost less. We turn them on the same day and you can remove them whenever you want without losing what you recorded.',
+          'Each module has its price and they add up: with 2 modules you get 10% off and with all 3, 20%. Paying yearly gives you 2 months free. You can remove a module whenever you want without losing what you recorded.',
       },
       reports: {
         question: 'Can I get reports in Excel or PDF?',
@@ -379,9 +378,9 @@ export const en: Messages = {
           'Yes. Nobody else sees your customers or your accounts. And if you have staff, they can collect without seeing everything.',
       },
       plans: {
-        question: 'Which plan is right for me?',
+        question: 'Which plan suits me?',
         answer:
-          'Start with the Free plan. If you have many customers or several staff, Basic or Business give you more messages and users. You can switch whenever you want.',
+          'Start with Collections (or the Free plan if you are just starting) and add Sales or Inventory when you need them. The more modules, the bigger the discount and the more WhatsApp messages.',
       },
       google: {
         question: 'Can I sign in with my Google account?',
@@ -431,12 +430,17 @@ export const en: Messages = {
       phone: 'Phone / WhatsApp',
       phoneHint: "Pick the country; we'll message you on WhatsApp at this number.",
       industry: 'What kind of business do you have?',
-      plan: 'Which plan interests you?',
+      plan: 'How do you want to start?',
       modules: 'Would you like to add a module?',
       planPlaceholder: 'Not sure yet (decide later)',
       message: 'Anything you want to tell us?',
       messagePlaceholder: 'Tell us how many customers you have or what you would like to solve.',
       messageCount: '{count}/{max} characters',
+    },
+    starts: {
+      free: 'With the Free plan',
+      monthly: 'Paying monthly',
+      annual: 'Paying yearly (2 months free)',
     },
     industries: {
       placeholder: 'Select your industry',

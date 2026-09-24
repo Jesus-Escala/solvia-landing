@@ -67,6 +67,7 @@ export function AccessRequestProvider({ children }: { children: ReactNode }) {
           key={session}
           initialPlan={preset.plan}
           initialModules={preset.modules ?? []}
+          {...(preset.billing && { initialBilling: preset.billing })}
           onSent={() => setSent(true)}
           onClose={close}
         />

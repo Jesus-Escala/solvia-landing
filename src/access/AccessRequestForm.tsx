@@ -12,7 +12,13 @@ import { Check, Send } from 'lucide-react';
 import { useRef, useState, type FormEvent } from 'react';
 import { useI18n } from '../i18n/useI18n';
 import { api } from '../lib/api';
-import { ADD_ONS, PLANS, type ModuleId, type PlanId } from '../sections/plans';
+import {
+  OPTIONAL_MODULES,
+  quote,
+  type Billing,
+  type ModuleId,
+  type PlanId,
+} from '../sections/plans';
 import { IndustrySelect } from './IndustrySelect';
 
 const MESSAGE_MAX = 1000;
@@ -27,36 +33,47 @@ interface Values {
   email: string;
   phone: string;
   industry: string;
-  plan: PlanId | '';
+  start: Start;
   modules: ModuleId[];
   message: string;
   /** Honeypot: people never see it, bots tend to fill it. */
   website: string;
 }
 
+/** How the business wants to start: the free plan or paying monthly / yearly (or not sure yet). */
+type Start = '' | 'free' | Billing;
+const STARTS: Exclude<Start, ''>[] = ['free', 'monthly', 'annual'];
+
 /** Spanish plan names, as the backoffice shows them. */
 const PLAN_NAMES_ES: Record<PlanId, string> = { free: 'Gratis', starter: 'Básico', pro: 'Negocio' };
+const BILLING_ES: Record<Billing, string> = { monthly: 'pago mensual', annual: 'pago anual' };
 
 /**
- * The message sent to the platform team. The API has no plan field, so the chosen plan goes on the
- * first line (always in Spanish, the language of the backoffice).
+ * The message sent to the platform team. The API has no plan field, so the plan goes on the first
+ * line (always in Spanish, the language of the backoffice): the tier the modules call for, the
+ * billing and the quoted price, e.g. "Plan de interés: Negocio · pago anual · S/ 51.00 al mes".
  */
-function composeMessage(plan: PlanId | '', message: string) {
-  const lines = [plan ? `Plan de interés: ${PLAN_NAMES_ES[plan]}` : '', message.trim()].filter(
-    Boolean,
-  );
-  return lines.join('\n');
+function composeMessage(start: Start, modules: ModuleId[], message: string) {
+  let plan = '';
+  if (start === 'free') plan = `Plan de interés: ${PLAN_NAMES_ES.free}`;
+  else if (start) {
+    const price = quote(modules, start);
+    plan = `Plan de interés: ${PLAN_NAMES_ES[price.tier]} · ${BILLING_ES[start]} · S/ ${price.perMonth.toFixed(2)} al mes`;
+  }
+  return [plan, message.trim()].filter(Boolean).join('\n');
 }
 
 /** "Solicitar acceso" form, shown inside the modal of `AccessRequestProvider`. */
 export function AccessRequestForm({
   initialPlan,
   initialModules = [],
+  initialBilling,
   onSent,
   onClose,
 }: {
   initialPlan?: PlanId;
   initialModules?: ModuleId[];
+  initialBilling?: Billing;
   onSent: () => void;
   onClose: () => void;
 }) {
@@ -69,7 +86,7 @@ export function AccessRequestForm({
     email: '',
     phone: '',
     industry: '',
-    plan: initialPlan ?? '',
+    start: initialPlan === 'free' ? 'free' : (initialBilling ?? ''),
     modules: initialModules,
     message: '',
     website: '',
@@ -93,7 +110,7 @@ export function AccessRequestForm({
     if (!between(values.contactName)) errors.contactName = t('access.errors.length');
     if (!EMAIL_PATTERN.test(values.email.trim())) errors.email = t('access.errors.email');
     if (!isValidPhone(values.phone)) errors.phone = t('access.errors.phone');
-    if (composeMessage(values.plan, values.message).length > MESSAGE_MAX) {
+    if (composeMessage(values.start, values.modules, values.message).length > MESSAGE_MAX) {
       errors.message = t('access.errors.message', { max: MESSAGE_MAX });
     }
     return errors;
@@ -112,7 +129,7 @@ export function AccessRequestForm({
       return;
     }
 
-    const message = composeMessage(values.plan, values.message);
+    const message = composeMessage(values.start, values.modules, values.message);
     setSubmitting(true);
     try {
       await api.public.post<{ ok: true }>('/public/access-requests', {
@@ -238,16 +255,16 @@ export function AccessRequestForm({
           {(id, describedBy) => (
             <select
               id={id}
-              name="plan"
+              name="start"
               className="input"
               aria-describedby={describedBy}
-              value={values.plan}
-              onChange={(event) => set('plan', event.target.value as PlanId | '')}
+              value={values.start}
+              onChange={(event) => set('start', event.target.value as Start)}
             >
               <option value="">{t('access.fields.planPlaceholder')}</option>
-              {PLANS.map((plan) => (
-                <option key={plan.id} value={plan.id}>
-                  {t(`pricing.plans.${plan.id}.name`)}
+              {STARTS.map((start) => (
+                <option key={start} value={start}>
+                  {t(`access.starts.${start}`)}
                 </option>
               ))}
             </select>
@@ -260,11 +277,11 @@ export function AccessRequestForm({
           {t('access.fields.modules')} <span className="font-normal text-subtle">({optional})</span>
         </legend>
         <div className="grid gap-2 sm:grid-cols-2">
-          {ADD_ONS.map((addOn) => {
-            const checked = values.modules.includes(addOn.id);
+          {OPTIONAL_MODULES.map((addOn) => {
+            const checked = values.modules.includes(addOn);
             return (
               <button
-                key={addOn.id}
+                key={addOn}
                 type="button"
                 role="checkbox"
                 aria-checked={checked}
@@ -272,8 +289,8 @@ export function AccessRequestForm({
                   set(
                     'modules',
                     checked
-                      ? values.modules.filter((item) => item !== addOn.id)
-                      : [...values.modules, addOn.id],
+                      ? values.modules.filter((item) => item !== addOn)
+                      : [...values.modules, addOn],
                   )
                 }
                 className={cx(
@@ -294,9 +311,11 @@ export function AccessRequestForm({
                 </span>
                 <span className="min-w-0">
                   <span className="block text-sm font-semibold text-ink">
-                    {t(`modules.${addOn.id}.name`)}
+                    {t(`pricing.modules.${addOn}.name`)}
                   </span>
-                  <span className="block text-xs text-muted">{t(`modules.${addOn.id}.short`)}</span>
+                  <span className="block text-xs text-muted">
+                    {t(`pricing.modules.${addOn}.short`)}
+                  </span>
                 </span>
               </button>
             );

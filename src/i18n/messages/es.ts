@@ -33,7 +33,6 @@ export const es = {
     features: 'Funciones',
     howItWorks: 'Cómo funciona',
     pricing: 'Precios',
-    modules: 'Módulos',
     faq: 'Preguntas',
     login: 'Iniciar sesión',
     requestAccess: 'Probar gratis',
@@ -267,85 +266,87 @@ export const es = {
   },
   pricing: {
     eyebrow: 'Precios',
-    title: 'Un plan para cada etapa de tu negocio',
+    title: 'Arma tu plan y paga solo lo que usas',
     subtitle:
-      'Empieza gratis con la cobranza y suma Ventas e Inventario cuando tu negocio lo pida.',
+      'Elige tus módulos. Mientras más sumes, más barato te sale cada uno y más mensajes de WhatsApp, usuarios y clientes incluye.',
     perMonth: '/mes',
-    recommended: 'Recomendado',
-    note: 'Precios mensuales en soles.',
-    modulesLink: '¿Vendes o manejas stock? Suma Ventas e Inventario.',
-    listLabel: 'Incluye en el plan {plan}',
-    plans: {
-      free: {
-        name: 'Gratis',
-        description: 'Para dejar el cuaderno y anotar quién te debe.',
-        cta: 'Empezar gratis',
+    pick: 'Elige tus módulos',
+    alwaysIncluded: 'Siempre incluido',
+    note: 'Precios referenciales mensuales en soles. Cambias tus módulos cuando quieras.',
+    billing: {
+      label: 'Forma de pago',
+      monthly: 'Mensual',
+      annual: 'Anual',
+      annualBadge: '2 meses gratis',
+    },
+    modules: {
+      collections: {
+        name: 'Cobranza',
+        short: 'Fiados y recordatorios por WhatsApp.',
+        description: 'El corazón de Solvia: anota lo que fías y cobra sin perseguir a nadie.',
+        points: {
+          reminders: 'Recordatorios automáticos por WhatsApp',
+          payments: 'Pagos con foto del comprobante',
+          risk: 'Quién paga puntual y quién se atrasa',
+          statements: 'Estado de cuenta en PDF para tu cliente',
+          dashboard: 'Dashboard con lo que vas a cobrar',
+          reports: 'Reportes de cobros en PDF y Excel',
+        },
       },
-      starter: {
-        name: 'Básico',
-        description: 'Para negocios que cobran cada semana.',
-        cta: 'Elegir este plan',
+      sales: {
+        name: 'Ventas',
+        short: 'Registra lo que vendes, al contado o fiado.',
+        description: 'Vende rápido desde el celular o la caja y deja todo anotado.',
+        points: {
+          quick: 'Ventas en segundos, al contado o fiadas',
+          scanner: 'Escanea el código de barras o busca',
+          credit: 'Lo fiado pasa solo a «Cobranza»',
+          receipts: 'Número de boleta, factura o nota de venta',
+          shortage: 'Aviso cuando vendes sin stock',
+          reports: 'Reportes de ventas por cliente y producto',
+        },
       },
-      pro: {
-        name: 'Negocio',
-        description: 'Para negocios con varios vendedores o cobradores.',
-        cta: 'Elegir este plan',
+      inventory: {
+        name: 'Inventario',
+        short: 'Compras, proveedores y stock al día.',
+        description: 'Sabe cuánto te queda de cada producto sin contar a mano.',
+        points: {
+          stock: 'Stock que baja y sube solo',
+          alerts: 'Alertas de lo que se está acabando',
+          purchases: 'Compras con costo actualizado',
+          suppliers: 'Proveedores a un toque de WhatsApp',
+          adjustments: 'Ajustes por conteo, pérdida o daño',
+          reports: 'Reporte de stock valorizado',
+        },
       },
     },
-    limits: {
-      customers: 'Hasta {count|# cliente|# clientes}',
-      users: 'Hasta {count|# usuario|# usuarios}',
-      singleUser: '1 usuario',
-      reminders: '{count|# recordatorio|# recordatorios} por WhatsApp al mes',
+    ladder: {
+      title: 'Mientras más módulos, mejor',
+      modules: 'Módulos',
+      count: '{count|# módulo|# módulos}',
+      discount: 'Descuento',
+      whatsapp: 'WhatsApp al mes',
+      users: 'Usuarios',
+      customers: 'Clientes',
     },
-    perks: {
-      payments: 'Guarda la foto de cada pago',
-      dashboard: 'Resumen de lo que te van a pagar',
-      templates: 'Escribe tus propios mensajes',
-      risk: 'Quién paga puntual y quién se atrasa',
-      statements: 'Resumen de deuda en PDF para tu cliente',
-      roles: 'Tus trabajadores cobran sin ver todo',
-      reports: 'Reportes en PDF y Excel, sin salir de Solvia',
-      monthlyReport: 'Resumen de cada mes',
+    summary: {
+      title: 'Tu plan',
+      saving: 'Descuento por módulos ({percent})',
+      savingAnnual: 'Descuento por módulos y pago anual',
+      yearly: 'Pagas {amount} al año',
+      whatsapp: 'mensajes de WhatsApp al mes',
+      users: 'usuarios',
+      customers: 'clientes',
+      nudge:
+        'Suma un módulo más y tendrás {percent} de descuento y {whatsapp} mensajes de WhatsApp al mes.',
+      cta: 'Quiero este plan',
+      noCard: 'Sin tarjeta: te escribimos para activarlo.',
     },
-  },
-  modules: {
-    eyebrow: 'Ventas e Inventario',
-    title: 'Vende más rápido y nunca te quedes sin stock',
-    subtitle:
-      'Súmalos a cualquier plan por un pago extra al mes y te los activamos en el día. Funcionan con tu cobranza: lo que vendes fiado se anota solo en «Cobranza».',
-    sales: {
-      name: 'Ventas',
-      short: 'Registra lo que vendes, al contado o fiado.',
-      description: 'Vende rápido desde el celular o la caja y deja todo anotado sin esfuerzo.',
-      points: {
-        quick: 'Registra una venta en segundos, al contado o fiada',
-        scanner: 'Busca o escanea el código de barras del producto',
-        credit: 'Si es fiado, la deuda se anota sola en «Cobranza»',
-        receipts: 'Guarda el número de boleta, factura o nota de venta',
-        reports: 'Reportes de ventas por cliente y por producto',
-      },
-      cta: 'Quiero sumar Ventas',
+    free: {
+      title: '¿Recién empiezas? Prueba el plan Gratis',
+      body: 'Cobranza para hasta {customers} clientes, 1 usuario y {whatsapp} mensajes de WhatsApp al mes. Cuando crezcas, sumas módulos.',
+      cta: 'Empezar gratis',
     },
-    inventory: {
-      name: 'Inventario',
-      short: 'Compras, proveedores y stock al día.',
-      description: 'Sabe cuánto te queda de cada producto sin contar a mano todos los días.',
-      points: {
-        stock: 'El stock baja solo con cada venta y sube con cada compra',
-        purchases: 'Registra lo que te llega y actualiza tus costos',
-        suppliers: 'Tus proveedores a un toque de WhatsApp',
-        alerts: 'Te avisa qué productos se están acabando',
-        traceability: 'Sabes cuándo se vendió algo sin stock, para cuadrar tus cuentas',
-      },
-      cta: 'Quiero sumar Inventario',
-    },
-    bundle: {
-      title: 'Los dos juntos por {price} al mes',
-      body: 'Ventas e Inventario trabajan juntos: cada venta descuenta tu stock. Ahorras {saving} al mes.',
-      cta: 'Quiero los dos',
-    },
-    note: 'Todos los reportes se ven en PDF o Excel sin salir de Solvia, y se descargan con un toque. Puedes quitar un módulo cuando quieras.',
   },
   faq: {
     eyebrow: 'Preguntas frecuentes',
@@ -360,7 +361,7 @@ export const es = {
       modulesPrice: {
         question: '¿Cuánto cuestan los módulos y puedo quitarlos?',
         answer:
-          'Cada módulo cuesta un pago extra al mes sobre tu plan, y los dos juntos salen más baratos. Los activamos en el día y puedes quitarlos cuando quieras, sin perder lo que ya registraste.',
+          'Cada módulo tiene su precio y se suman: con 2 módulos tienes 10% de descuento y con los 3, 20%. Pagando el año tienes 2 meses gratis. Puedes quitar un módulo cuando quieras, sin perder lo que ya registraste.',
       },
       reports: {
         question: '¿Puedo sacar reportes en Excel o PDF?',
@@ -380,7 +381,7 @@ export const es = {
       plans: {
         question: '¿Qué plan me conviene?',
         answer:
-          'Empieza con el plan Gratis. Si tienes muchos clientes o varios trabajadores, el Básico o el Negocio te dan más mensajes y usuarios. Puedes cambiar cuando quieras.',
+          'Empieza con la Cobranza (o el plan Gratis si recién empiezas) y suma Ventas o Inventario cuando los necesites. Mientras más módulos, más descuento y más mensajes de WhatsApp.',
       },
       google: {
         question: '¿Puedo entrar con mi cuenta de Google?',
@@ -430,12 +431,17 @@ export const es = {
       phone: 'Teléfono / WhatsApp',
       phoneHint: 'Elige el país; te escribiremos por WhatsApp a este número.',
       industry: '¿Qué tipo de negocio tienes?',
-      plan: '¿Qué plan te interesa?',
+      plan: '¿Cómo quieres empezar?',
       modules: '¿Quieres sumar algún módulo?',
       planPlaceholder: 'Aún no sé (lo decido después)',
       message: '¿Algo que quieras contarnos?',
       messagePlaceholder: 'Cuéntanos cuántos clientes tienes o qué te gustaría resolver.',
       messageCount: '{count}/{max} caracteres',
+    },
+    starts: {
+      free: 'Con el plan Gratis',
+      monthly: 'Pagando mes a mes',
+      annual: 'Pagando el año (2 meses gratis)',
     },
     industries: {
       placeholder: 'Elige uno',

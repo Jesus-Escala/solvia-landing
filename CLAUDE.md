@@ -27,10 +27,12 @@ CI runs `npm ci`, lint, format:check, build.
 
 - `src/sections/` — page sections in order (Hero, TrustStrip, ProblemSolution, `product/Product`
   (one row per area: Ventas, Inventario, Compras, Cobranza, Dashboard, Reportes, each with an
-  illustrative screen from `product/mocks.tsx` and whether it is included or an add-on), Modules,
-  HowItWorks, Pricing + `plans.ts`, Faq, FinalCta). `plans.ts` also holds the add-on modules
-  (`ADD_ONS`, Ventas and Inventario, extra monthly price, and the bundle price); the backoffice
-  shows the same prices (solvia-admin `MODULE_PRICES`), keep them in sync.
+  illustrative screen from `product/mocks.tsx` and whether it is included or an add-on),
+  HowItWorks, Pricing + `plans.ts`, Faq, FinalCta). The header links follow this order.
+- Pricing is modular and the plan builder is the only place with prices: `plans.ts`
+  (`PRICED_MODULES` with what each one includes, `ALLOWANCES` by number of modules — discount,
+  WhatsApp messages, users, customers —, `quote()`, free plan, yearly billing). The backoffice and
+  the app show the same module prices (solvia-admin `MODULE_PRICES`, solvia-app `ModulesOffer`).
 - `src/access/` — request access modal: context/provider (open with an optional plan and/or modules,
   hash deep link `#solicitar-acceso-starter` / `#solicitar-acceso-sales`; checked modules are
   sent as `modules`), form with client validation mirroring the backend, industry select.

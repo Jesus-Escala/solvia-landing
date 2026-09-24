@@ -28,7 +28,7 @@ export function Hero() {
             {t('hero.eyebrow')}
           </p>
           <a
-            href={`#${SECTION_IDS.modules}`}
+            href={`#${SECTION_IDS.features}`}
             style={enter(40)}
             className="animate-page-in mt-3 flex w-fit items-center gap-2 rounded-full border border-line bg-surface/80 py-1 pr-3 pl-1 text-xs font-medium text-ink shadow-xs backdrop-blur-sm transition hover:border-primary/40 max-lg:mx-auto sm:text-sm"
           >

@@ -1,5 +1,11 @@
 import { createContext, useContext } from 'react';
-import { ADD_ONS, PLANS, type ModuleId, type PlanId } from '../sections/plans';
+import {
+  OPTIONAL_MODULES,
+  PLANS,
+  type Billing,
+  type ModuleId,
+  type PlanId,
+} from '../sections/plans';
 
 /**
  * Deep link that opens the request access form on load, e.g. from the web app's login page:
@@ -18,14 +24,15 @@ export function parseAccessRequestHash(hash: string): AccessRequestPreset | unde
   if (!value.startsWith(`${ACCESS_REQUEST_HASH}-`)) return undefined;
   const plan = PLANS.find((item) => `${ACCESS_REQUEST_HASH}-${item.id}` === value);
   if (plan) return { plan: plan.id };
-  const addOn = ADD_ONS.find((item) => `${ACCESS_REQUEST_HASH}-${item.id}` === value);
-  return addOn ? { modules: [addOn.id] } : {};
+  const addOn = OPTIONAL_MODULES.find((id) => `${ACCESS_REQUEST_HASH}-${id}` === value);
+  return addOn ? { modules: [addOn] } : {};
 }
 
 /** What the form starts with: a plan and/or modules of interest. */
 export interface AccessRequestPreset {
   plan?: PlanId;
   modules?: ModuleId[];
+  billing?: Billing;
 }
 
 export interface AccessRequestValue {
