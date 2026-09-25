@@ -1,6 +1,6 @@
 /**
  * Modular pricing (reference prices in PEN per month). A business builds its plan from modules:
- * Cobranza is always included, Ventas and Inventario are optional. The more modules, the bigger
+ * Cobranza, Ventas and Inventario, any of them alone or together. The more modules, the bigger
  * the discount and the more WhatsApp messages, users and customers are included. There is also a
  * free plan to start. The backoffice and the app show the same module prices (solvia-admin
  * `MODULE_PRICES`, solvia-app `ModulesOffer`); keep them in sync.
@@ -10,17 +10,12 @@
 export type PlanId = 'free' | 'starter' | 'pro';
 export const PLANS: Array<{ id: PlanId }> = [{ id: 'free' }, { id: 'starter' }, { id: 'pro' }];
 
-/** Optional modules (`TenantModule` of the data model). */
-export type ModuleId = 'sales' | 'inventory';
-
-/** Every priced module: Cobranza (always on) plus the optional ones. */
-export type PricedModuleId = 'collections' | ModuleId;
+/** Modules a business can pay for (`TenantModule` of the data model). */
+export type ModuleId = 'collections' | 'sales' | 'inventory';
 
 export interface PricedModule {
-  id: PricedModuleId;
+  id: ModuleId;
   monthlyPrice: number;
-  /** Cobranza cannot be removed: it is the core of Solvia. */
-  required: boolean;
   /** What it includes, in order (`pricing.modules.<id>.points.<key>`). */
   points: string[];
 }
@@ -29,19 +24,16 @@ export const PRICED_MODULES: PricedModule[] = [
   {
     id: 'collections',
     monthlyPrice: 39,
-    required: true,
     points: ['reminders', 'payments', 'risk', 'statements', 'dashboard', 'reports'],
   },
   {
     id: 'sales',
     monthlyPrice: 29,
-    required: false,
     points: ['quick', 'scanner', 'credit', 'receipts', 'shortage', 'reports'],
   },
   {
     id: 'inventory',
     monthlyPrice: 29,
-    required: false,
     points: ['stock', 'alerts', 'purchases', 'suppliers', 'adjustments', 'reports'],
   },
 ];
@@ -60,8 +52,9 @@ export interface Allowance {
 }
 
 /**
- * What a plan includes by number of modules (1 = only Cobranza). Generous in what costs little
- * (customers, users) and measured in what has a real cost (automatic WhatsApp messages).
+ * What a plan includes by number of modules. Generous in what costs little (customers, users)
+ * and measured in what has a real cost (automatic WhatsApp messages, which are Cobranza's
+ * reminders: without Cobranza there are none, see `quote`).
  */
 export const ALLOWANCES: Record<1 | 2 | 3, Allowance> = {
   1: { discount: 0, whatsapp: 150, users: 2, customers: 500 },
@@ -72,7 +65,7 @@ export const ALLOWANCES: Record<1 | 2 | 3, Allowance> = {
 /** Extra automatic WhatsApp messages, bought in packs when a plan's allowance is not enough. */
 export const MESSAGE_PACK = { messages: 500, price: 75 };
 
-/** The free plan: Cobranza for a small business that is starting (manual reminders only). */
+/** The free plan: any module for a small business that is starting (manual reminders only). */
 export const FREE_PLAN = { whatsapp: 0, users: 1, customers: 25 };
 
 /** Paying the year upfront: 12 months for the price of 10. */
@@ -84,17 +77,18 @@ const round2 = (value: number) => Math.round(value * 100) / 100;
 
 /** Price of a set of modules: list price, discount, monthly total and what it includes. */
 export function quote(modules: ModuleId[], billing: Billing) {
-  const chosen = PRICED_MODULES.filter(
-    (module) => module.required || modules.includes(module.id as ModuleId),
-  );
-  const count = chosen.length as 1 | 2 | 3;
-  const allowance = ALLOWANCES[count];
+  const chosen = PRICED_MODULES.filter((module) => modules.includes(module.id));
+  const count = Math.min(3, Math.max(1, chosen.length)) as 1 | 2 | 3;
+  const withCollections = modules.includes('collections');
+  // Automatic messages are Cobranza's reminders: none without it.
+  const allowance = withCollections ? ALLOWANCES[count] : { ...ALLOWANCES[count], whatsapp: 0 };
   const list = chosen.reduce((sum, module) => sum + module.monthlyPrice, 0);
   const monthly = round2(list * (1 - allowance.discount));
   const perMonth = billing === 'annual' ? round2((monthly * ANNUAL_MONTHS_PAID) / 12) : monthly;
   return {
     chosen,
     count,
+    withCollections,
     allowance,
     list,
     /** What the business pays per month (annual billing spread over 12 months). */
@@ -107,5 +101,5 @@ export function quote(modules: ModuleId[], billing: Billing) {
   };
 }
 
-/** The optional modules, in order (request form checkboxes, deep links). */
-export const OPTIONAL_MODULES: ModuleId[] = ['sales', 'inventory'];
+/** The modules, in order (request form checkboxes, deep links). */
+export const MODULE_IDS: ModuleId[] = ['collections', 'sales', 'inventory'];

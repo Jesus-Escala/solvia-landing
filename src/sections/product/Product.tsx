@@ -27,7 +27,7 @@ import {
 type AreaKey = 'sales' | 'stock' | 'purchases' | 'collections' | 'dashboard' | 'reports';
 
 /** `included`: every plan; otherwise the add-on module it belongs to. */
-type Availability = 'included' | 'salesModule' | 'inventoryModule';
+type Availability = 'included' | 'collectionsModule' | 'salesModule' | 'inventoryModule';
 
 const AREAS: Array<{
   key: AreaKey;
@@ -60,14 +60,14 @@ const AREAS: Array<{
   {
     key: 'collections',
     icon: <HandCoins />,
-    availability: 'included',
+    availability: 'collectionsModule',
     mock: <CollectionsMock />,
     points: 4,
   },
   {
     key: 'dashboard',
     icon: <BarChart3 />,
-    availability: 'included',
+    availability: 'collectionsModule',
     mock: <DashboardMock />,
     points: 3,
   },
@@ -85,7 +85,7 @@ const anchor = (key: AreaKey) => `producto-${key}`;
 /**
  * The product, area by area: selling, stock, purchases, collections, dashboard and reports. Each
  * one gets its own row (text + an illustrative screen, alternating sides) and says whether it
- * comes with every plan or with an add-on module. Chips at the top jump to each area.
+ * comes with a module (Cobranza, Ventas, Inventario) or with any of them (reports). Chips at the top jump to each area.
  */
 export function Product() {
   const { t } = useI18n();

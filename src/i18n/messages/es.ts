@@ -130,9 +130,10 @@ export const es = {
       'Vende, controla tu stock, cobra y mira tus números. Cada parte trabaja con las demás, sin pasar datos de un lado a otro.',
     navLabel: 'Partes de Solvia',
     availability: {
-      included: 'Incluido en todos los planes',
+      included: 'Viene con cualquier módulo',
       salesModule: 'Módulo Ventas',
       inventoryModule: 'Módulo Inventario',
+      collectionsModule: 'Módulo Cobranza',
     },
     areas: {
       sales: {
@@ -273,7 +274,6 @@ export const es = {
     pick: 'Elige tus módulos',
     unlimited: 'Ilimitado',
     unlimitedMany: 'Ilimitados',
-    alwaysIncluded: 'Siempre incluido',
     note: 'Precios referenciales mensuales en soles. Cambias tus módulos cuando quieras.',
     billing: {
       label: 'Forma de pago',
@@ -285,7 +285,7 @@ export const es = {
       collections: {
         name: 'Cobranza',
         short: 'Fiados y recordatorios por WhatsApp.',
-        description: 'El corazón de Solvia: anota lo que fías y cobra sin perseguir a nadie.',
+        description: 'Anota lo que fías y cobra sin perseguir a nadie.',
         points: {
           reminders: 'Recordatorios automáticos por WhatsApp',
           payments: 'Pagos con foto del comprobante',
@@ -302,7 +302,7 @@ export const es = {
         points: {
           quick: 'Ventas en segundos, al contado o fiadas',
           scanner: 'Escanea el código de barras o busca',
-          credit: 'Lo fiado pasa solo a «Cobranza»',
+          credit: 'Con Cobranza, lo fiado pasa solo a cobrar',
           receipts: 'Número de boleta, factura o nota de venta',
           shortage: 'Aviso cuando vendes sin stock',
           reports: 'Reportes de ventas por cliente y producto',
@@ -337,7 +337,7 @@ export const es = {
         'Los mensajes automáticos (los que Solvia envía sola) tienen costo, por eso crecen con tus módulos y puedes sumar paquetes de {messages} por {price}. Los que envías tú desde tu celular, con un toque, no tienen costo: son gratis en todos los planes.',
     },
     bowl: {
-      one: 'Buen comienzo: cobra sin perseguir a nadie.',
+      one: 'Buen comienzo: empieza por lo que más necesitas.',
       two: '¡Vas muy bien! 10% menos y más mensajes.',
       three: '¡Todo tu negocio en orden! 15% menos.',
     },
@@ -354,10 +354,13 @@ export const es = {
         'Suma un módulo más y tendrás {percent} de descuento y {whatsapp} mensajes automáticos al mes.',
       cta: 'Quiero este plan',
       noCard: 'Sin tarjeta: te escribimos para activarlo.',
+      noCollections: 'Sin Cobranza no hay mensajes automáticos: son sus recordatorios.',
+      nudgeNoMessages:
+        'Suma un módulo más y tendrás {percent} de descuento, más usuarios y más clientes.',
     },
     free: {
       title: '¿Recién empiezas? Prueba el plan Gratis',
-      body: 'Cobranza para hasta {customers} clientes y 1 usuario, con recordatorios ilimitados desde tu WhatsApp. Cuando quieras que Solvia los envíe sola, sumas módulos.',
+      body: 'Para empezar: el módulo que elijas, hasta {customers} clientes y 1 usuario, con recordatorios desde tu WhatsApp sin costo. Cuando quieras que Solvia los envíe sola, pasas a un plan de pago con Cobranza.',
       cta: 'Empezar gratis',
     },
   },
@@ -394,7 +397,7 @@ export const es = {
       plans: {
         question: '¿Qué plan me conviene?',
         answer:
-          'Empieza con la Cobranza (o el plan Gratis si recién empiezas) y suma Ventas o Inventario cuando los necesites. Mientras más módulos, más descuento, más usuarios y más mensajes automáticos de WhatsApp.',
+          'Elige solo lo que usas: Cobranza, Ventas o Inventario, uno solo o juntos (o el plan Gratis si recién empiezas). Mientras más módulos, más descuento, más usuarios y más clientes; con Cobranza, además, mensajes automáticos de WhatsApp.',
       },
       google: {
         question: '¿Puedo entrar con mi cuenta de Google?',

@@ -12,13 +12,7 @@ import { Check, Send } from 'lucide-react';
 import { useRef, useState, type FormEvent } from 'react';
 import { useI18n } from '../i18n/useI18n';
 import { api } from '../lib/api';
-import {
-  OPTIONAL_MODULES,
-  quote,
-  type Billing,
-  type ModuleId,
-  type PlanId,
-} from '../sections/plans';
+import { MODULE_IDS, quote, type Billing, type ModuleId, type PlanId } from '../sections/plans';
 import { IndustrySelect } from './IndustrySelect';
 
 const MESSAGE_MAX = 1000;
@@ -62,7 +56,8 @@ function composeMessage(start: Start, modules: ModuleId[], message: string) {
   let plan = '';
   if (start === 'free') plan = 'Plan de interés: gratis';
   else if (start) {
-    const price = quote(modules, start);
+    // No module ticked: Cobranza, the usual start.
+    const price = quote(modules.length ? modules : ['collections'], start);
     const names = price.chosen.map((module) => MODULE_NAMES_ES[module.id]).join(' + ');
     plan = `Plan de interés: ${BILLING_ES[start]} · ${names} · S/ ${price.perMonth.toFixed(2)} al mes`;
   }
@@ -282,8 +277,8 @@ export function AccessRequestForm({
         <legend className="label">
           {t('access.fields.modules')} <span className="font-normal text-subtle">({optional})</span>
         </legend>
-        <div className="grid gap-2 sm:grid-cols-2">
-          {OPTIONAL_MODULES.map((addOn) => {
+        <div className="grid gap-2 sm:grid-cols-3">
+          {MODULE_IDS.map((addOn) => {
             const checked = values.modules.includes(addOn);
             return (
               <button

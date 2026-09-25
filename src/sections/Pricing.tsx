@@ -5,7 +5,6 @@ import {
   Check,
   HandCoins,
   Info,
-  Lock,
   MessageCircle,
   ShoppingCart,
   Sparkles,
@@ -23,14 +22,14 @@ import {
   ALLOWANCES,
   FREE_PLAN,
   MESSAGE_PACK,
+  MODULE_IDS,
   PRICED_MODULES,
   quote,
   type Billing,
   type ModuleId,
-  type PricedModuleId,
 } from './plans';
 
-const ICONS: Record<PricedModuleId, ReactNode> = {
+const ICONS: Record<ModuleId, ReactNode> = {
   collections: <HandCoins />,
   sales: <ShoppingCart />,
   inventory: <Boxes />,
@@ -47,30 +46,39 @@ function usePrice() {
 }
 
 /**
- * Modular pricing: pick the modules (Cobranza is always in), monthly or yearly billing, and see
+ * Modular pricing: pick the modules (any, at least one), monthly or yearly billing, and see
  * the total with the discount and what it includes. The more modules, the cheaper each one and
  * the more WhatsApp messages, users and customers. A free plan to start sits below.
  */
 export function Pricing() {
   const { t, fmt } = useI18n();
   const price = usePrice();
-  const [modules, setModules] = useState<ModuleId[]>(['sales']);
+  const [modules, setModules] = useState<ModuleId[]>(['collections', 'sales']);
   const [billing, setBilling] = useState<Billing>('monthly');
   const current = quote(modules, billing);
   const next = current.count < 3 ? ALLOWANCES[(current.count + 1) as 2 | 3] : null;
 
+  // At least one module: the last one chosen stays.
   const toggle = (id: ModuleId) =>
-    setModules((list) => (list.includes(id) ? list.filter((item) => item !== id) : [...list, id]));
-  /** From the tier cards: 1 = only Cobranza, 3 = everything, 2 = keep one optional module. */
+    setModules((list) =>
+      list.includes(id)
+        ? list.length > 1
+          ? list.filter((item) => item !== id)
+          : list
+        : [...list, id],
+    );
+  /** From the tier cards: keep the current choice when it has that many modules. */
   const chooseCount = (count: 1 | 2 | 3) =>
     setModules((list) =>
-      count === 1
-        ? []
+      list.length === count
+        ? list
         : count === 3
-          ? ['sales', 'inventory']
-          : list.length === 1
-            ? list
-            : ['sales'],
+          ? [...MODULE_IDS]
+          : count === 2
+            ? list.length > 2
+              ? ['collections', 'sales']
+              : [...list, MODULE_IDS.find((id) => !list.includes(id))!]
+            : [list[0] ?? 'collections'],
     );
 
   return (
@@ -125,21 +133,23 @@ export function Pricing() {
               <legend className="mb-3 text-sm font-semibold text-ink">{t('pricing.pick')}</legend>
               <ul className="space-y-3">
                 {PRICED_MODULES.map((module) => {
-                  const selected = module.required || modules.includes(module.id as ModuleId);
+                  const selected = modules.includes(module.id);
+                  // The last module chosen cannot be removed.
+                  const locked = selected && modules.length === 1;
                   return (
                     <li key={module.id}>
                       <button
                         type="button"
                         role="checkbox"
                         aria-checked={selected}
-                        aria-disabled={module.required}
-                        onClick={() => !module.required && toggle(module.id as ModuleId)}
+                        aria-disabled={locked}
+                        onClick={() => toggle(module.id)}
                         className={cx(
                           'flex w-full items-start gap-3 rounded-3xl border p-4 text-left transition duration-300 sm:gap-4 sm:p-5',
                           selected
                             ? 'border-primary/50 bg-gradient-to-br from-primary-soft/80 to-surface shadow-card'
                             : 'border-line bg-surface hover:border-line-strong hover:shadow-card',
-                          module.required && 'cursor-default',
+                          locked && 'cursor-default',
                         )}
                       >
                         <span
@@ -156,12 +166,6 @@ export function Pricing() {
                             <span className="text-base font-semibold text-ink">
                               {t(`pricing.modules.${module.id}.name`)}
                             </span>
-                            {module.required && (
-                              <span className="inline-flex items-center gap-1 rounded-full bg-success-soft px-2 py-0.5 text-[11px] font-semibold text-success-ink">
-                                <Lock className="h-3 w-3" aria-hidden="true" />
-                                {t('pricing.alwaysIncluded')}
-                              </span>
-                            )}
                           </span>
                           <span className="mt-0.5 block text-sm font-semibold text-ink tabular-nums sm:hidden">
                             {price(module.monthlyPrice)}
@@ -309,15 +313,23 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <p className="mt-2 text-center text-xs text-muted">{t('pricing.summary.manual')}</p>
+              <p className="mt-2 text-center text-xs text-muted">
+                {current.withCollections
+                  ? t('pricing.summary.manual')
+                  : t('pricing.summary.noCollections')}
+              </p>
 
               {next && (
                 <p className="mt-4 flex items-start gap-2 rounded-2xl bg-accent/15 px-3 py-2.5 text-xs text-ink">
                   <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-                  {t('pricing.summary.nudge', {
-                    percent: fmt.percent(next.discount),
-                    whatsapp: fmt.number(next.whatsapp),
-                  })}
+                  {current.withCollections
+                    ? t('pricing.summary.nudge', {
+                        percent: fmt.percent(next.discount),
+                        whatsapp: fmt.number(next.whatsapp),
+                      })
+                    : t('pricing.summary.nudgeNoMessages', {
+                        percent: fmt.percent(next.discount),
+                      })}
                 </p>
               )}
 

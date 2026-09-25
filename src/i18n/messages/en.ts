@@ -129,9 +129,10 @@ export const en: Messages = {
       'Sell, track your stock, collect and see your numbers. Every part works with the others, with no copying data around.',
     navLabel: 'Parts of Solvia',
     availability: {
-      included: 'Included in every plan',
+      included: 'Comes with any module',
       salesModule: 'Sales module',
       inventoryModule: 'Inventory module',
+      collectionsModule: 'Collections module',
     },
     areas: {
       sales: {
@@ -272,7 +273,6 @@ export const en: Messages = {
     pick: 'Pick your modules',
     unlimited: 'Unlimited',
     unlimitedMany: 'Unlimited',
-    alwaysIncluded: 'Always included',
     note: 'Reference monthly prices in Peruvian soles. Change your modules whenever you want.',
     billing: {
       label: 'Billing',
@@ -284,8 +284,7 @@ export const en: Messages = {
       collections: {
         name: 'Collections',
         short: 'Credit and WhatsApp reminders.',
-        description:
-          'The heart of Solvia: record what you give on credit and collect without chasing anyone.',
+        description: 'Record what you give on credit and collect without chasing anyone.',
         points: {
           reminders: 'Automatic WhatsApp reminders',
           payments: 'Payments with a photo of the receipt',
@@ -302,7 +301,7 @@ export const en: Messages = {
         points: {
           quick: 'Sales in seconds, cash or on credit',
           scanner: 'Scan the barcode or search',
-          credit: 'Credit goes into Collections by itself',
+          credit: 'With Collections, credit sales are collected by themselves',
           receipts: 'Receipt or invoice number',
           shortage: 'A warning when you sell without stock',
           reports: 'Sales reports by customer and product',
@@ -337,7 +336,7 @@ export const en: Messages = {
         'Automatic messages (the ones Solvia sends by itself) have a cost, so they grow with your modules and you can add packs of {messages} for {price}. The ones you send from your phone, in one tap, cost nothing: free in every plan.',
     },
     bowl: {
-      one: 'A good start: collect without chasing anyone.',
+      one: 'Good start: begin with what you need most.',
       two: 'Looking good! 10% off and more messages.',
       three: 'Your whole business in order! 15% off.',
     },
@@ -353,10 +352,12 @@ export const en: Messages = {
       nudge: 'Add one more module to get {percent} off and {whatsapp} automatic messages a month.',
       cta: 'I want this plan',
       noCard: 'No card needed: we message you to activate it.',
+      noCollections: 'Without Collections there are no automatic messages: they are its reminders.',
+      nudgeNoMessages: 'Add one more module and get {percent} off, more users and more customers.',
     },
     free: {
       title: 'Just starting? Try the Free plan',
-      body: 'Collections for up to {customers} customers and 1 user, with unlimited reminders from your own WhatsApp. When you want Solvia to send them for you, add modules.',
+      body: 'To start: the module you choose, up to {customers} customers and 1 user, with reminders from your own WhatsApp at no cost. When you want Solvia to send them for you, move to a paid plan with Collections.',
       cta: 'Start free',
     },
   },
@@ -393,7 +394,7 @@ export const en: Messages = {
       plans: {
         question: 'Which plan suits me?',
         answer:
-          'Start with Collections (or the Free plan if you are just starting) and add Sales or Inventory when you need them. The more modules, the bigger the discount and the more users and automatic WhatsApp messages.',
+          'Choose only what you use: Collections, Sales or Inventory, alone or together (or the Free plan if you are just starting). The more modules, the bigger the discount and the more users and customers; with Collections, automatic WhatsApp messages too.',
       },
       google: {
         question: 'Can I sign in with my Google account?',
