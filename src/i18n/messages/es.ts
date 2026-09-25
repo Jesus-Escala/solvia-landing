@@ -47,8 +47,7 @@ export const es = {
       'Registra tus ventas, cobra lo que fías con recordatorios por WhatsApp y sabe cuánto stock te queda. Todo en un solo lugar y sin cuadernos.',
     primaryCta: 'Quiero probarlo gratis',
     secondaryCta: 'Ver qué incluye',
-    newBadge: 'Nuevo',
-    newText: 'Ventas e Inventario ya disponibles',
+    areas: 'Ventas · Inventario · Compras · Cobranza · Reportes',
     trustLabel: 'Ventajas',
     trust: {
       activation: 'Gratis para empezar',

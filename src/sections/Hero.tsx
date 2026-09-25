@@ -30,12 +30,9 @@ export function Hero() {
           <a
             href={`#${SECTION_IDS.features}`}
             style={enter(40)}
-            className="animate-page-in mt-3 flex w-fit items-center gap-2 rounded-full border border-line bg-surface/80 py-1 pr-3 pl-1 text-xs font-medium text-ink shadow-xs backdrop-blur-sm transition hover:border-primary/40 max-lg:mx-auto sm:text-sm"
+            className="animate-page-in mt-3 flex w-fit items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-1 text-xs font-medium text-ink shadow-xs backdrop-blur-sm transition hover:border-primary/40 max-lg:mx-auto sm:text-sm"
           >
-            <span className="rounded-full bg-primary px-2 py-0.5 text-[11px] font-bold text-on-primary">
-              {t('hero.newBadge')}
-            </span>
-            {t('hero.newText')}
+            {t('hero.areas')}
             <ArrowRight className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
           </a>
           <h1

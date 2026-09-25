@@ -45,8 +45,7 @@ export const en: Messages = {
       'Record your sales, collect what you give on credit with WhatsApp reminders and know how much stock you have left. All in one place, no notebooks.',
     primaryCta: 'I want to try it free',
     secondaryCta: 'See what is included',
-    newBadge: 'New',
-    newText: 'Sales and Inventory now available',
+    areas: 'Sales · Inventory · Purchases · Collections · Reports',
     trustLabel: 'Benefits',
     trust: {
       activation: 'Free to start',
