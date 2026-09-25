@@ -332,6 +332,8 @@ interface ToastLayout {
   offset: number;
   /** The pointer is over the list: every countdown waits. */
   hovered: boolean;
+  /** Where the list lives now (the page, or the open dialog). */
+  host: HTMLElement | null;
 }
 
 /**
@@ -359,6 +361,7 @@ function ToastCard({
   const content = useRef<HTMLDivElement>(null);
   const remaining = useRef(duration);
   const startedAt = useRef(0);
+  const bar = useRef<HTMLSpanElement>(null);
   const paused = layout.hovered || focused || drag !== null;
 
   // Enter on the next frame; the timeout covers background tabs, where frames are paused.
@@ -387,15 +390,32 @@ function ToastCard({
     remaining.current = duration;
   }, [duration, item.version]);
 
+  // The countdown and its bar come from the same remaining time: pausing (hover, focus, drag)
+  // freezes both, and moving the list (into or out of a dialog) carries on where it was.
   useEffect(() => {
-    if (!duration || paused || item.leaving) return;
+    if (!duration || item.leaving) return;
+    const node = bar.current;
+    const left = Math.max(remaining.current, 0);
+    const show = (time: number) => {
+      if (node) node.style.transform = `scaleX(${Math.max(time, 0) / duration})`;
+    };
+    if (paused) {
+      show(left);
+      return;
+    }
     startedAt.current = Date.now();
-    const timer = window.setTimeout(() => onDismiss(item.id), remaining.current);
+    const timer = window.setTimeout(() => onDismiss(item.id), left);
+    const animation = node?.animate(
+      [{ transform: `scaleX(${left / duration})` }, { transform: 'scaleX(0)' }],
+      { duration: left, easing: 'linear', fill: 'forwards' },
+    );
     return () => {
       window.clearTimeout(timer);
+      animation?.cancel();
       remaining.current -= Date.now() - startedAt.current;
+      show(remaining.current);
     };
-  }, [duration, paused, item.id, item.leaving, item.version, onDismiss]);
+  }, [duration, paused, item.id, item.leaving, item.version, onDismiss, layout.host]);
 
   const { index, offset } = layout;
   let transform = `translateY(${offset}px)`;
@@ -488,13 +508,9 @@ function ToastCard({
       {duration > 0 && (
         <span className="absolute inset-x-3 bottom-1 h-[3px] overflow-hidden rounded-full bg-surface-3/70">
           <span
-            key={`${item.tone}-${item.version}`}
+            ref={bar}
             aria-hidden="true"
-            className={cx('toast-timer block h-full rounded-full', style.bar)}
-            style={{
-              animationDuration: `${duration}ms`,
-              animationPlayState: paused ? 'paused' : 'running',
-            }}
+            className={cx('block h-full origin-left rounded-full', style.bar)}
           />
         </span>
       )}
@@ -505,14 +521,26 @@ function ToastCard({
 /** The toast region: a list with the newest on top; older ones slide down as new ones arrive. */
 function ToastStack({
   toasts,
+  host,
   onDismiss,
 }: {
   toasts: ToastItem[];
+  host: HTMLElement | null;
   onDismiss: (id: number, swipe?: number) => void;
 }) {
   const { t } = useUiI18n();
   const [hovered, setHovered] = useState(false);
+  const list = useRef<HTMLOListElement>(null);
   const [heights, setHeights] = useState<Record<number, number>>({});
+  // A toast that leaves (or a list that shrinks) under a still pointer fires no pointerleave:
+  // check again, or every countdown would stay paused.
+  useEffect(() => {
+    if (!hovered) return;
+    const frame = requestAnimationFrame(() => {
+      if (list.current && !list.current.matches(':hover')) setHovered(false);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [toasts, hovered]);
   const onHeight = useCallback(
     (id: number, height: number) =>
       setHeights((current) => (current[id] === height ? current : { ...current, [id]: height })),
@@ -531,6 +559,7 @@ function ToastStack({
 
   return (
     <ol
+      ref={list}
       aria-live="polite"
       aria-label={t('toast.region')}
       onPointerEnter={(event) => event.pointerType === 'mouse' && setHovered(true)}
@@ -546,7 +575,7 @@ function ToastStack({
         <ToastCard
           key={item.id}
           item={item}
-          layout={{ index, offset: offsets[index] ?? 0, hovered }}
+          layout={{ index, offset: offsets[index] ?? 0, hovered, host }}
           labels={{
             close: t('toast.close'),
             kind: item.kind ? t(`toast.kinds.${item.kind}`) : undefined,
@@ -574,6 +603,16 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
   >(null);
   const nextId = useRef(1);
   const host = useToastHost(toasts.length > 0);
+  // The toasts live in one element that is moved into the open dialog (the top layer) and back.
+  // Rendering them into a different element each time would mount them again: they would blink
+  // and restart their countdown whenever a dialog opens or closes.
+  const [toastRoot] = useState(() =>
+    typeof document === 'undefined' ? null : document.createElement('div'),
+  );
+  useEffect(() => {
+    if (toastRoot && host && toastRoot.parentNode !== host) host.appendChild(toastRoot);
+  }, [toastRoot, host]);
+  useEffect(() => () => toastRoot?.remove(), [toastRoot]);
 
   const dismiss = useCallback((id: number, swipe?: number) => {
     setToasts((items) =>
@@ -761,9 +800,9 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
   return (
     <FeedbackContext.Provider value={value}>
       {children}
-      {host &&
+      {toastRoot &&
         toasts.length > 0 &&
-        createPortal(<ToastStack toasts={toasts} onDismiss={dismiss} />, host)}
+        createPortal(<ToastStack toasts={toasts} host={host} onDismiss={dismiss} />, toastRoot)}
       <Modal
         open={pending !== null}
         title={pending?.title ?? ''}
