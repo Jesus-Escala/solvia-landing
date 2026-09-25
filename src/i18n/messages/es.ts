@@ -40,7 +40,7 @@ export const es = {
     closeMenu: 'Cerrar menú',
   },
   hero: {
-    eyebrow: 'Para bodegas, ferreterías, minimarkets y distribuidoras',
+    eyebrow: 'Para cualquier negocio que vende, cobra o maneja stock',
     titleStart: 'Tu negocio en orden,',
     titleHighlight: 'desde tu celular.',
     subtitle:
@@ -490,7 +490,7 @@ export const es = {
   },
   footer: {
     description:
-      'Vende, cobra lo que fías y controla tu stock desde el celular. Para bodegas, ferreterías y negocios del Perú.',
+      'Vende, cobra lo que fías y controla tu stock desde el celular. Para negocios de todo tipo y tamaño.',
     product: 'Producto',
     account: 'Cuenta',
     rights: '© {year} Solvia. Todos los derechos reservados.',

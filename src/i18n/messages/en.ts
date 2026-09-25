@@ -38,7 +38,7 @@ export const en: Messages = {
     closeMenu: 'Close menu',
   },
   hero: {
-    eyebrow: 'For corner shops, hardware stores, minimarkets and distributors',
+    eyebrow: 'For any business that sells, collects or keeps stock',
     titleStart: 'Your business in order,',
     titleHighlight: 'from your phone.',
     subtitle:
@@ -487,7 +487,7 @@ export const en: Messages = {
   },
   footer: {
     description:
-      'Sell, collect what you are owed and track your stock from your phone. For corner shops, hardware stores and businesses in Peru.',
+      'Sell, collect what you are owed and track your stock from your phone. For businesses of every kind and size.',
     product: 'Product',
     account: 'Account',
     rights: '© {year} Solvia. All rights reserved.',
