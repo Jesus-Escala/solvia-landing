@@ -1,6 +1,7 @@
 /**
  * Modular pricing (reference prices in PEN per month). A business builds its plan from modules:
- * Cobranza, Ventas and Inventario, any of them alone or together. The more modules, the bigger
+ * Comercial (sales), Cuentas por cobrar (collections) and Logística (inventory), any of them
+ * alone or together. The more modules, the bigger
  * the discount and the more WhatsApp messages, users and customers are included. There is also a
  * free plan to start. The backoffice and the app show the same module prices (solvia-admin
  * `MODULE_PRICES`, solvia-app `ModulesOffer`); keep them in sync.
@@ -53,8 +54,8 @@ export interface Allowance {
 
 /**
  * What a plan includes by number of modules. Generous in what costs little (customers, users)
- * and measured in what has a real cost (automatic WhatsApp messages, which are Cobranza's
- * reminders: without Cobranza there are none, see `quote`).
+ * and measured in what has a real cost (automatic WhatsApp messages, which are Cuentas por
+ * cobrar's reminders: without it there are none, see `quote`).
  */
 export const ALLOWANCES: Record<1 | 2 | 3, Allowance> = {
   1: { discount: 0, whatsapp: 150, users: 2, customers: 500 },
@@ -80,7 +81,7 @@ export function quote(modules: ModuleId[], billing: Billing) {
   const chosen = PRICED_MODULES.filter((module) => modules.includes(module.id));
   const count = Math.min(3, Math.max(1, chosen.length)) as 1 | 2 | 3;
   const withCollections = modules.includes('collections');
-  // Automatic messages are Cobranza's reminders: none without it.
+  // Automatic messages are Cuentas por cobrar's reminders: none without it.
   const allowance = withCollections ? ALLOWANCES[count] : { ...ALLOWANCES[count], whatsapp: 0 };
   const list = chosen.reduce((sum, module) => sum + module.monthlyPrice, 0);
   const monthly = round2(list * (1 - allowance.discount));

@@ -47,7 +47,7 @@ export const es = {
       'Registra tus ventas, cobra lo que fías con recordatorios por WhatsApp y sabe cuánto stock te queda. Todo en un solo lugar y sin cuadernos.',
     primaryCta: 'Quiero probarlo gratis',
     secondaryCta: 'Ver qué incluye',
-    areas: 'Ventas · Inventario · Compras · Cobranza · Reportes',
+    areas: 'Comercial · Cuentas por cobrar · Logística · Reportes',
     trustLabel: 'Ventajas',
     trust: {
       activation: 'Gratis para empezar',
@@ -84,7 +84,7 @@ export const es = {
       sales: {
         before: 'Ventas anotadas a la rápida y al final del día no sabes cuánto vendiste.',
         after:
-          'Cada venta registrada en segundos, escaneando el producto, y el total del día a la vista.',
+          'Cada venta en segundos, escaneando con la cámara, con su ticket y el total del día a la vista.',
       },
       credit: {
         before: 'Escribir a cada cliente, uno por uno, para recordarle que te debe.',
@@ -126,45 +126,36 @@ export const es = {
     eyebrow: 'Todo en una sola app',
     title: 'Todo tu negocio, en un solo lugar',
     subtitle:
-      'Vende, controla tu stock, cobra y mira tus números. Cada parte trabaja con las demás, sin pasar datos de un lado a otro.',
+      'Elige tus módulos: Comercial, Cuentas por cobrar y Logística. Tus clientes, productos y proveedores, las ubicaciones y tus números vienen con ellos, y cada parte trabaja con las demás.',
     navLabel: 'Partes de Solvia',
+    groups: {
+      commercial: 'Comercial',
+      receivables: 'Cuentas por cobrar',
+      logistics: 'Logística',
+      masters: 'Mantenimientos',
+      tools: 'Herramientas',
+      results: 'Resultados',
+    },
     availability: {
-      included: 'Viene con cualquier módulo',
-      salesModule: 'Módulo Ventas',
-      inventoryModule: 'Módulo Inventario',
-      collectionsModule: 'Módulo Cobranza',
+      salesModule: 'Módulo Comercial',
+      collectionsModule: 'Módulo Cuentas por cobrar',
+      inventoryModule: 'Módulo Logística',
+      withModules: 'Viene con tus módulos',
+      allPlans: 'En todos los planes',
+      byModules: 'Según tus módulos',
     },
     areas: {
       sales: {
         name: 'Ventas',
-        title: 'Vende en segundos, desde el celular o la caja',
-        body: 'Busca o escanea el producto, elige si es al contado o fiado y listo. Solvia calcula el total y deja todo anotado.',
+        title: 'Vende en segundos, con tu propia pantalla de caja',
+        body: 'Busca por código o descripción, o escanea con la cámara del celular varios productos seguidos. Cobra al contado o fiado y entrega su ticket.',
         points: {
-          p1: 'Escanea el código de barras o busca por nombre',
-          p2: 'Al contado con Yape, Plin, efectivo o transferencia',
-          p3: 'Si es fiado, la deuda pasa sola a «Cobranza»',
-          p4: 'Te avisa si vendes algo sin stock y queda anotado',
-        },
-      },
-      stock: {
-        name: 'Inventario',
-        title: 'Tu stock siempre al día, sin contar a mano',
-        body: 'Cada venta descuenta y cada compra suma. Ves cuánto te queda de cada producto y qué se está acabando.',
-        points: {
-          p1: 'Alertas de lo que se está acabando',
-          p2: 'Historial de movimientos de cada producto',
-          p3: 'Ajustes por conteo, pérdida o daño',
-          p4: 'Cuánto vale tu stock a costo y a precio de venta',
-        },
-      },
-      purchases: {
-        name: 'Compras',
-        title: 'Registra lo que te llega de tus proveedores',
-        body: 'Anota cada compra con su costo: tu stock sube solo y tus ganancias se calculan con lo que pagaste.',
-        points: {
-          p1: 'Proveedores con su RUC y WhatsApp',
-          p2: 'Actualiza el costo de tus productos al comprar',
-          p3: 'Guarda el número de factura o boleta',
+          p1: 'Atajos de teclado: Alt+S cobra, Alt+B busca, Alt+A crea',
+          p2: 'Escanea el QR o el código de barras con la cámara, uno tras otro',
+          p3: 'Cobra con varios métodos a la vez: efectivo, Yape, Plin o transferencia',
+          p4: 'Fiado con cuota inicial; con Cuentas por cobrar pasa solo a Cobranza',
+          p5: 'Ticket de 80 mm: míralo, imprímelo, descárgalo o envíalo por WhatsApp',
+          p6: 'Anula una venta si te equivocaste; lo vendido sin stock queda anotado',
         },
       },
       collections: {
@@ -173,30 +164,95 @@ export const es = {
         body: 'Anota quién te debe y para cuándo. Solvia le recuerda por WhatsApp y tú solo marcas cuando te paga.',
         points: {
           p1: 'Recordatorios automáticos por WhatsApp',
-          p2: 'Pagos parciales con foto del comprobante',
+          p2: 'Pagos parciales y con varios métodos, con foto del comprobante',
           p3: 'Quién paga puntual y quién se atrasa',
           p4: 'Estado de cuenta en PDF para tu cliente',
+        },
+      },
+      purchases: {
+        name: 'Compras',
+        title: 'Registra lo que te llega, en su propia pantalla',
+        body: 'Busca o escanea lo que compraste, en unidades o por sacos. Tu stock sube solo y el costo de cada producto se actualiza.',
+        points: {
+          p1: 'Los mismos atajos y el mismo escáner que al vender',
+          p2: 'Compra por sacos o cajas y vende por unidad o por kilo',
+          p3: 'Paga con uno o varios métodos y guarda su comprobante en PDF',
+        },
+      },
+      stock: {
+        name: 'Stock',
+        title: 'Tu stock siempre al día, sin contar a mano',
+        body: 'Cada venta descuenta y cada compra suma. Ves cuánto te queda de cada producto y qué se está acabando.',
+        points: {
+          p1: 'Alertas de lo que se está acabando',
+          p2: 'Kardex: cada entrada y salida de cada producto',
+          p3: 'Ajustes por conteo, pérdida o daño',
+          p4: 'Cuánto vale tu stock a costo y a precio de venta',
+        },
+      },
+      masters: {
+        name: 'Clientes, productos y proveedores',
+        title: 'Tus datos de siempre, ordenados en un solo lugar',
+        body: 'Vienen con tus módulos: los clientes con Comercial o Cuentas por cobrar, los productos con Comercial o Logística y los proveedores con Logística.',
+        points: {
+          p1: 'Cada producto con su propio código y su QR',
+          p2: 'Etiquetas para imprimir: de estante con el precio grande o pequeñas para el producto',
+          p3: 'Categorías y fotos para encontrarlos rápido al vender',
+          p4: 'Clientes y proveedores con su WhatsApp, a un toque',
+        },
+      },
+      locations: {
+        name: 'Ubicaciones',
+        title: 'Encuentra cualquier producto en tu tienda o almacén',
+        body: 'Sube el plano de tu local o dibújalo en Solvia, marca tus estantes y di qué hay en cada uno.',
+        points: {
+          p1: 'Plano en 2D para dibujar y mover tus zonas',
+          p2: 'Vista en 3D con los estantes levantados y las fotos de sus productos',
+          p3: '«¿Dónde está?»: buscas un producto y se marca su estante',
+          p4: 'Al vender, el detalle del producto te dice dónde está',
         },
       },
       dashboard: {
         name: 'Dashboard',
         title: 'Entiende tu negocio de un vistazo',
-        body: 'Cuánto cobraste frente al mes pasado, a quién cobrarle primero y cuánta plata debería entrar esta semana.',
+        body: 'Ves solo lo de tus módulos: lo que vendes, compras y cobras, comparado con el periodo anterior.',
         points: {
-          p1: 'Comparación con el periodo anterior',
-          p2: 'A quién cobrarle primero',
-          p3: 'Lo que vas a cobrar cada semana',
+          p1: 'Lo más vendido y tus mejores clientes',
+          p2: 'Ventas por día, hora, método de pago, categoría y vendedor',
+          p3: 'Compras por proveedor y por producto',
+          p4: 'A quién cobrarle primero y lo que vas a cobrar cada semana',
         },
       },
       reports: {
         name: 'Reportes',
-        title: 'Reportes en PDF y Excel, sin salir de Solvia',
+        title: 'Más de 10 reportes en PDF y Excel',
         body: 'Elige el reporte y las fechas, míralo en la misma pantalla y descárgalo con un toque para tu contador.',
         points: {
-          p1: 'Ventas por cliente y por producto',
-          p2: 'Cobros por cliente y medio de pago',
-          p3: 'Stock valorizado y productos por acabarse',
-          p4: 'Cuándo se vendió algo sin stock',
+          p1: 'Ventas por día, producto, cliente, método y categoría',
+          p2: 'Compras por proveedor y por producto',
+          p3: 'Cobros por cliente y medio de pago',
+          p4: 'Stock valorizado y lo vendido sin stock',
+        },
+      },
+    },
+    extras: {
+      title: 'Y además, en todos los planes',
+      items: {
+        tour: {
+          title: 'Te enseña a usarlo',
+          body: 'Cada pantalla tiene su recorrido guiado y hay un centro de ayuda con guías cortas.',
+        },
+        language: {
+          title: 'En tu idioma',
+          body: 'Español o inglés, elegido una vez para todo tu equipo.',
+        },
+        phone: {
+          title: 'En tu celular, como una app',
+          body: 'Se agrega a la pantalla de tu celular sin descargar nada de una tienda.',
+        },
+        team: {
+          title: 'Tu equipo, con permisos',
+          body: 'Suma a quienes te ayudan sin que vean lo que no les toca.',
         },
       },
     },
@@ -242,6 +298,27 @@ export const es = {
         paid: 'Te pagó',
         payments: 'Pagos',
       },
+      masters: {
+        title: 'Productos',
+        customers: 'Clientes',
+        products: 'Productos',
+        suppliers: 'Proveedores',
+        product: 'Aceite Primor 1 L',
+        category: 'Abarrotes',
+        code: 'Código',
+        print: 'Imprimir etiquetas',
+        shelf: 'Estante',
+        small: 'Producto',
+      },
+      locations: {
+        title: 'Ubicaciones · Tienda',
+        search: '¿Dónde está? aceite',
+        found: 'Está en el Estante B',
+        shelfA: 'Estante A',
+        shelfB: 'Estante B',
+        fridge: 'Refrigeradora',
+        till: 'Caja',
+      },
     },
   },
   how: {
@@ -282,12 +359,12 @@ export const es = {
     },
     modules: {
       collections: {
-        name: 'Cobranza',
-        short: 'Fiados y recordatorios por WhatsApp.',
+        name: 'Cuentas por cobrar',
+        short: 'Fiados, pagos y recordatorios por WhatsApp.',
         description: 'Anota lo que fías y cobra sin perseguir a nadie.',
         points: {
           reminders: 'Recordatorios automáticos por WhatsApp',
-          payments: 'Pagos con foto del comprobante',
+          payments: 'Pagos con varios métodos y foto del comprobante',
           risk: 'Quién paga puntual y quién se atrasa',
           statements: 'Estado de cuenta en PDF para tu cliente',
           dashboard: 'Dashboard con lo que vas a cobrar',
@@ -295,26 +372,26 @@ export const es = {
         },
       },
       sales: {
-        name: 'Ventas',
-        short: 'Registra lo que vendes, al contado o fiado.',
+        name: 'Comercial',
+        short: 'Tu caja: vende al contado o fiado, con ticket.',
         description: 'Vende rápido desde el celular o la caja y deja todo anotado.',
         points: {
-          quick: 'Ventas en segundos, al contado o fiadas',
-          scanner: 'Escanea el código de barras o busca',
-          credit: 'Con Cobranza, lo fiado pasa solo a cobrar',
-          receipts: 'Número de boleta, factura o nota de venta',
+          quick: 'Pantalla de venta con atajos de teclado',
+          scanner: 'Escanea el QR o el código de barras con la cámara',
+          credit: 'Varios métodos a la vez y fiado con cuota inicial',
+          receipts: 'Ticket de 80 mm por WhatsApp, impreso o en PDF',
           shortage: 'Aviso cuando vendes sin stock',
-          reports: 'Reportes de ventas por cliente y producto',
+          reports: 'Dashboard y reportes de ventas',
         },
       },
       inventory: {
-        name: 'Inventario',
+        name: 'Logística',
         short: 'Compras, proveedores y stock al día.',
         description: 'Sabe cuánto te queda de cada producto sin contar a mano.',
         points: {
           stock: 'Stock que baja y sube solo',
           alerts: 'Alertas de lo que se está acabando',
-          purchases: 'Compras con costo actualizado',
+          purchases: 'Compras por unidad o por sacos, con costo actualizado',
           suppliers: 'Proveedores a un toque de WhatsApp',
           adjustments: 'Ajustes por conteo, pérdida o daño',
           reports: 'Reporte de stock valorizado',
@@ -353,13 +430,13 @@ export const es = {
         'Suma un módulo más y tendrás {percent} de descuento y {whatsapp} mensajes automáticos al mes.',
       cta: 'Quiero este plan',
       noCard: 'Sin tarjeta: te escribimos para activarlo.',
-      noCollections: 'Sin Cobranza no hay mensajes automáticos: son sus recordatorios.',
+      noCollections: 'Sin Cuentas por cobrar no hay mensajes automáticos: son sus recordatorios.',
       nudgeNoMessages:
         'Suma un módulo más y tendrás {percent} de descuento, más usuarios y más clientes.',
     },
     free: {
       title: '¿Recién empiezas? Prueba el plan Gratis',
-      body: 'Para empezar: el módulo que elijas, hasta {customers} clientes y 1 usuario, con recordatorios desde tu WhatsApp sin costo. Cuando quieras que Solvia los envíe sola, pasas a un plan de pago con Cobranza.',
+      body: 'Para empezar: el módulo que elijas, hasta {customers} clientes y 1 usuario, con recordatorios desde tu WhatsApp sin costo. Cuando quieras que Solvia los envíe sola, pasas a un plan de pago con Cuentas por cobrar.',
       cta: 'Empezar gratis',
     },
   },
@@ -371,7 +448,7 @@ export const es = {
       sales: {
         question: '¿Solvia sirve para registrar mis ventas y mi stock?',
         answer:
-          'Sí. Con el módulo Ventas registras cada venta, al contado o fiada, buscando o escaneando el producto. Con el módulo Inventario tu stock baja solo con cada venta, sube con cada compra y te avisa lo que se está acabando.',
+          'Sí. Con el módulo Comercial registras cada venta, al contado o fiada, buscando o escaneando el producto con la cámara. Con el módulo Logística tu stock baja solo con cada venta, sube con cada compra y te avisa lo que se está acabando.',
       },
       modulesPrice: {
         question: '¿Cuánto cuestan los módulos y puedo quitarlos?',
@@ -396,7 +473,7 @@ export const es = {
       plans: {
         question: '¿Qué plan me conviene?',
         answer:
-          'Elige solo lo que usas: Cobranza, Ventas o Inventario, uno solo o juntos (o el plan Gratis si recién empiezas). Mientras más módulos, más descuento, más usuarios y más clientes; con Cobranza, además, mensajes automáticos de WhatsApp.',
+          'Elige solo lo que usas: Comercial, Cuentas por cobrar o Logística, uno solo o juntos (o el plan Gratis si recién empiezas). Mientras más módulos, más descuento, más usuarios y más clientes; con Cuentas por cobrar, además, mensajes automáticos de WhatsApp.',
       },
       google: {
         question: '¿Puedo entrar con mi cuenta de Google?',

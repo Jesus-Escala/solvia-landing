@@ -26,8 +26,11 @@ CI runs `npm ci`, lint, format:check, build.
 ## Structure
 
 - `src/sections/` — page sections in order (Hero, TrustStrip, ProblemSolution, `product/Product`
-  (one row per area: Ventas, Inventario, Compras, Cobranza, Dashboard, Reportes, each with an
-  illustrative screen from `product/mocks.tsx` and whether it is included or an add-on),
+  (grouped like the app menu: Comercial (Ventas), Cuentas por cobrar (Cobranza), Logística
+  (Compras, Stock), Mantenimientos (clientes, productos, proveedores: they come with the
+  modules), Herramientas (Ubicaciones, every plan) and Resultados (Dashboard, Reportes, by
+  module); one row per area with an illustrative screen from `product/mocks.tsx` /
+  `moreMocks.tsx` and which module brings it, then the extras of every plan),
   HowItWorks, Pricing + `plans.ts`, Faq, FinalCta). The header links follow this order.
 - Pricing is modular and the plan builder is the only place with prices: `plans.ts`
   (`PRICED_MODULES` with what each one includes, `ALLOWANCES` by number of modules — discount,
@@ -47,8 +50,9 @@ CI runs `npm ci`, lint, format:check, build.
 ## Rules
 
 - Positioning: Solvia puts the whole small business in order (sell, collect, track stock) from
-  the phone. Collections is the core, included in every plan; Ventas and Inventario are paid
-  add-on modules. Keep hero, sections and FAQ consistent with that.
+  the phone. Three modules, alone or together: **Comercial** (`sales`), **Cuentas por cobrar**
+  (`collections`) and **Logística** (`inventory`); customers, products and suppliers come with
+  them, locations with every plan. Keep hero, sections, pricing and FAQ consistent with that.
 
 - All text through i18n (`src/i18n/messages/es.ts` source of truth, `en.ts` mirrors it). Only
   claim features the product really has; prices in `sections/plans.ts` are reference prices.
